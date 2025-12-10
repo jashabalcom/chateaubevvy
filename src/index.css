@@ -186,6 +186,23 @@
     @apply w-16 h-px bg-gradient-to-r from-transparent via-gold to-transparent mx-auto my-6;
   }
 
+  /* Icon container styles */
+  .icon-container-gold {
+    @apply w-14 h-14 rounded-full bg-gold/10 border border-gold/20 flex items-center justify-center;
+  }
+
+  .icon-container-wine {
+    @apply w-14 h-14 rounded-full bg-wine/10 border border-wine/20 flex items-center justify-center;
+  }
+
+  .icon-container-outline {
+    @apply w-14 h-14 rounded-full border border-gold/40 bg-transparent flex items-center justify-center;
+  }
+
+  .icon-container-elegant {
+    @apply w-14 h-14 rounded-full bg-gradient-to-br from-gold/15 to-gold/5 shadow-sm flex items-center justify-center;
+  }
+
   .divider-gold-wide {
     @apply w-32 h-px bg-gradient-to-r from-transparent via-gold to-transparent mx-auto my-8;
   }

@@ -1,7 +1,14 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { PartyPopper, Briefcase, BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import eventSpaceImage from "@/assets/event-space.jpg";
+
+const eventFeatures = [
+  { icon: PartyPopper, text: "Birthdays, showers, and anniversaries" },
+  { icon: Briefcase, text: "Corporate team tastings and client events" },
+  { icon: BookOpen, text: "Book clubs and intimate gatherings" },
+];
 
 const HomepageEvents = () => {
   return (
@@ -42,19 +49,15 @@ const HomepageEvents = () => {
               the perfect backdrop for your next gathering. Exposed brick, vintage charm, 
               and exceptional wine—all in the heart of downtown Bessemer.
             </p>
-            <ul className="space-y-3 text-cream/70 mb-8">
-              <li className="flex items-center gap-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-gold" />
-                Birthdays, showers, and anniversaries
-              </li>
-              <li className="flex items-center gap-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-gold" />
-                Corporate team tastings and client events
-              </li>
-              <li className="flex items-center gap-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-gold" />
-                Book clubs and intimate gatherings
-              </li>
+            <ul className="space-y-4 text-cream/80 mb-8">
+              {eventFeatures.map((feature, index) => (
+                <li key={index} className="flex items-center gap-4">
+                  <div className="w-8 h-8 rounded-full border border-gold/30 bg-gold/5 flex items-center justify-center">
+                    <feature.icon className="w-4 h-4 text-gold" strokeWidth={1.5} />
+                  </div>
+                  {feature.text}
+                </li>
+              ))}
             </ul>
 
             <Button variant="gold" size="lg" asChild>

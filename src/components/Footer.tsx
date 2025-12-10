@@ -24,38 +24,38 @@ const Footer = () => {
 
           {/* Location */}
           <div className="mb-8 flex items-center gap-2 text-cream/70">
-            <MapPin className="h-4 w-4 text-gold" />
+            <MapPin className="h-4 w-4 text-gold" strokeWidth={1.5} />
             <span className="font-body text-sm">
               First Avenue North, Downtown Bessemer, Alabama
             </span>
           </div>
 
           {/* Social Links */}
-          <div className="mb-10 flex items-center gap-4">
+          <div className="mb-10 flex items-center gap-5">
             <a
               href="https://instagram.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-cream/20 text-cream/70 transition-all duration-300 hover:border-gold hover:bg-gold/10 hover:text-gold"
+              className="group flex h-11 w-11 items-center justify-center rounded-full border border-cream/20 text-cream/70 transition-all duration-300 hover:border-gold hover:bg-gold/10 hover:text-gold hover:scale-110 hover:shadow-[0_0_20px_rgba(212,175,55,0.3)]"
               aria-label="Follow us on Instagram"
             >
-              <Instagram className="h-4 w-4" />
+              <Instagram className="h-5 w-5 transition-transform duration-300 group-hover:scale-105" strokeWidth={1.5} />
             </a>
             <a
               href="https://facebook.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-cream/20 text-cream/70 transition-all duration-300 hover:border-gold hover:bg-gold/10 hover:text-gold"
+              className="group flex h-11 w-11 items-center justify-center rounded-full border border-cream/20 text-cream/70 transition-all duration-300 hover:border-gold hover:bg-gold/10 hover:text-gold hover:scale-110 hover:shadow-[0_0_20px_rgba(212,175,55,0.3)]"
               aria-label="Follow us on Facebook"
             >
-              <Facebook className="h-4 w-4" />
+              <Facebook className="h-5 w-5 transition-transform duration-300 group-hover:scale-105" strokeWidth={1.5} />
             </a>
             <a
               href="mailto:hello@chateaubevvy.com"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-cream/20 text-cream/70 transition-all duration-300 hover:border-gold hover:bg-gold/10 hover:text-gold"
+              className="group flex h-11 w-11 items-center justify-center rounded-full border border-cream/20 text-cream/70 transition-all duration-300 hover:border-gold hover:bg-gold/10 hover:text-gold hover:scale-110 hover:shadow-[0_0_20px_rgba(212,175,55,0.3)]"
               aria-label="Email us"
             >
-              <Mail className="h-4 w-4" />
+              <Mail className="h-5 w-5 transition-transform duration-300 group-hover:scale-105" strokeWidth={1.5} />
             </a>
           </div>
 
