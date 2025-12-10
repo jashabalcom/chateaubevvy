@@ -1,8 +1,11 @@
 import { Helmet } from "react-helmet-async";
+import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
-import StorySection from "@/components/StorySection";
-import AnticipationSection from "@/components/AnticipationSection";
-import TimelineSection from "@/components/TimelineSection";
+import HomepageAbout from "@/components/HomepageAbout";
+import HomepageWines from "@/components/HomepageWines";
+import HomepageVisit from "@/components/HomepageVisit";
+import HomepageEvents from "@/components/HomepageEvents";
+import HomepageClub from "@/components/HomepageClub";
 import WaitlistForm from "@/components/WaitlistForm";
 import Footer from "@/components/Footer";
 
@@ -10,25 +13,29 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>Chateau Bevvy Winery – Coming Soon | Bessemer, Alabama</title>
+        <title>Chateau Bevvy Winery | Jefferson County's First Urban Winery – Bessemer, Alabama</title>
         <meta
           name="description"
-          content="Join the waitlist for Jefferson County's first urban winery. Opening soon in historic downtown Bessemer, Alabama. Black-owned, veteran-owned."
+          content="Jefferson County's first urban winery in historic downtown Bessemer, Alabama. Experience fine wine in a warm, community-focused tasting room. Black-owned, veteran-owned."
         />
-        <meta property="og:title" content="Chateau Bevvy Winery – Coming Soon" />
+        <meta property="og:title" content="Chateau Bevvy Winery – Bessemer, Alabama" />
         <meta
           property="og:description"
-          content="A historic Bessemer landmark reimagined as a warm, intimate wine experience. Join the waitlist today."
+          content="A historic Bessemer landmark reimagined as a warm, intimate wine experience. Plan your visit today."
         />
         <meta property="og:type" content="website" />
         <link rel="canonical" href="https://chateaubevvy.com" />
       </Helmet>
 
+      <Header />
+
       <main className="min-h-screen">
         <HeroSection />
-        <StorySection />
-        <AnticipationSection />
-        <TimelineSection />
+        <HomepageAbout />
+        <HomepageWines />
+        <HomepageVisit />
+        <HomepageEvents />
+        <HomepageClub />
         <WaitlistForm />
         <Footer />
       </main>
