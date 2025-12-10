@@ -10,6 +10,7 @@ const featuredWines = [
   {
     name: "Bessemer Red",
     varietal: "Merlot",
+    price: 28,
     description: "Rich dark cherry and velvety chocolate",
     badge: "House Favorite",
     image: wineMerlot,
@@ -17,6 +18,7 @@ const featuredWines = [
   {
     name: "Golden Hour",
     varietal: "Chardonnay",
+    price: 24,
     description: "Crisp apple with buttery vanilla finish",
     badge: null,
     image: wineChardonnay,
@@ -24,6 +26,7 @@ const featuredWines = [
   {
     name: "First Avenue",
     varietal: "Cabernet Sauvignon",
+    price: 36,
     description: "Bold blackberry with firm tannins",
     badge: "Limited Release",
     image: wineCabernet,
@@ -31,6 +34,7 @@ const featuredWines = [
   {
     name: "Southern Sunset",
     varietal: "Rosé",
+    price: 22,
     description: "Fresh strawberry and delicate florals",
     badge: null,
     image: wineRose,
@@ -70,7 +74,7 @@ const HomepageWines = () => {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
               whileHover={{ y: -8 }}
-              className="group bg-cream/5 backdrop-blur-sm rounded-sm overflow-hidden border border-gold/10 hover:border-gold/30 transition-all"
+              className="group bg-charcoal/40 backdrop-blur-sm rounded-sm overflow-hidden border border-gold/10 hover:border-gold/40 transition-all duration-300"
             >
               <div className="relative aspect-[3/4] bg-charcoal/20 overflow-hidden">
                 <img
@@ -79,15 +83,23 @@ const HomepageWines = () => {
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 {wine.badge && (
-                  <span className="absolute top-3 right-3 bg-gold text-wine-dark text-xs uppercase tracking-wider px-2 py-1 rounded-sm">
+                  <span className="absolute top-3 right-3 bg-gold text-charcoal text-xs uppercase tracking-wider px-2.5 py-1 rounded-sm font-body font-medium">
                     {wine.badge}
                   </span>
                 )}
               </div>
               <div className="p-5">
-                <span className="text-gold text-xs uppercase tracking-wider font-body">{wine.varietal}</span>
-                <h3 className="heading-wine text-cream mt-1 mb-2">{wine.name}</h3>
-                <p className="text-cream/60 text-sm font-body">{wine.description}</p>
+                {/* Varietal & Price */}
+                <div className="flex items-center justify-between mb-1">
+                  <span className="text-gold/80 text-xs uppercase tracking-widest font-body">{wine.varietal}</span>
+                  <span className="font-display text-xl font-semibold text-gold">${wine.price}</span>
+                </div>
+                
+                {/* Wine Name */}
+                <h3 className="font-display text-2xl font-semibold text-cream tracking-wide mb-2">{wine.name}</h3>
+                
+                {/* Description */}
+                <p className="text-cream/60 text-sm font-body italic">{wine.description}</p>
               </div>
             </motion.div>
           ))}
