@@ -8,6 +8,7 @@ import HomepageEvents from "@/components/HomepageEvents";
 import HomepageClub from "@/components/HomepageClub";
 import WaitlistForm from "@/components/WaitlistForm";
 import Footer from "@/components/Footer";
+import SectionDivider from "@/components/SectionDivider";
 
 const Index = () => {
   return (
@@ -31,11 +32,29 @@ const Index = () => {
 
       <main className="min-h-screen">
         <HeroSection />
+        
+        <SectionDivider variant="gold" className="bg-cream" />
+        
         <HomepageAbout />
+        
+        <SectionDivider variant="light" className="bg-wine-burgundy" />
+        
         <HomepageWines />
+        
+        <SectionDivider variant="gold" className="bg-cream" />
+        
         <HomepageVisit />
+        
+        <SectionDivider variant="wine" className="bg-secondary" />
+        
         <HomepageEvents />
+        
+        <SectionDivider variant="gold" className="bg-cream" />
+        
         <HomepageClub />
+        
+        <SectionDivider variant="light" className="bg-wine-burgundy" />
+        
         <WaitlistForm />
         <Footer />
       </main>

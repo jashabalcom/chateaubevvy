@@ -189,6 +189,42 @@
   .divider-gold-wide {
     @apply w-32 h-px bg-gradient-to-r from-transparent via-gold to-transparent mx-auto my-8;
   }
+
+  /* Flourish ornament container */
+  .flourish-container {
+    @apply flex items-center justify-center gap-4;
+  }
+
+  .flourish-line {
+    @apply h-px w-16 md:w-24 bg-gradient-to-r from-transparent via-gold/60 to-transparent;
+  }
+
+  .flourish-line-left {
+    @apply h-px w-16 md:w-24 bg-gradient-to-l from-gold/60 to-transparent;
+  }
+
+  .flourish-line-right {
+    @apply h-px w-16 md:w-24 bg-gradient-to-r from-gold/60 to-transparent;
+  }
+
+  /* Wine label style border */
+  .wine-label-border {
+    @apply relative border border-gold/30 p-8;
+  }
+
+  .wine-label-border::before,
+  .wine-label-border::after {
+    content: '';
+    @apply absolute w-4 h-4 border-gold/50;
+  }
+
+  .wine-label-border::before {
+    @apply top-2 left-2 border-t border-l;
+  }
+
+  .wine-label-border::after {
+    @apply bottom-2 right-2 border-b border-r;
+  }
 }
 
 @layer utilities {
