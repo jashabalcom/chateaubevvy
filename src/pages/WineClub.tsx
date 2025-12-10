@@ -115,10 +115,10 @@ const WineClub = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="text-center"
+                  className="text-center group"
                 >
-                  <div className="w-16 h-16 rounded-full bg-wine/10 flex items-center justify-center mx-auto mb-4">
-                    <benefit.icon className="w-8 h-8 text-wine" />
+                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-gold/15 to-gold/5 border border-gold/20 flex items-center justify-center mx-auto mb-4 transition-all duration-300 group-hover:scale-105 group-hover:shadow-[0_0_20px_rgba(212,175,55,0.2)]">
+                    <benefit.icon className="w-8 h-8 text-gold" strokeWidth={1.5} />
                   </div>
                   <h3 className="font-serif text-xl text-wine-dark mb-2">{benefit.title}</h3>
                   <p className="text-charcoal/70 text-sm">{benefit.description}</p>

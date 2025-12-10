@@ -25,12 +25,16 @@ const HomepageVisit = () => {
             </p>
 
             <div className="space-y-4 mb-8">
-              <div className="flex items-center gap-3">
-                <MapPin className="w-5 h-5 text-gold" />
+              <div className="flex items-center gap-4">
+                <div className="w-10 h-10 rounded-full bg-gold/10 border border-gold/20 flex items-center justify-center">
+                  <MapPin className="w-5 h-5 text-gold" strokeWidth={1.5} />
+                </div>
                 <span className="text-charcoal">First Avenue North, Downtown Bessemer, AL</span>
               </div>
-              <div className="flex items-center gap-3">
-                <Clock className="w-5 h-5 text-gold" />
+              <div className="flex items-center gap-4">
+                <div className="w-10 h-10 rounded-full bg-gold/10 border border-gold/20 flex items-center justify-center">
+                  <Clock className="w-5 h-5 text-gold" strokeWidth={1.5} />
+                </div>
                 <span className="text-charcoal">Wed-Thu 4-9pm • Fri-Sat 2-11pm • Sun 1-6pm</span>
               </div>
             </div>
