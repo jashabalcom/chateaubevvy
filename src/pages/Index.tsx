@@ -30,7 +30,7 @@ const Index = () => {
 
       <Header />
 
-      <main className="min-h-screen">
+      <main id="main-content" className="min-h-screen" role="main">
         <HeroSection />
         
         <SectionDivider variant="gold" className="bg-cream" />
