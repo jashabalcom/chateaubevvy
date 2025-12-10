@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
-  { name: "Home", path: "/" },
+  { name: "Home", path: "/home" },
   { name: "Our Story", path: "/our-story" },
   { name: "Wines", path: "/wines" },
   { name: "Visit Us", path: "/visit" },
@@ -42,7 +42,7 @@ const Header = () => {
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="relative z-10">
+        <Link to="/home" className="relative z-10">
           <motion.h1
             className="font-serif text-2xl md:text-3xl text-cream tracking-wide"
             whileHover={{ scale: 1.02 }}
