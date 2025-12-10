@@ -23,6 +23,17 @@ const StorySection = () => {
             <span className="text-accent text-wine-merlot">Inspired by Travel</span>
           </h2>
 
+          {/* Script Pull Quote */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="font-script text-2xl md:text-3xl text-gold mb-8"
+          >
+            "Where every glass tells a story"
+          </motion.p>
+
           <div className="space-y-6 font-body text-lg leading-relaxed text-muted-foreground">
             <p>
               Inside a beautifully restored 1910 building—once a saloon and
