@@ -47,17 +47,17 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="mb-6 max-w-4xl font-display text-5xl font-medium leading-tight tracking-tight text-cream md:text-6xl lg:text-7xl"
+          className="heading-hero mb-6 max-w-4xl text-cream"
         >
           Jefferson County's First{" "}
-          <span className="italic text-gold">Urban Winery</span>
+          <span className="text-accent italic text-gold">Urban Winery</span>
         </motion.h1>
 
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.7 }}
-          className="mb-10 max-w-2xl font-body text-lg leading-relaxed text-cream/80 md:text-xl"
+          className="text-body-large mb-10 max-w-2xl text-cream/80"
         >
           A historic Bessemer landmark reimagined as a warm, intimate wine
           experience. Black-owned. Veteran-owned. Opening soon.
