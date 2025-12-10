@@ -4,6 +4,7 @@ import { MapPin, Clock, Car, Phone } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
+import tastingRoomImage from "@/assets/tasting-room-interior.jpg";
 
 const faqs = [
   {
@@ -45,7 +46,7 @@ const Visit = () => {
         {/* Hero */}
         <section className="relative h-[50vh] flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0 bg-wine-dark">
-            <div className="absolute inset-0 bg-[url('/placeholder.svg')] bg-cover bg-center opacity-30" />
+            <img src={tastingRoomImage} alt="Tasting room" className="absolute inset-0 w-full h-full object-cover opacity-30" />
             <div className="absolute inset-0 bg-gradient-to-b from-wine-dark/50 via-transparent to-wine-dark" />
           </div>
           <motion.div
@@ -96,7 +97,7 @@ const Visit = () => {
                 className="aspect-[4/3] bg-wine/10 rounded-sm overflow-hidden"
               >
                 <img
-                  src="/placeholder.svg"
+                  src={tastingRoomImage}
                   alt="Cozy tasting room interior"
                   className="w-full h-full object-cover"
                 />

@@ -1,12 +1,13 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import eventSpaceImage from "@/assets/event-space.jpg";
 
 const HomepageEvents = () => {
   return (
     <section className="py-24 bg-wine-dark relative overflow-hidden">
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-[url('/placeholder.svg')] bg-cover bg-center opacity-10" />
+        <img src={eventSpaceImage} alt="Event space" className="w-full h-full object-cover opacity-10" />
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
@@ -19,7 +20,7 @@ const HomepageEvents = () => {
           >
             <div className="aspect-[4/3] bg-cream/10 rounded-sm overflow-hidden">
               <img
-                src="/placeholder.svg"
+                src={eventSpaceImage}
                 alt="Private event at Chateau Bevvy"
                 className="w-full h-full object-cover"
               />

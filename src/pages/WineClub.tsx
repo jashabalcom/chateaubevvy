@@ -7,6 +7,10 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
+import tastingRoomImage from "@/assets/tasting-room-interior.jpg";
+import eventSpaceImage from "@/assets/event-space.jpg";
+import wineMerlot from "@/assets/wine-merlot.jpg";
+import wineRose from "@/assets/wine-rose.jpg";
 
 const benefits = [
   {
@@ -71,7 +75,7 @@ const WineClub = () => {
         {/* Hero */}
         <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0 bg-wine-dark">
-            <div className="absolute inset-0 bg-[url('/placeholder.svg')] bg-cover bg-center opacity-30" />
+            <img src={tastingRoomImage} alt="Wine club experience" className="absolute inset-0 w-full h-full object-cover opacity-30" />
             <div className="absolute inset-0 bg-gradient-to-b from-wine-dark/50 via-transparent to-wine-dark" />
           </div>
           <motion.div
@@ -204,7 +208,7 @@ const WineClub = () => {
             </motion.div>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {[1, 2, 3, 4].map((_, index) => (
+              {[tastingRoomImage, wineMerlot, eventSpaceImage, wineRose].map((image, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, scale: 0.95 }}
@@ -214,7 +218,7 @@ const WineClub = () => {
                   className="aspect-square bg-wine/10 rounded-sm overflow-hidden"
                 >
                   <img
-                    src="/placeholder.svg"
+                    src={image}
                     alt="Wine club experience"
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                   />

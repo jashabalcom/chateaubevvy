@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import tastingRoomImage from "@/assets/tasting-room-interior.jpg";
 
 const HomepageAbout = () => {
   return (
@@ -15,7 +16,7 @@ const HomepageAbout = () => {
           >
             <div className="aspect-[4/5] bg-wine/10 rounded-sm overflow-hidden">
               <img
-                src="/placeholder.svg"
+                src={tastingRoomImage}
                 alt="Inside Chateau Bevvy"
                 className="w-full h-full object-cover"
               />

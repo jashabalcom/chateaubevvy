@@ -4,6 +4,11 @@ import { motion } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { cn } from "@/lib/utils";
+import wineCellarImage from "@/assets/wine-cellar.jpg";
+import wineMerlot from "@/assets/wine-merlot.jpg";
+import wineChardonnay from "@/assets/wine-chardonnay.jpg";
+import wineCabernet from "@/assets/wine-cabernet.jpg";
+import wineRose from "@/assets/wine-rose.jpg";
 
 const wines = [
   {
@@ -15,6 +20,7 @@ const wines = [
     tastingNotes: "Rich dark cherry, hints of chocolate, velvety smooth finish with subtle oak undertones.",
     pairing: "Grilled steak, aged cheeses, dark chocolate",
     badge: "House Favorite",
+    image: wineMerlot,
   },
   {
     id: 2,
@@ -25,6 +31,7 @@ const wines = [
     tastingNotes: "Crisp green apple, buttery vanilla, with a bright citrus finish.",
     pairing: "Seafood, creamy pasta, roasted chicken",
     badge: null,
+    image: wineChardonnay,
   },
   {
     id: 3,
@@ -35,6 +42,7 @@ const wines = [
     tastingNotes: "Bold blackberry, cassis, and cedar with firm tannins and a long finish.",
     pairing: "Prime rib, lamb, mushroom dishes",
     badge: "Limited Release",
+    image: wineCabernet,
   },
   {
     id: 4,
@@ -45,6 +53,7 @@ const wines = [
     tastingNotes: "Fresh strawberry, watermelon, with delicate floral notes and a refreshing finish.",
     pairing: "Light salads, grilled shrimp, summer fruits",
     badge: null,
+    image: wineRose,
   },
   {
     id: 5,
@@ -55,6 +64,7 @@ const wines = [
     tastingNotes: "Sweet peach, honeysuckle, and jasmine with a light, effervescent quality.",
     pairing: "Spicy cuisine, fruit desserts, brunch",
     badge: "Local Favorite",
+    image: wineChardonnay,
   },
   {
     id: 6,
@@ -65,6 +75,7 @@ const wines = [
     tastingNotes: "Jammy berries, warm spices, and a smooth, approachable finish.",
     pairing: "BBQ, pizza, casual gatherings",
     badge: null,
+    image: wineMerlot,
   },
 ];
 
@@ -99,7 +110,7 @@ const Wines = () => {
         {/* Hero */}
         <section className="relative h-[50vh] flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0 bg-wine-dark">
-            <div className="absolute inset-0 bg-[url('/placeholder.svg')] bg-cover bg-center opacity-30" />
+            <img src={wineCellarImage} alt="Wine cellar" className="absolute inset-0 w-full h-full object-cover opacity-30" />
             <div className="absolute inset-0 bg-gradient-to-b from-wine-dark/50 via-transparent to-wine-dark" />
           </div>
           <motion.div
@@ -175,7 +186,7 @@ const Wines = () => {
                 >
                   <div className="relative aspect-[3/4] bg-wine-dark/5 overflow-hidden">
                     <img
-                      src="/placeholder.svg"
+                      src={wine.image}
                       alt={wine.name}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />

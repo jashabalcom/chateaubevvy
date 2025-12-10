@@ -1,6 +1,10 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import wineMerlot from "@/assets/wine-merlot.jpg";
+import wineChardonnay from "@/assets/wine-chardonnay.jpg";
+import wineCabernet from "@/assets/wine-cabernet.jpg";
+import wineRose from "@/assets/wine-rose.jpg";
 
 const featuredWines = [
   {
@@ -8,24 +12,28 @@ const featuredWines = [
     varietal: "Merlot",
     description: "Rich dark cherry and velvety chocolate",
     badge: "House Favorite",
+    image: wineMerlot,
   },
   {
     name: "Golden Hour",
     varietal: "Chardonnay",
     description: "Crisp apple with buttery vanilla finish",
     badge: null,
+    image: wineChardonnay,
   },
   {
     name: "First Avenue",
     varietal: "Cabernet Sauvignon",
     description: "Bold blackberry with firm tannins",
     badge: "Limited Release",
+    image: wineCabernet,
   },
   {
     name: "Southern Sunset",
     varietal: "Rosé",
     description: "Fresh strawberry and delicate florals",
     badge: null,
+    image: wineRose,
   },
 ];
 
@@ -65,7 +73,7 @@ const HomepageWines = () => {
             >
               <div className="relative aspect-[3/4] bg-charcoal/20 overflow-hidden">
                 <img
-                  src="/placeholder.svg"
+                  src={wine.image}
                   alt={wine.name}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />

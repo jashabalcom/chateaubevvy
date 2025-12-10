@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import eventSpaceImage from "@/assets/event-space.jpg";
 
 const eventTypes = [
   {
@@ -86,7 +87,7 @@ const Events = () => {
         {/* Hero */}
         <section className="relative h-[50vh] flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0 bg-wine-dark">
-            <div className="absolute inset-0 bg-[url('/placeholder.svg')] bg-cover bg-center opacity-30" />
+            <img src={eventSpaceImage} alt="Event space" className="absolute inset-0 w-full h-full object-cover opacity-30" />
             <div className="absolute inset-0 bg-gradient-to-b from-wine-dark/50 via-transparent to-wine-dark" />
           </div>
           <motion.div
