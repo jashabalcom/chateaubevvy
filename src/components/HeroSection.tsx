@@ -57,6 +57,15 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.7 }}
+          className="font-script text-3xl md:text-4xl text-gold mb-6"
+        >
+          Crafted with heart, poured with soul
+        </motion.p>
+
+        <motion.p
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.85 }}
           className="text-body-large mb-10 max-w-2xl text-cream/80"
         >
           A historic Bessemer landmark reimagined as a warm, intimate wine

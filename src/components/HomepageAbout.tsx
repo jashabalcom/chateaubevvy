@@ -29,16 +29,19 @@ const HomepageAbout = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <span className="text-gold uppercase tracking-widest text-sm">Our Story</span>
-            <h2 className="font-serif text-4xl md:text-5xl text-wine-dark mt-4 mb-6">
+            <span className="text-gold uppercase tracking-widest text-sm font-body">Our Story</span>
+            <h2 className="heading-section text-charcoal mt-4 mb-4">
               A 1910 Landmark Reimagined
             </h2>
-            <p className="text-charcoal/80 leading-relaxed mb-6">
+            <p className="font-script text-2xl text-gold mb-6">
+              Where history meets hospitality
+            </p>
+            <p className="text-charcoal/80 leading-relaxed mb-6 font-body">
               Standing on First Avenue North in downtown Bessemer, our building has witnessed 
               over a century of Alabama history. Originally a saloon, then a beloved drugstore, 
               its exposed brick walls and original wood floors now welcome a new chapter.
             </p>
-            <p className="text-charcoal/80 leading-relaxed mb-8">
+            <p className="text-charcoal/80 leading-relaxed mb-8 font-body">
               Founded by Army veteran La Fran Marks, Chateau Bevvy brings together worldly 
               wine sensibilities shaped by travels through Italy, France, and Greece with 
               the warm hospitality of the Deep South. This isn't just a tasting room—it's 
@@ -47,16 +50,16 @@ const HomepageAbout = () => {
 
             <div className="flex flex-wrap gap-8 mb-8">
               <div>
-                <span className="font-serif text-4xl text-gold">1910</span>
-                <p className="text-charcoal/60 text-sm mt-1">Historic Building</p>
+                <span className="font-display text-4xl font-semibold text-gold">1910</span>
+                <p className="text-charcoal/60 text-sm mt-1 font-body">Historic Building</p>
               </div>
               <div>
-                <span className="font-serif text-4xl text-gold">1st</span>
-                <p className="text-charcoal/60 text-sm mt-1">Winery in Jefferson County</p>
+                <span className="font-display text-4xl font-semibold text-gold">1st</span>
+                <p className="text-charcoal/60 text-sm mt-1 font-body">Winery in Jefferson County</p>
               </div>
               <div>
-                <span className="font-serif text-4xl text-gold">♥</span>
-                <p className="text-charcoal/60 text-sm mt-1">Veteran Owned</p>
+                <span className="font-display text-4xl font-semibold text-gold">♥</span>
+                <p className="text-charcoal/60 text-sm mt-1 font-body">Veteran Owned</p>
               </div>
             </div>
 

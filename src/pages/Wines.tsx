@@ -126,7 +126,7 @@ const Wines = () => {
             className="relative z-10 text-center px-6"
           >
             <h1 className="heading-hero text-cream mb-4">Our Wines</h1>
-            <p className="text-cream/70 font-body text-lg md:text-xl max-w-2xl mx-auto">
+            <p className="font-script text-2xl md:text-3xl text-gold">
               Crafted with heart, inspired by travel
             </p>
           </motion.div>
