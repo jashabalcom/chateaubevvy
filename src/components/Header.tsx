@@ -44,7 +44,7 @@ const Header = () => {
         {/* Logo */}
         <Link to="/home" className="relative z-10">
           <motion.h1
-            className="font-serif text-2xl md:text-3xl text-cream tracking-wide"
+            className="font-display text-2xl md:text-3xl text-cream tracking-wider font-semibold"
             whileHover={{ scale: 1.02 }}
           >
             Chateau Bevvy
@@ -58,7 +58,7 @@ const Header = () => {
               key={link.path}
               to={link.path}
               className={cn(
-                "text-sm uppercase tracking-widest transition-colors duration-300 relative",
+                "font-body text-sm uppercase tracking-widest transition-colors duration-300 relative",
                 location.pathname === link.path
                   ? "text-gold"
                   : "text-cream/80 hover:text-gold"

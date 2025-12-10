@@ -51,11 +51,12 @@ const HomepageWines = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="text-gold uppercase tracking-widest text-sm">Our Collection</span>
-          <h2 className="font-serif text-4xl md:text-5xl text-cream mt-4 mb-4">
+          <span className="text-gold uppercase tracking-widest text-sm font-body">Our Collection</span>
+          <h2 className="heading-section text-cream mt-4 mb-4">
             Signature Wines
           </h2>
-          <p className="text-cream/70 max-w-2xl mx-auto">
+          <div className="divider-gold" />
+          <p className="text-cream/70 max-w-2xl mx-auto font-body text-lg">
             Sourced from quality vineyards, crafted with care in our Bessemer barrel room
           </p>
         </motion.div>
@@ -84,9 +85,9 @@ const HomepageWines = () => {
                 )}
               </div>
               <div className="p-5">
-                <span className="text-gold text-xs uppercase tracking-wider">{wine.varietal}</span>
-                <h3 className="font-serif text-xl text-cream mt-1 mb-2">{wine.name}</h3>
-                <p className="text-cream/60 text-sm">{wine.description}</p>
+                <span className="text-gold text-xs uppercase tracking-wider font-body">{wine.varietal}</span>
+                <h3 className="heading-wine text-cream mt-1 mb-2">{wine.name}</h3>
+                <p className="text-cream/60 text-sm font-body">{wine.description}</p>
               </div>
             </motion.div>
           ))}
