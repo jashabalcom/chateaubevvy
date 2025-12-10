@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { MapPin, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import tastingRoomImage from "@/assets/tasting-room-interior.jpg";
 
 const HomepageVisit = () => {
   return (
@@ -54,7 +55,7 @@ const HomepageVisit = () => {
           >
             <div className="aspect-[4/3] bg-wine/10 rounded-sm overflow-hidden">
               <img
-                src="/placeholder.svg"
+                src={tastingRoomImage}
                 alt="Chateau Bevvy tasting room"
                 className="w-full h-full object-cover"
               />

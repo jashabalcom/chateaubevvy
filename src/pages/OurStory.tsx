@@ -2,6 +2,8 @@ import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import historicBuildingImage from "@/assets/historic-building.jpg";
+import tastingRoomImage from "@/assets/tasting-room-interior.jpg";
 
 const timelineEvents = [
   { year: "1910", title: "Building Constructed", description: "The historic building opens as a saloon on First Avenue North in downtown Bessemer." },
@@ -28,7 +30,7 @@ const OurStory = () => {
         {/* Hero */}
         <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0 bg-wine-dark">
-            <div className="absolute inset-0 bg-[url('/placeholder.svg')] bg-cover bg-center opacity-30" />
+            <img src={historicBuildingImage} alt="Historic building" className="absolute inset-0 w-full h-full object-cover opacity-30" />
             <div className="absolute inset-0 bg-gradient-to-b from-wine-dark/50 via-transparent to-wine-dark" />
           </div>
           <motion.div
@@ -79,7 +81,7 @@ const OurStory = () => {
               >
                 <div className="aspect-[4/5] bg-wine/10 rounded-sm overflow-hidden">
                   <img
-                    src="/placeholder.svg"
+                    src={historicBuildingImage}
                     alt="Historic interior of Chateau Bevvy with exposed brick"
                     className="w-full h-full object-cover"
                   />
@@ -106,7 +108,7 @@ const OurStory = () => {
               >
                 <div className="aspect-[3/4] bg-cream/10 rounded-sm overflow-hidden">
                   <img
-                    src="/placeholder.svg"
+                    src={tastingRoomImage}
                     alt="La Fran Marks, founder of Chateau Bevvy"
                     className="w-full h-full object-cover"
                   />
