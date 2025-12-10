@@ -17,6 +17,7 @@ const wines = [
     varietal: "Merlot",
     category: "red",
     sweetness: "dry",
+    price: 28,
     tastingNotes: "Rich dark cherry, hints of chocolate, velvety smooth finish with subtle oak undertones.",
     pairing: "Grilled steak, aged cheeses, dark chocolate",
     badge: "House Favorite",
@@ -28,6 +29,7 @@ const wines = [
     varietal: "Chardonnay",
     category: "white",
     sweetness: "dry",
+    price: 24,
     tastingNotes: "Crisp green apple, buttery vanilla, with a bright citrus finish.",
     pairing: "Seafood, creamy pasta, roasted chicken",
     badge: null,
@@ -39,6 +41,7 @@ const wines = [
     varietal: "Cabernet Sauvignon",
     category: "red",
     sweetness: "dry",
+    price: 36,
     tastingNotes: "Bold blackberry, cassis, and cedar with firm tannins and a long finish.",
     pairing: "Prime rib, lamb, mushroom dishes",
     badge: "Limited Release",
@@ -50,6 +53,7 @@ const wines = [
     varietal: "Rosé",
     category: "rosé",
     sweetness: "semi-sweet",
+    price: 22,
     tastingNotes: "Fresh strawberry, watermelon, with delicate floral notes and a refreshing finish.",
     pairing: "Light salads, grilled shrimp, summer fruits",
     badge: null,
@@ -61,6 +65,7 @@ const wines = [
     varietal: "Moscato",
     category: "white",
     sweetness: "sweet",
+    price: 20,
     tastingNotes: "Sweet peach, honeysuckle, and jasmine with a light, effervescent quality.",
     pairing: "Spicy cuisine, fruit desserts, brunch",
     badge: "Local Favorite",
@@ -72,6 +77,7 @@ const wines = [
     varietal: "Red Blend",
     category: "red",
     sweetness: "semi-sweet",
+    price: 26,
     tastingNotes: "Jammy berries, warm spices, and a smooth, approachable finish.",
     pairing: "BBQ, pizza, casual gatherings",
     badge: null,
@@ -119,8 +125,8 @@ const Wines = () => {
             transition={{ duration: 0.8 }}
             className="relative z-10 text-center px-6"
           >
-            <h1 className="font-serif text-5xl md:text-7xl text-cream mb-4">Our Wines</h1>
-            <p className="text-cream/70 text-lg md:text-xl max-w-2xl mx-auto">
+            <h1 className="heading-hero text-cream mb-4">Our Wines</h1>
+            <p className="text-cream/70 font-body text-lg md:text-xl max-w-2xl mx-auto">
               Crafted with heart, inspired by travel
             </p>
           </motion.div>
@@ -137,16 +143,16 @@ const Wines = () => {
               className="flex flex-wrap justify-center gap-8 mb-16"
             >
               <div className="flex flex-wrap items-center gap-3">
-                <span className="text-charcoal/60 text-sm uppercase tracking-wider">Type:</span>
+                <span className="text-charcoal/60 text-sm uppercase tracking-wider font-body">Type:</span>
                 {filters.category.map((cat) => (
                   <button
                     key={cat}
                     onClick={() => setActiveCategory(cat)}
                     className={cn(
-                      "px-4 py-2 text-sm uppercase tracking-wider transition-all rounded-sm",
+                      "px-4 py-2 text-sm uppercase tracking-wider transition-all rounded-sm font-body",
                       activeCategory === cat
-                        ? "bg-wine text-cream"
-                        : "bg-transparent text-charcoal hover:bg-wine/10"
+                        ? "bg-wine-merlot text-cream"
+                        : "bg-transparent text-charcoal hover:bg-wine-merlot/10"
                     )}
                   >
                     {cat}
@@ -154,16 +160,16 @@ const Wines = () => {
                 ))}
               </div>
               <div className="flex flex-wrap items-center gap-3">
-                <span className="text-charcoal/60 text-sm uppercase tracking-wider">Sweetness:</span>
+                <span className="text-charcoal/60 text-sm uppercase tracking-wider font-body">Sweetness:</span>
                 {filters.sweetness.map((sweet) => (
                   <button
                     key={sweet}
                     onClick={() => setActiveSweetness(sweet)}
                     className={cn(
-                      "px-4 py-2 text-sm uppercase tracking-wider transition-all rounded-sm",
+                      "px-4 py-2 text-sm uppercase tracking-wider transition-all rounded-sm font-body",
                       activeSweetness === sweet
-                        ? "bg-wine text-cream"
-                        : "bg-transparent text-charcoal hover:bg-wine/10"
+                        ? "bg-wine-merlot text-cream"
+                        : "bg-transparent text-charcoal hover:bg-wine-merlot/10"
                     )}
                   >
                     {sweet}
@@ -182,34 +188,49 @@ const Wines = () => {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
                   whileHover={{ y: -8 }}
-                  className="group bg-white rounded-sm overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
+                  className="group bg-white rounded-sm overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-sand"
                 >
-                  <div className="relative aspect-[3/4] bg-wine-dark/5 overflow-hidden">
+                  <div className="relative aspect-[3/4] bg-wine-burgundy/5 overflow-hidden">
                     <img
                       src={wine.image}
                       alt={wine.name}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                     {wine.badge && (
-                      <span className="absolute top-4 right-4 bg-gold text-wine-dark text-xs uppercase tracking-wider px-3 py-1 rounded-sm">
+                      <span className="absolute top-4 right-4 bg-gold text-charcoal text-xs uppercase tracking-wider px-3 py-1.5 rounded-sm font-body font-medium">
                         {wine.badge}
                       </span>
                     )}
                   </div>
-                  <div className="p-6">
-                    <span className="text-gold text-sm uppercase tracking-wider">{wine.varietal}</span>
-                    <h3 className="font-serif text-2xl text-wine-dark mt-1 mb-3">{wine.name}</h3>
-                    <p className="text-charcoal/70 text-sm leading-relaxed mb-4">{wine.tastingNotes}</p>
-                    <div className="pt-4 border-t border-charcoal/10">
-                      <span className="text-xs uppercase tracking-wider text-charcoal/50">Pairs with:</span>
-                      <p className="text-charcoal/70 text-sm mt-1">{wine.pairing}</p>
+                  <div className="p-6 relative">
+                    {/* Varietal & Price Row */}
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-gold-muted text-xs uppercase tracking-widest font-body">{wine.varietal}</span>
+                      <span className="font-display text-2xl font-semibold text-wine-merlot">${wine.price}</span>
                     </div>
+                    
+                    {/* Wine Name */}
+                    <h3 className="font-display text-3xl font-semibold text-charcoal tracking-wide mb-1">{wine.name}</h3>
+                    
+                    {/* Decorative Line */}
+                    <div className="w-12 h-px bg-gradient-to-r from-gold to-transparent my-4" />
+                    
+                    {/* Tasting Notes */}
+                    <p className="text-charcoal/70 font-body text-sm leading-relaxed mb-4 italic">{wine.tastingNotes}</p>
+                    
+                    {/* Pairing Section */}
+                    <div className="pt-4 border-t border-sand">
+                      <span className="text-xs uppercase tracking-widest text-gold-muted font-body">Pairs beautifully with</span>
+                      <p className="text-charcoal/80 font-body text-sm mt-1">{wine.pairing}</p>
+                    </div>
+                    
+                    {/* Sweetness Badge */}
                     <div className="mt-4 flex items-center gap-2">
                       <span className={cn(
-                        "px-2 py-1 text-xs uppercase tracking-wider rounded-sm",
-                        wine.sweetness === "dry" ? "bg-charcoal/10 text-charcoal" :
-                        wine.sweetness === "semi-sweet" ? "bg-gold/20 text-wine-dark" :
-                        "bg-wine/10 text-wine"
+                        "px-3 py-1.5 text-xs uppercase tracking-wider rounded-sm font-body",
+                        wine.sweetness === "dry" ? "bg-charcoal/5 text-charcoal border border-charcoal/10" :
+                        wine.sweetness === "semi-sweet" ? "bg-gold/10 text-wine-burgundy border border-gold/20" :
+                        "bg-wine-merlot/10 text-wine-merlot border border-wine-merlot/20"
                       )}>
                         {wine.sweetness}
                       </span>
