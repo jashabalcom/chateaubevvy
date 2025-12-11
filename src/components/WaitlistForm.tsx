@@ -41,13 +41,13 @@ const WaitlistForm = forwardRef<HTMLElement>((_, ref) => {
     <section 
       ref={ref}
       id="waitlist" 
-      className="relative overflow-hidden bg-charcoal py-24 md:py-32"
+      className="relative overflow-hidden bg-brand-black py-24 md:py-32"
       aria-labelledby="waitlist-heading"
     >
       {/* Decorative Elements */}
       <div className="absolute inset-0 bg-texture-noise opacity-[0.02]" aria-hidden="true" />
-      <div className="absolute left-0 top-0 h-64 w-64 rounded-full bg-wine-merlot/20 blur-[100px]" aria-hidden="true" />
-      <div className="absolute bottom-0 right-0 h-64 w-64 rounded-full bg-gold/10 blur-[100px]" aria-hidden="true" />
+      <div className="absolute left-0 top-0 h-64 w-64 rounded-full bg-brand-brown/20 blur-[100px]" aria-hidden="true" />
+      <div className="absolute bottom-0 right-0 h-64 w-64 rounded-full bg-brand-gold/10 blur-[100px]" aria-hidden="true" />
 
       <div className="container relative z-10 mx-auto max-w-2xl px-6">
         <motion.div
@@ -57,16 +57,16 @@ const WaitlistForm = forwardRef<HTMLElement>((_, ref) => {
           transition={{ duration: 0.8 }}
           className="text-center"
         >
-          <span className="mb-4 inline-block text-sm uppercase tracking-widest text-gold">
+          <span className="mb-4 inline-block text-sm uppercase tracking-widest text-brand-gold">
             Be The First To Know
           </span>
           <h2 
             id="waitlist-heading" 
-            className="mb-4 font-display text-4xl font-medium text-cream md:text-5xl"
+            className="mb-4 font-display text-4xl font-medium text-brand-cream md:text-5xl"
           >
             Join the Bevvy List
           </h2>
-          <p className="mb-10 font-body text-lg text-cream/80">
+          <p className="mb-10 font-body text-lg text-brand-cream/80">
             Sign up to receive exclusive updates, early access to events, and
             invitations to our grand opening celebration.
           </p>
@@ -101,14 +101,14 @@ const WaitlistForm = forwardRef<HTMLElement>((_, ref) => {
               aria-required="true"
               aria-describedby="name-hint"
               autoComplete="name"
-              className="peer w-full rounded-lg border border-cream/30 bg-cream/5 px-4 pb-3 pt-6 font-body text-cream outline-none transition-all duration-300 placeholder:text-transparent focus:border-gold focus:bg-cream/10 focus:ring-2 focus:ring-gold/50"
+              className="peer w-full rounded-lg border border-brand-cream/30 bg-brand-cream/5 px-4 pb-3 pt-6 font-body text-brand-cream outline-none transition-all duration-300 placeholder:text-transparent focus:border-brand-gold focus:bg-brand-cream/10 focus:ring-2 focus:ring-brand-gold/50"
               placeholder="Your name"
             />
             <label
               htmlFor="name"
-              className="pointer-events-none absolute left-4 top-4 origin-left font-body text-cream/70 transition-all duration-200 peer-focus:-translate-y-2 peer-focus:scale-75 peer-focus:text-gold peer-[:not(:placeholder-shown)]:-translate-y-2 peer-[:not(:placeholder-shown)]:scale-75"
+              className="pointer-events-none absolute left-4 top-4 origin-left font-body text-brand-cream/70 transition-all duration-200 peer-focus:-translate-y-2 peer-focus:scale-75 peer-focus:text-brand-gold peer-[:not(:placeholder-shown)]:-translate-y-2 peer-[:not(:placeholder-shown)]:scale-75"
             >
-              Your Name <span className="text-gold" aria-hidden="true">*</span>
+              Your Name <span className="text-brand-gold" aria-hidden="true">*</span>
               <span className="sr-only">(required)</span>
             </label>
             <span id="name-hint" className="sr-only">Enter your full name</span>
@@ -125,14 +125,14 @@ const WaitlistForm = forwardRef<HTMLElement>((_, ref) => {
               aria-required="true"
               aria-describedby="email-hint"
               autoComplete="email"
-              className="peer w-full rounded-lg border border-cream/30 bg-cream/5 px-4 pb-3 pt-6 font-body text-cream outline-none transition-all duration-300 placeholder:text-transparent focus:border-gold focus:bg-cream/10 focus:ring-2 focus:ring-gold/50"
+              className="peer w-full rounded-lg border border-brand-cream/30 bg-brand-cream/5 px-4 pb-3 pt-6 font-body text-brand-cream outline-none transition-all duration-300 placeholder:text-transparent focus:border-brand-gold focus:bg-brand-cream/10 focus:ring-2 focus:ring-brand-gold/50"
               placeholder="Email"
             />
             <label
               htmlFor="email"
-              className="pointer-events-none absolute left-4 top-4 origin-left font-body text-cream/70 transition-all duration-200 peer-focus:-translate-y-2 peer-focus:scale-75 peer-focus:text-gold peer-[:not(:placeholder-shown)]:-translate-y-2 peer-[:not(:placeholder-shown)]:scale-75"
+              className="pointer-events-none absolute left-4 top-4 origin-left font-body text-brand-cream/70 transition-all duration-200 peer-focus:-translate-y-2 peer-focus:scale-75 peer-focus:text-brand-gold peer-[:not(:placeholder-shown)]:-translate-y-2 peer-[:not(:placeholder-shown)]:scale-75"
             >
-              Email Address <span className="text-gold" aria-hidden="true">*</span>
+              Email Address <span className="text-brand-gold" aria-hidden="true">*</span>
               <span className="sr-only">(required)</span>
             </label>
             <span id="email-hint" className="sr-only">Enter your email address</span>
@@ -147,12 +147,12 @@ const WaitlistForm = forwardRef<HTMLElement>((_, ref) => {
               onChange={handleChange}
               aria-describedby="phone-hint"
               autoComplete="tel"
-              className="peer w-full rounded-lg border border-cream/30 bg-cream/5 px-4 pb-3 pt-6 font-body text-cream outline-none transition-all duration-300 placeholder:text-transparent focus:border-gold focus:bg-cream/10 focus:ring-2 focus:ring-gold/50"
+              className="peer w-full rounded-lg border border-brand-cream/30 bg-brand-cream/5 px-4 pb-3 pt-6 font-body text-brand-cream outline-none transition-all duration-300 placeholder:text-transparent focus:border-brand-gold focus:bg-brand-cream/10 focus:ring-2 focus:ring-brand-gold/50"
               placeholder="Phone"
             />
             <label
               htmlFor="phone"
-              className="pointer-events-none absolute left-4 top-4 origin-left font-body text-cream/70 transition-all duration-200 peer-focus:-translate-y-2 peer-focus:scale-75 peer-focus:text-gold peer-[:not(:placeholder-shown)]:-translate-y-2 peer-[:not(:placeholder-shown)]:scale-75"
+              className="pointer-events-none absolute left-4 top-4 origin-left font-body text-brand-cream/70 transition-all duration-200 peer-focus:-translate-y-2 peer-focus:scale-75 peer-focus:text-brand-gold peer-[:not(:placeholder-shown)]:-translate-y-2 peer-[:not(:placeholder-shown)]:scale-75"
             >
               Phone (Optional)
             </label>
@@ -167,27 +167,27 @@ const WaitlistForm = forwardRef<HTMLElement>((_, ref) => {
               onChange={handleChange}
               aria-label="Select your area of interest"
               aria-describedby="interest-hint"
-              className="w-full appearance-none rounded-lg border border-cream/30 bg-cream/5 px-4 py-4 font-body text-cream outline-none transition-all duration-300 focus:border-gold focus:bg-cream/10 focus:ring-2 focus:ring-gold/50"
+              className="w-full appearance-none rounded-lg border border-brand-cream/30 bg-brand-cream/5 px-4 py-4 font-body text-brand-cream outline-none transition-all duration-300 focus:border-brand-gold focus:bg-brand-cream/10 focus:ring-2 focus:ring-brand-gold/50"
             >
-              <option value="" className="bg-charcoal">
+              <option value="" className="bg-brand-black">
                 I'm interested in...
               </option>
-              <option value="tastings" className="bg-charcoal">
+              <option value="tastings" className="bg-brand-black">
                 Wine Tastings
               </option>
-              <option value="events" className="bg-charcoal">
+              <option value="events" className="bg-brand-black">
                 Private Events
               </option>
-              <option value="club" className="bg-charcoal">
+              <option value="club" className="bg-brand-black">
                 Wine Club Membership
               </option>
-              <option value="all" className="bg-charcoal">
+              <option value="all" className="bg-brand-black">
                 Everything!
               </option>
             </select>
             <div className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2" aria-hidden="true">
               <svg
-                className="h-4 w-4 text-cream/70"
+                className="h-4 w-4 text-brand-cream/70"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -214,7 +214,7 @@ const WaitlistForm = forwardRef<HTMLElement>((_, ref) => {
             {isSubmitting ? "Joining..." : "Join the Bevvy List"}
           </Button>
 
-          <p className="text-center text-sm text-cream/70">
+          <p className="text-center text-sm text-brand-cream/70">
             We'll only send meaningful updates. No spam ever.
           </p>
         </motion.form>

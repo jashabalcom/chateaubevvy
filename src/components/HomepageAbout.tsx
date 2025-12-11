@@ -5,7 +5,7 @@ import tastingRoomImage from "@/assets/tasting-room-interior.jpg";
 
 const HomepageAbout = () => {
   return (
-    <section className="py-24 bg-cream">
+    <section className="py-24 bg-brand-cream">
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <motion.div
@@ -14,14 +14,14 @@ const HomepageAbout = () => {
             viewport={{ once: true }}
             className="relative"
           >
-            <div className="aspect-[4/5] bg-wine/10 rounded-sm overflow-hidden">
+            <div className="aspect-[4/5] bg-brand-brown/10 rounded-sm overflow-hidden">
               <img
                 src={tastingRoomImage}
                 alt="Inside Chateau Bevvy"
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="absolute -top-6 -left-6 w-32 h-32 bg-gold/20 rounded-sm -z-10" />
+            <div className="absolute -top-6 -left-6 w-32 h-32 bg-brand-gold/20 rounded-sm -z-10" />
           </motion.div>
 
           <motion.div
@@ -29,19 +29,19 @@ const HomepageAbout = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <span className="text-gold uppercase tracking-widest text-sm font-body">Our Story</span>
-            <h2 className="heading-section text-charcoal mt-4 mb-4">
+            <span className="text-brand-gold uppercase tracking-widest text-sm font-body">Our Story</span>
+            <h2 className="heading-section text-brand-black mt-4 mb-4">
               A 1910 Landmark Reimagined
             </h2>
-            <p className="font-script text-2xl text-gold mb-6">
+            <p className="font-script text-2xl text-brand-gold mb-6">
               Where history meets hospitality
             </p>
-            <p className="text-charcoal/80 leading-relaxed mb-6 font-body">
+            <p className="text-brand-black/80 leading-relaxed mb-6 font-body">
               Standing on First Avenue North in downtown Bessemer, our building has witnessed 
               over a century of Alabama history. Originally a saloon, then a beloved drugstore, 
               its exposed brick walls and original wood floors now welcome a new chapter.
             </p>
-            <p className="text-charcoal/80 leading-relaxed mb-8 font-body">
+            <p className="text-brand-black/80 leading-relaxed mb-8 font-body">
               Founded by Army veteran La Fran Marks, Chateau Bevvy brings together worldly 
               wine sensibilities shaped by travels through Italy, France, and Greece with 
               the warm hospitality of the Deep South. This isn't just a tasting room—it's 
@@ -50,16 +50,16 @@ const HomepageAbout = () => {
 
             <div className="flex flex-wrap gap-8 mb-8">
               <div>
-                <span className="font-display text-4xl font-semibold text-gold">1910</span>
-                <p className="text-charcoal/60 text-sm mt-1 font-body">Historic Building</p>
+                <span className="font-display text-4xl font-semibold text-brand-gold">1910</span>
+                <p className="text-brand-black/60 text-sm mt-1 font-body">Historic Building</p>
               </div>
               <div>
-                <span className="font-display text-4xl font-semibold text-gold">1st</span>
-                <p className="text-charcoal/60 text-sm mt-1 font-body">Winery in Jefferson County</p>
+                <span className="font-display text-4xl font-semibold text-brand-gold">1st</span>
+                <p className="text-brand-black/60 text-sm mt-1 font-body">Winery in Jefferson County</p>
               </div>
               <div>
-                <span className="font-display text-4xl font-semibold text-gold">♥</span>
-                <p className="text-charcoal/60 text-sm mt-1 font-body">Veteran Owned</p>
+                <span className="font-display text-4xl font-semibold text-brand-gold">♥</span>
+                <p className="text-brand-black/60 text-sm mt-1 font-body">Veteran Owned</p>
               </div>
             </div>
 

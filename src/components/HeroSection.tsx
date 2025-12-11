@@ -38,7 +38,7 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="mb-6"
         >
-          <span className="inline-block rounded-full border border-cream/30 bg-cream/10 px-4 py-2 text-sm tracking-widest text-cream/90 backdrop-blur-sm">
+          <span className="inline-block rounded-full border border-brand-cream/30 bg-brand-cream/10 px-4 py-2 text-sm tracking-widest text-brand-cream/90 backdrop-blur-sm">
             COMING SOON • JEFFERSON COUNTY, ALABAMA
           </span>
         </motion.div>
@@ -47,17 +47,17 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="heading-hero mb-6 max-w-4xl text-cream"
+          className="heading-hero mb-6 max-w-4xl text-brand-cream"
         >
           Jefferson County's First{" "}
-          <span className="text-accent italic text-gold">Urban Winery</span>
+          <span className="text-accent italic text-brand-gold">Urban Winery</span>
         </motion.h1>
 
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.7 }}
-          className="font-script text-3xl md:text-4xl text-gold mb-6"
+          className="font-script text-3xl md:text-4xl text-brand-gold mb-6"
         >
           Crafted with heart, poured with soul
         </motion.p>
@@ -66,7 +66,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.85 }}
-          className="text-body-large mb-10 max-w-2xl text-cream/80"
+          className="text-body-large mb-10 max-w-2xl text-brand-cream/80"
         >
           A historic Bessemer landmark reimagined as a warm, intimate wine
           experience. Black-owned. Veteran-owned. Opening soon.
@@ -97,7 +97,7 @@ const HeroSection = () => {
             onClick={scrollToWaitlist}
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
-            className="flex flex-col items-center gap-2 text-cream/60 transition-colors hover:text-cream"
+            className="flex flex-col items-center gap-2 text-brand-cream/60 transition-colors hover:text-brand-cream"
             aria-label="Scroll down"
           >
             <span className="text-xs uppercase tracking-widest">Discover</span>

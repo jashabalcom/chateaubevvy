@@ -6,7 +6,7 @@ import tastingRoomImage from "@/assets/tasting-room-interior.jpg";
 
 const HomepageVisit = () => {
   return (
-    <section className="py-24 bg-cream">
+    <section className="py-24 bg-brand-cream">
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <motion.div
@@ -14,11 +14,11 @@ const HomepageVisit = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <span className="text-gold uppercase tracking-widest text-sm">Visit Us</span>
-            <h2 className="font-serif text-4xl md:text-5xl text-wine-dark mt-4 mb-6">
+            <span className="text-brand-gold uppercase tracking-widest text-sm">Visit Us</span>
+            <h2 className="font-serif text-4xl md:text-5xl text-brand-black mt-4 mb-6">
               Your Table Awaits
             </h2>
-            <p className="text-charcoal/80 leading-relaxed mb-8">
+            <p className="text-brand-black/80 leading-relaxed mb-8">
               Step off First Avenue North and into a space where time slows down. 
               Sink into vintage furniture, let soft jazz fill the air, and discover 
               wines that tell stories from around the world.
@@ -26,16 +26,16 @@ const HomepageVisit = () => {
 
             <div className="space-y-4 mb-8">
               <div className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-full bg-gold/10 border border-gold/20 flex items-center justify-center">
-                  <MapPin className="w-5 h-5 text-gold" strokeWidth={1.5} />
+                <div className="w-10 h-10 rounded-full bg-brand-gold/10 border border-brand-gold/20 flex items-center justify-center">
+                  <MapPin className="w-5 h-5 text-brand-gold" strokeWidth={1.5} />
                 </div>
-                <span className="text-charcoal">First Avenue North, Downtown Bessemer, AL</span>
+                <span className="text-brand-black">First Avenue North, Downtown Bessemer, AL</span>
               </div>
               <div className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-full bg-gold/10 border border-gold/20 flex items-center justify-center">
-                  <Clock className="w-5 h-5 text-gold" strokeWidth={1.5} />
+                <div className="w-10 h-10 rounded-full bg-brand-gold/10 border border-brand-gold/20 flex items-center justify-center">
+                  <Clock className="w-5 h-5 text-brand-gold" strokeWidth={1.5} />
                 </div>
-                <span className="text-charcoal">Wed-Thu 4-9pm • Fri-Sat 2-11pm • Sun 1-6pm</span>
+                <span className="text-brand-black">Wed-Thu 4-9pm • Fri-Sat 2-11pm • Sun 1-6pm</span>
               </div>
             </div>
 
@@ -43,7 +43,7 @@ const HomepageVisit = () => {
               <Button variant="wine" size="lg" asChild>
                 <Link to="/visit">Plan Your Visit</Link>
               </Button>
-              <Button variant="outline" size="lg" className="border-wine text-wine hover:bg-wine hover:text-cream" asChild>
+              <Button variant="outline" size="lg" className="border-brand-brown text-brand-brown hover:bg-brand-brown hover:text-brand-cream" asChild>
                 <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer">
                   Get Directions
                 </a>
@@ -57,14 +57,14 @@ const HomepageVisit = () => {
             viewport={{ once: true }}
             className="relative"
           >
-            <div className="aspect-[4/3] bg-wine/10 rounded-sm overflow-hidden">
+            <div className="aspect-[4/3] bg-brand-brown/10 rounded-sm overflow-hidden">
               <img
                 src={tastingRoomImage}
                 alt="Chateau Bevvy tasting room"
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-gold/20 rounded-sm -z-10" />
+            <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-brand-gold/20 rounded-sm -z-10" />
           </motion.div>
         </div>
       </div>
