@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import { cn } from "@/lib/utils";
+import { supabase } from "@/integrations/supabase/client";
 import tastingRoomImage from "@/assets/tasting-room-interior.jpg";
 import eventSpaceImage from "@/assets/event-space.jpg";
 import wineMerlot from "@/assets/wine-merlot.jpg";
@@ -126,17 +127,38 @@ const WineClub = () => {
     }
 
     setIsSubmitting(true);
-    await new Promise((resolve) => setTimeout(resolve, 1500));
 
-    const tier = membershipTiers.find((t) => t.id === selectedTier);
-    toast({
-      title: "Welcome to the Bevvy Club!",
-      description: `You've joined as a ${tier?.name} member. We'll be in touch soon!`,
-    });
+    try {
+      const { error } = await supabase
+        .from("wine_club_signups")
+        .insert({
+          first_name: formData.firstName.trim(),
+          last_name: formData.lastName.trim(),
+          email: formData.email.trim(),
+          phone: formData.phone.trim() || null,
+          membership_tier: selectedTier,
+        });
 
-    setFormData({ firstName: "", lastName: "", email: "", phone: "" });
-    setSelectedTier(null);
-    setIsSubmitting(false);
+      if (error) throw error;
+
+      const tier = membershipTiers.find((t) => t.id === selectedTier);
+      toast({
+        title: "Welcome to the Bevvy Club!",
+        description: `You've joined as a ${tier?.name} member. We'll be in touch soon!`,
+      });
+
+      setFormData({ firstName: "", lastName: "", email: "", phone: "" });
+      setSelectedTier(null);
+    } catch (error) {
+      console.error("Error submitting wine club form:", error);
+      toast({
+        title: "Something went wrong",
+        description: "Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const selectedTierData = membershipTiers.find((t) => t.id === selectedTier);

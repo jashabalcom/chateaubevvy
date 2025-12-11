@@ -2,6 +2,7 @@ import { useState, useRef, forwardRef } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
 
 const WaitlistForm = forwardRef<HTMLElement>((_, ref) => {
   const [formData, setFormData] = useState({
@@ -17,15 +18,31 @@ const WaitlistForm = forwardRef<HTMLElement>((_, ref) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    try {
+      const { error } = await supabase
+        .from("waitlist_signups")
+        .insert({
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          phone: formData.phone.trim() || null,
+          interest: formData.interest || null,
+        });
 
-    toast.success("Welcome to the Bevvy family!", {
-      description: "We'll keep you updated on our grand opening.",
-    });
+      if (error) throw error;
 
-    setFormData({ name: "", email: "", phone: "", interest: "" });
-    setIsSubmitting(false);
+      toast.success("Welcome to the Bevvy family!", {
+        description: "We'll keep you updated on our grand opening.",
+      });
+
+      setFormData({ name: "", email: "", phone: "", interest: "" });
+    } catch (error) {
+      console.error("Error submitting waitlist form:", error);
+      toast.error("Something went wrong", {
+        description: "Please try again later.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (
