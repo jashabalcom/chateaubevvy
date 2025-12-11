@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { Skeleton } from "@/components/ui/skeleton";
 import logo from "@/assets/logo.png";
 
 const navLinks = [
@@ -18,6 +19,7 @@ const navLinks = [
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isLogoLoaded, setIsLogoLoaded] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -55,14 +57,24 @@ const Header = () => {
             className="relative z-10 focus-visible-ring rounded-sm"
             aria-label="Chateau Bevvy - Home"
           >
+            {!isLogoLoaded && (
+              <Skeleton 
+                className={cn(
+                  "transition-all duration-500 bg-brand-cream/10",
+                  isScrolled ? "h-16 md:h-20 w-32 md:w-40" : "h-20 md:h-24 w-40 md:w-48"
+                )} 
+              />
+            )}
             <motion.img
               src={logo}
               alt="Chateau Bevvy"
               className={cn(
                 "transition-all duration-500",
-                isScrolled ? "h-16 md:h-20" : "h-20 md:h-24"
+                isScrolled ? "h-16 md:h-20" : "h-20 md:h-24",
+                !isLogoLoaded && "absolute opacity-0"
               )}
               whileHover={{ scale: 1.02 }}
+              onLoad={() => setIsLogoLoaded(true)}
             />
           </Link>
 
