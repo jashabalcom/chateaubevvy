@@ -9,7 +9,7 @@ const timelineSteps = [
 
 const TimelineSection = () => {
   return (
-    <section className="relative overflow-hidden bg-wine-burgundy py-16 md:py-20">
+    <section className="relative overflow-hidden bg-brand-brown py-16 md:py-20">
       <div className="absolute inset-0 bg-texture-noise opacity-[0.03]" />
 
       <div className="container mx-auto px-6">
@@ -20,17 +20,17 @@ const TimelineSection = () => {
           transition={{ duration: 0.8 }}
           className="mb-12 text-center"
         >
-          <span className="mb-3 inline-block text-sm uppercase tracking-widest text-gold">
+          <span className="mb-3 inline-block text-sm uppercase tracking-widest text-brand-gold">
             Our Journey
           </span>
-          <h2 className="font-display text-3xl font-medium text-cream md:text-4xl">
+          <h2 className="font-display text-3xl font-medium text-brand-cream md:text-4xl">
             The Road to Opening
           </h2>
         </motion.div>
 
         <div className="relative mx-auto max-w-4xl">
           {/* Connection Line */}
-          <div className="absolute left-1/2 top-8 hidden h-0.5 w-[calc(100%-120px)] -translate-x-1/2 bg-cream/20 md:block" />
+          <div className="absolute left-1/2 top-8 hidden h-0.5 w-[calc(100%-120px)] -translate-x-1/2 bg-brand-cream/20 md:block" />
 
           <div className="grid gap-6 md:grid-cols-4 md:gap-4">
             {timelineSteps.map((step, index) => (
@@ -45,10 +45,10 @@ const TimelineSection = () => {
                 <div
                   className={`relative z-10 mb-4 flex h-16 w-16 items-center justify-center rounded-full border-2 transition-all duration-300 ${
                     step.status === "complete"
-                      ? "border-gold bg-gold text-charcoal"
+                      ? "border-brand-gold bg-brand-gold text-brand-black"
                       : step.status === "current"
-                        ? "border-gold bg-wine-burgundy text-gold"
-                        : "border-cream/30 bg-wine-burgundy text-cream/50"
+                        ? "border-brand-gold bg-brand-brown text-brand-gold"
+                        : "border-brand-cream/30 bg-brand-brown text-brand-cream/50"
                   }`}
                 >
                   {step.status === "complete" ? (
@@ -74,14 +74,14 @@ const TimelineSection = () => {
 
                 <span
                   className={`font-display text-sm font-medium md:text-base ${
-                    step.status === "upcoming" ? "text-cream/60" : "text-cream"
+                    step.status === "upcoming" ? "text-brand-cream/60" : "text-brand-cream"
                   }`}
                 >
                   {step.label}
                 </span>
 
                 {step.status === "current" && (
-                  <span className="mt-2 inline-block rounded-full bg-gold/20 px-3 py-1 text-xs uppercase tracking-wider text-gold">
+                  <span className="mt-2 inline-block rounded-full bg-brand-gold/20 px-3 py-1 text-xs uppercase tracking-wider text-brand-gold">
                     In Progress
                   </span>
                 )}

@@ -24,7 +24,7 @@ const experiences = [
 
 const AnticipationSection = () => {
   return (
-    <section className="relative overflow-hidden bg-background py-24 md:py-32">
+    <section className="relative overflow-hidden bg-brand-cream py-24 md:py-32">
       <div className="absolute inset-0 bg-texture-noise opacity-[0.02]" />
 
       <div className="container mx-auto px-6">
@@ -35,12 +35,12 @@ const AnticipationSection = () => {
           transition={{ duration: 0.8 }}
           className="mb-16 text-center"
         >
-          <span className="mb-4 inline-block text-sm uppercase tracking-widest text-gold-muted">
+          <span className="mb-4 inline-block text-sm uppercase tracking-widest text-brand-gold">
             What Awaits
           </span>
-          <h2 className="font-display text-4xl font-medium text-foreground md:text-5xl">
+          <h2 className="font-display text-4xl font-medium text-brand-black md:text-5xl">
             Intimate Tastings. Warm Company.{" "}
-            <span className="italic text-wine-merlot">Beautiful Wine.</span>
+            <span className="italic text-brand-brown">Beautiful Wine.</span>
           </h2>
         </motion.div>
 
@@ -53,20 +53,20 @@ const AnticipationSection = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.15 }}
               whileHover={{ y: -8 }}
-              className="group relative overflow-hidden rounded-xl border border-border bg-card p-8 shadow-soft transition-all duration-300 hover:shadow-elevated"
+              className="group relative overflow-hidden rounded-xl border border-brand-gray/20 bg-white p-8 shadow-soft transition-all duration-300 hover:shadow-elevated"
             >
-              <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-wine-merlot/5 transition-all duration-500 group-hover:scale-150" />
+              <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-brand-brown/5 transition-all duration-500 group-hover:scale-150" />
 
               <div className="relative">
-                <div className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-full bg-wine-merlot/10 text-wine-merlot transition-colors duration-300 group-hover:bg-wine-merlot group-hover:text-cream">
+                <div className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-full bg-brand-brown/10 text-brand-brown transition-colors duration-300 group-hover:bg-brand-brown group-hover:text-brand-cream">
                   <item.icon className="h-6 w-6" />
                 </div>
 
-                <h3 className="mb-3 font-display text-2xl font-medium text-foreground">
+                <h3 className="mb-3 font-display text-2xl font-medium text-brand-black">
                   {item.title}
                 </h3>
 
-                <p className="font-body text-muted-foreground">
+                <p className="font-body text-brand-black/70">
                   {item.description}
                 </p>
               </div>
