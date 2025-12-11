@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
+import logo from "@/assets/logo.png";
 
 const navLinks = [
   { name: "Home", path: "/home" },
@@ -55,7 +56,7 @@ const Header = () => {
             aria-label="Chateau Bevvy - Home"
           >
             <motion.img
-              src="/src/assets/logo.png"
+              src={logo}
               alt="Chateau Bevvy"
               className={cn(
                 "transition-all duration-500",
