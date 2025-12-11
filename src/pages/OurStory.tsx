@@ -128,15 +128,15 @@ const OurStory = () => {
                 <p className="text-brand-cream/80 leading-relaxed mb-6">
                   As an Army veteran, La Fran traveled the world—from the rolling vineyards of Tuscany 
                   to the sun-drenched hills of Greece, from the elegant wine bars of Paris to the 
-                  cozy taverns of Germany. Each destination deepened her appreciation for wine culture 
+                  cozy taverns of Germany. Each destination deepened his appreciation for wine culture 
                   and the way it brings people together.
                 </p>
                 <p className="text-brand-cream/80 leading-relaxed mb-6">
-                  Returning home to Alabama, she dreamed of creating a space that captured that magic—
+                  Returning home to Alabama, he dreamed of creating a space that captured that magic—
                   a place where fine wine and warm hospitality intersect, where every guest feels like family.
                 </p>
                 <p className="text-brand-cream/80 leading-relaxed">
-                  When she discovered the abandoned 1910 building in Bessemer, she knew she'd found her home. 
+                  When he discovered the abandoned 1910 building in Bessemer, he knew he'd found his home. 
                   Chateau Bevvy was born from that moment of recognition.
                 </p>
               </motion.div>
