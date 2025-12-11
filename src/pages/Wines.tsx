@@ -3,6 +3,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import WineDetailModal from "@/components/WineDetailModal";
 import { cn } from "@/lib/utils";
 import wineCellarImage from "@/assets/wine-cellar.jpg";
 
@@ -107,9 +108,23 @@ const filters = {
   sweetness: ["all", "dry", "semi-sweet"],
 };
 
+type Wine = typeof wines[0];
+
 const Wines = () => {
   const [activeCategory, setActiveCategory] = useState("all");
   const [activeSweetness, setActiveSweetness] = useState("all");
+  const [selectedWine, setSelectedWine] = useState<Wine | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleWineClick = (wine: Wine) => {
+    setSelectedWine(wine);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setTimeout(() => setSelectedWine(null), 300);
+  };
 
   const filteredWines = wines.filter((wine) => {
     const categoryMatch = activeCategory === "all" || wine.category === activeCategory;
@@ -205,7 +220,8 @@ const Wines = () => {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
                   whileHover={{ y: -8 }}
-                  className="group bg-white rounded-sm overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-brand-gray/20"
+                  onClick={() => handleWineClick(wine)}
+                  className="group bg-white rounded-sm overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-brand-gray/20 cursor-pointer"
                 >
                   {/* Bottle Image Container */}
                   <div className="relative aspect-[3/4] bg-gradient-to-b from-brand-black/5 via-brand-cream to-brand-cream overflow-hidden flex items-center justify-center p-6">
@@ -219,6 +235,12 @@ const Wines = () => {
                         {wine.badge}
                       </span>
                     )}
+                    {/* View Details Overlay */}
+                    <div className="absolute inset-0 bg-brand-black/0 group-hover:bg-brand-black/10 transition-colors duration-300 flex items-center justify-center">
+                      <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-brand-cream/90 text-brand-black px-4 py-2 rounded-sm text-sm font-body uppercase tracking-wider">
+                        View Details
+                      </span>
+                    </div>
                   </div>
                   
                   {/* Card Content */}
@@ -269,6 +291,13 @@ const Wines = () => {
 
         <Footer />
       </main>
+
+      {/* Wine Detail Modal */}
+      <WineDetailModal 
+        wine={selectedWine} 
+        isOpen={isModalOpen} 
+        onClose={handleCloseModal} 
+      />
     </>
   );
 };
