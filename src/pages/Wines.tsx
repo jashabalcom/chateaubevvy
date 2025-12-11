@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WineDetailModal from "@/components/WineDetailModal";
+import WineBottleImage from "@/components/WineBottleImage";
 import { cn } from "@/lib/utils";
 import wineCellarImage from "@/assets/wine-cellar.jpg";
 
@@ -225,9 +226,10 @@ const Wines = () => {
                 >
                   {/* Bottle Image Container */}
                   <div className="relative aspect-[3/4] bg-gradient-to-b from-brand-black/5 via-brand-cream to-brand-cream overflow-hidden flex items-center justify-center p-6">
-                    <img
+                    <WineBottleImage
                       src={wine.image}
                       alt={wine.name}
+                      containerClassName="h-full w-auto"
                       className="h-full w-auto object-contain group-hover:scale-105 transition-transform duration-500 drop-shadow-2xl"
                     />
                     {wine.badge && (
