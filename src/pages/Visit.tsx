@@ -45,9 +45,9 @@ const Visit = () => {
       <main className="min-h-screen bg-background">
         {/* Hero */}
         <section className="relative h-[50vh] flex items-center justify-center overflow-hidden">
-          <div className="absolute inset-0 bg-wine-dark">
+          <div className="absolute inset-0 bg-brand-black">
             <img src={tastingRoomImage} alt="Tasting room" className="absolute inset-0 w-full h-full object-cover opacity-30" />
-            <div className="absolute inset-0 bg-gradient-to-b from-wine-dark/50 via-transparent to-wine-dark" />
+            <div className="absolute inset-0 bg-gradient-to-b from-brand-black/50 via-transparent to-brand-black" />
           </div>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -55,15 +55,15 @@ const Visit = () => {
             transition={{ duration: 0.8 }}
             className="relative z-10 text-center px-6"
           >
-            <h1 className="font-serif text-5xl md:text-7xl text-cream mb-4">Visit Us</h1>
-            <p className="text-cream/70 text-lg md:text-xl max-w-2xl mx-auto">
+            <h1 className="font-serif text-5xl md:text-7xl text-brand-cream mb-4">Visit Us</h1>
+            <p className="text-brand-cream/70 text-lg md:text-xl max-w-2xl mx-auto">
               Your table is waiting
             </p>
           </motion.div>
         </section>
 
         {/* Experience */}
-        <section className="py-24 bg-cream">
+        <section className="py-24 bg-brand-cream">
           <div className="container mx-auto px-6">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <motion.div
@@ -71,21 +71,21 @@ const Visit = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
               >
-                <span className="text-gold uppercase tracking-widest text-sm">The Experience</span>
-                <h2 className="font-serif text-4xl md:text-5xl text-wine-dark mt-4 mb-6">
+                <span className="text-brand-gold uppercase tracking-widest text-sm">The Experience</span>
+                <h2 className="font-serif text-4xl md:text-5xl text-brand-black mt-4 mb-6">
                   Step Into Warmth
                 </h2>
-                <p className="text-charcoal/80 leading-relaxed mb-6">
+                <p className="text-brand-black/80 leading-relaxed mb-6">
                   From the moment you walk through our doors, you're family. Settle into a vintage 
                   armchair, let the soft jazz wash over you, and watch the afternoon light play 
                   across exposed brick walls that have stood for over a century.
                 </p>
-                <p className="text-charcoal/80 leading-relaxed mb-6">
+                <p className="text-brand-black/80 leading-relaxed mb-6">
                   Our tasting room isn't about rushing through flights—it's about savoring the moment. 
                   Spend an hour or an afternoon. Strike up a conversation with the person next to you. 
                   Discover your new favorite wine.
                 </p>
-                <p className="text-charcoal/80 leading-relaxed">
+                <p className="text-brand-black/80 leading-relaxed">
                   A typical visit lasts about 45 minutes to an hour for a full tasting flight, but 
                   you're welcome to linger as long as you like.
                 </p>
@@ -94,7 +94,7 @@ const Visit = () => {
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                className="aspect-[4/3] bg-wine/10 rounded-sm overflow-hidden"
+                className="aspect-[4/3] bg-brand-brown/10 rounded-sm overflow-hidden"
               >
                 <img
                   src={tastingRoomImage}
@@ -107,7 +107,7 @@ const Visit = () => {
         </section>
 
         {/* Hours & Location */}
-        <section className="py-24 bg-wine-dark">
+        <section className="py-24 bg-brand-black">
           <div className="container mx-auto px-6">
             <div className="grid lg:grid-cols-2 gap-16">
               {/* Info */}
@@ -116,17 +116,17 @@ const Visit = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
               >
-                <span className="text-gold uppercase tracking-widest text-sm">Hours & Location</span>
-                <h2 className="font-serif text-4xl md:text-5xl text-cream mt-4 mb-8">
+                <span className="text-brand-gold uppercase tracking-widest text-sm">Hours & Location</span>
+                <h2 className="font-serif text-4xl md:text-5xl text-brand-cream mt-4 mb-8">
                   Find Us
                 </h2>
 
                 <div className="space-y-8">
                   <div className="flex items-start gap-4">
-                    <MapPin className="w-6 h-6 text-gold flex-shrink-0 mt-1" />
+                    <MapPin className="w-6 h-6 text-brand-gold flex-shrink-0 mt-1" />
                     <div>
-                      <h3 className="text-cream font-medium mb-1">Address</h3>
-                      <p className="text-cream/70">
+                      <h3 className="text-brand-cream font-medium mb-1">Address</h3>
+                      <p className="text-brand-cream/70">
                         First Avenue North<br />
                         Downtown Bessemer, AL 35020
                       </p>
@@ -134,7 +134,7 @@ const Visit = () => {
                         href="https://maps.google.com" 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="text-gold text-sm hover:underline mt-2 inline-block"
+                        className="text-brand-gold text-sm hover:underline mt-2 inline-block"
                       >
                         Get Directions →
                       </a>
@@ -142,23 +142,23 @@ const Visit = () => {
                   </div>
 
                   <div className="flex items-start gap-4">
-                    <Clock className="w-6 h-6 text-gold flex-shrink-0 mt-1" />
+                    <Clock className="w-6 h-6 text-brand-gold flex-shrink-0 mt-1" />
                     <div>
-                      <h3 className="text-cream font-medium mb-1">Hours</h3>
-                      <div className="text-cream/70 space-y-1">
+                      <h3 className="text-brand-cream font-medium mb-1">Hours</h3>
+                      <div className="text-brand-cream/70 space-y-1">
                         <p>Wednesday – Thursday: 4pm – 9pm</p>
                         <p>Friday – Saturday: 2pm – 11pm</p>
                         <p>Sunday: 1pm – 6pm</p>
-                        <p className="text-cream/50 text-sm mt-2">Closed Monday & Tuesday</p>
+                        <p className="text-brand-cream/50 text-sm mt-2">Closed Monday & Tuesday</p>
                       </div>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-4">
-                    <Car className="w-6 h-6 text-gold flex-shrink-0 mt-1" />
+                    <Car className="w-6 h-6 text-brand-gold flex-shrink-0 mt-1" />
                     <div>
-                      <h3 className="text-cream font-medium mb-1">Parking</h3>
-                      <p className="text-cream/70">
+                      <h3 className="text-brand-cream font-medium mb-1">Parking</h3>
+                      <p className="text-brand-cream/70">
                         Free street parking available on First Avenue North. 
                         Additional parking in the public lot one block east.
                       </p>
@@ -166,10 +166,10 @@ const Visit = () => {
                   </div>
 
                   <div className="flex items-start gap-4">
-                    <Phone className="w-6 h-6 text-gold flex-shrink-0 mt-1" />
+                    <Phone className="w-6 h-6 text-brand-gold flex-shrink-0 mt-1" />
                     <div>
-                      <h3 className="text-cream font-medium mb-1">Contact</h3>
-                      <p className="text-cream/70">
+                      <h3 className="text-brand-cream font-medium mb-1">Contact</h3>
+                      <p className="text-brand-cream/70">
                         (205) 555-WINE<br />
                         hello@chateaubevvy.com
                       </p>
@@ -184,7 +184,7 @@ const Visit = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.2 }}
-                className="aspect-square bg-charcoal/20 rounded-sm overflow-hidden"
+                className="aspect-square bg-brand-black/20 rounded-sm overflow-hidden"
               >
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3327.4559565065897!2d-86.95431908479767!3d33.40118548078373!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x888911df5885c3eb%3A0x25507409eaba54c!2sBessemer%2C%20AL!5e0!3m2!1sen!2sus!4v1650000000000!5m2!1sen!2sus"
@@ -202,7 +202,7 @@ const Visit = () => {
         </section>
 
         {/* FAQ */}
-        <section className="py-24 bg-cream">
+        <section className="py-24 bg-brand-cream">
           <div className="container mx-auto px-6 max-w-4xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -210,8 +210,8 @@ const Visit = () => {
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <span className="text-gold uppercase tracking-widest text-sm">Questions?</span>
-              <h2 className="font-serif text-4xl md:text-5xl text-wine-dark mt-4">
+              <span className="text-brand-gold uppercase tracking-widest text-sm">Questions?</span>
+              <h2 className="font-serif text-4xl md:text-5xl text-brand-black mt-4">
                 Frequently Asked
               </h2>
             </motion.div>
@@ -226,8 +226,8 @@ const Visit = () => {
                   transition={{ delay: index * 0.1 }}
                   className="bg-white p-6 rounded-sm shadow-sm"
                 >
-                  <h3 className="font-serif text-xl text-wine-dark mb-2">{faq.question}</h3>
-                  <p className="text-charcoal/70">{faq.answer}</p>
+                  <h3 className="font-serif text-xl text-brand-black mb-2">{faq.question}</h3>
+                  <p className="text-brand-black/70">{faq.answer}</p>
                 </motion.div>
               ))}
             </div>
@@ -238,7 +238,7 @@ const Visit = () => {
               viewport={{ once: true }}
               className="text-center mt-12"
             >
-              <p className="text-charcoal/60 mb-4">Have another question?</p>
+              <p className="text-brand-black/60 mb-4">Have another question?</p>
               <Button variant="wine" asChild>
                 <a href="/contact">Contact Us</a>
               </Button>
