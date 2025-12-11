@@ -74,9 +74,9 @@ const WineClub = () => {
       <main className="min-h-screen bg-background">
         {/* Hero */}
         <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
-          <div className="absolute inset-0 bg-wine-dark">
+          <div className="absolute inset-0 bg-brand-black">
             <img src={tastingRoomImage} alt="Wine club experience" className="absolute inset-0 w-full h-full object-cover opacity-30" />
-            <div className="absolute inset-0 bg-gradient-to-b from-wine-dark/50 via-transparent to-wine-dark" />
+            <div className="absolute inset-0 bg-gradient-to-b from-brand-black/50 via-transparent to-brand-black" />
           </div>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -84,16 +84,16 @@ const WineClub = () => {
             transition={{ duration: 0.8 }}
             className="relative z-10 text-center px-6"
           >
-            <span className="text-gold uppercase tracking-widest text-sm mb-4 block">Coming Soon</span>
-            <h1 className="font-serif text-5xl md:text-7xl text-cream mb-4">The Bevvy Club</h1>
-            <p className="text-cream/70 text-lg md:text-xl max-w-2xl mx-auto">
+            <span className="text-brand-gold uppercase tracking-widest text-sm mb-4 block">Coming Soon</span>
+            <h1 className="font-serif text-5xl md:text-7xl text-brand-cream mb-4">The Bevvy Club</h1>
+            <p className="text-brand-cream/70 text-lg md:text-xl max-w-2xl mx-auto">
               An exclusive membership for those who appreciate fine wine and warm company
             </p>
           </motion.div>
         </section>
 
         {/* Benefits */}
-        <section className="py-24 bg-cream">
+        <section className="py-24 bg-brand-cream">
           <div className="container mx-auto px-6">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -101,8 +101,8 @@ const WineClub = () => {
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <span className="text-gold uppercase tracking-widest text-sm">Member Benefits</span>
-              <h2 className="font-serif text-4xl md:text-5xl text-wine-dark mt-4">
+              <span className="text-brand-gold uppercase tracking-widest text-sm">Member Benefits</span>
+              <h2 className="font-serif text-4xl md:text-5xl text-brand-black mt-4">
                 Why Join the Club?
               </h2>
             </motion.div>
@@ -117,11 +117,11 @@ const WineClub = () => {
                   transition={{ delay: index * 0.1 }}
                   className="text-center group"
                 >
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-gold/15 to-gold/5 border border-gold/20 flex items-center justify-center mx-auto mb-4 transition-all duration-300 group-hover:scale-105 group-hover:shadow-[0_0_20px_rgba(212,175,55,0.2)]">
-                    <benefit.icon className="w-8 h-8 text-gold" strokeWidth={1.5} />
+                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-brand-gold/15 to-brand-gold/5 border border-brand-gold/20 flex items-center justify-center mx-auto mb-4 transition-all duration-300 group-hover:scale-105 group-hover:shadow-[0_0_20px_rgba(220,176,131,0.2)]">
+                    <benefit.icon className="w-8 h-8 text-brand-gold" strokeWidth={1.5} />
                   </div>
-                  <h3 className="font-serif text-xl text-wine-dark mb-2">{benefit.title}</h3>
-                  <p className="text-charcoal/70 text-sm">{benefit.description}</p>
+                  <h3 className="font-serif text-xl text-brand-black mb-2">{benefit.title}</h3>
+                  <p className="text-brand-black/70 text-sm">{benefit.description}</p>
                 </motion.div>
               ))}
             </div>
@@ -129,9 +129,9 @@ const WineClub = () => {
         </section>
 
         {/* Waitlist */}
-        <section className="py-24 bg-wine-dark relative overflow-hidden">
+        <section className="py-24 bg-brand-black relative overflow-hidden">
           <div className="absolute inset-0 opacity-10">
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gold to-transparent" />
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-brand-gold to-transparent" />
           </div>
           <div className="container mx-auto px-6 relative z-10">
             <div className="max-w-2xl mx-auto text-center">
@@ -140,11 +140,11 @@ const WineClub = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
               >
-                <span className="text-gold uppercase tracking-widest text-sm">Be First In Line</span>
-                <h2 className="font-serif text-4xl md:text-5xl text-cream mt-4 mb-6">
+                <span className="text-brand-gold uppercase tracking-widest text-sm">Be First In Line</span>
+                <h2 className="font-serif text-4xl md:text-5xl text-brand-cream mt-4 mb-6">
                   Join the Waitlist
                 </h2>
-                <p className="text-cream/80 mb-8">
+                <p className="text-brand-cream/80 mb-8">
                   The Bevvy Club launches with our grand opening. Sign up now to be among 
                   the first members and receive exclusive founding member perks.
                 </p>
@@ -156,7 +156,7 @@ const WineClub = () => {
                 viewport={{ once: true }}
                 transition={{ delay: 0.2 }}
                 onSubmit={handleSubmit}
-                className="bg-cream/10 backdrop-blur-sm p-8 rounded-sm border border-gold/20"
+                className="bg-brand-cream/10 backdrop-blur-sm p-8 rounded-sm border border-brand-gold/20"
               >
                 <div className="grid gap-4">
                   <Input
@@ -164,7 +164,7 @@ const WineClub = () => {
                     required
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="bg-cream/10 border-gold/30 text-cream placeholder:text-cream/50 focus:border-gold"
+                    className="bg-brand-cream/10 border-brand-gold/30 text-brand-cream placeholder:text-brand-cream/50 focus:border-brand-gold"
                   />
                   <Input
                     type="email"
@@ -172,20 +172,20 @@ const WineClub = () => {
                     required
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="bg-cream/10 border-gold/30 text-cream placeholder:text-cream/50 focus:border-gold"
+                    className="bg-brand-cream/10 border-brand-gold/30 text-brand-cream placeholder:text-brand-cream/50 focus:border-brand-gold"
                   />
                   <Input
                     type="tel"
                     placeholder="Phone (Optional)"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="bg-cream/10 border-gold/30 text-cream placeholder:text-cream/50 focus:border-gold"
+                    className="bg-brand-cream/10 border-brand-gold/30 text-brand-cream placeholder:text-brand-cream/50 focus:border-brand-gold"
                   />
                   <Button type="submit" variant="gold" size="lg" disabled={isSubmitting}>
                     {isSubmitting ? "Joining..." : "Join the Bevvy Club Waitlist"}
                   </Button>
                 </div>
-                <p className="text-cream/50 text-xs mt-4">
+                <p className="text-brand-cream/50 text-xs mt-4">
                   By signing up, you agree to receive updates about the Bevvy Club and Chateau Bevvy Winery.
                 </p>
               </motion.form>
@@ -194,7 +194,7 @@ const WineClub = () => {
         </section>
 
         {/* Lifestyle Gallery */}
-        <section className="py-24 bg-cream">
+        <section className="py-24 bg-brand-cream">
           <div className="container mx-auto px-6">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -202,7 +202,7 @@ const WineClub = () => {
               viewport={{ once: true }}
               className="text-center mb-12"
             >
-              <h2 className="font-serif text-3xl md:text-4xl text-wine-dark">
+              <h2 className="font-serif text-3xl md:text-4xl text-brand-black">
                 The Club Experience
               </h2>
             </motion.div>
@@ -215,7 +215,7 @@ const WineClub = () => {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="aspect-square bg-wine/10 rounded-sm overflow-hidden"
+                  className="aspect-square bg-brand-brown/10 rounded-sm overflow-hidden"
                 >
                   <img
                     src={image}

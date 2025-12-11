@@ -115,9 +115,9 @@ const Wines = () => {
       <main className="min-h-screen bg-background">
         {/* Hero */}
         <section className="relative h-[50vh] flex items-center justify-center overflow-hidden">
-          <div className="absolute inset-0 bg-wine-dark">
+          <div className="absolute inset-0 bg-brand-black">
             <img src={wineCellarImage} alt="Wine cellar" className="absolute inset-0 w-full h-full object-cover opacity-30" />
-            <div className="absolute inset-0 bg-gradient-to-b from-wine-dark/50 via-transparent to-wine-dark" />
+            <div className="absolute inset-0 bg-gradient-to-b from-brand-black/50 via-transparent to-brand-black" />
           </div>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -125,15 +125,15 @@ const Wines = () => {
             transition={{ duration: 0.8 }}
             className="relative z-10 text-center px-6"
           >
-            <h1 className="heading-hero text-cream mb-4">Our Wines</h1>
-            <p className="font-script text-2xl md:text-3xl text-gold">
+            <h1 className="heading-hero text-brand-cream mb-4">Our Wines</h1>
+            <p className="font-script text-2xl md:text-3xl text-brand-gold">
               Crafted with heart, inspired by travel
             </p>
           </motion.div>
         </section>
 
         {/* Filters & Wines */}
-        <section className="py-24 bg-cream">
+        <section className="py-24 bg-brand-cream">
           <div className="container mx-auto px-6">
             {/* Filters */}
             <motion.div
@@ -143,7 +143,7 @@ const Wines = () => {
               className="flex flex-wrap justify-center gap-8 mb-16"
             >
               <div className="flex flex-wrap items-center gap-3">
-                <span className="text-charcoal/60 text-sm uppercase tracking-wider font-body">Type:</span>
+                <span className="text-brand-black/60 text-sm uppercase tracking-wider font-body">Type:</span>
                 {filters.category.map((cat) => (
                   <button
                     key={cat}
@@ -151,8 +151,8 @@ const Wines = () => {
                     className={cn(
                       "px-4 py-2 text-sm uppercase tracking-wider transition-all rounded-sm font-body",
                       activeCategory === cat
-                        ? "bg-wine-merlot text-cream"
-                        : "bg-transparent text-charcoal hover:bg-wine-merlot/10"
+                        ? "bg-brand-brown text-brand-cream"
+                        : "bg-transparent text-brand-black hover:bg-brand-brown/10"
                     )}
                   >
                     {cat}
@@ -160,7 +160,7 @@ const Wines = () => {
                 ))}
               </div>
               <div className="flex flex-wrap items-center gap-3">
-                <span className="text-charcoal/60 text-sm uppercase tracking-wider font-body">Sweetness:</span>
+                <span className="text-brand-black/60 text-sm uppercase tracking-wider font-body">Sweetness:</span>
                 {filters.sweetness.map((sweet) => (
                   <button
                     key={sweet}
@@ -168,8 +168,8 @@ const Wines = () => {
                     className={cn(
                       "px-4 py-2 text-sm uppercase tracking-wider transition-all rounded-sm font-body",
                       activeSweetness === sweet
-                        ? "bg-wine-merlot text-cream"
-                        : "bg-transparent text-charcoal hover:bg-wine-merlot/10"
+                        ? "bg-brand-brown text-brand-cream"
+                        : "bg-transparent text-brand-black hover:bg-brand-brown/10"
                     )}
                   >
                     {sweet}
@@ -188,16 +188,16 @@ const Wines = () => {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
                   whileHover={{ y: -8 }}
-                  className="group bg-white rounded-sm overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-sand"
+                  className="group bg-white rounded-sm overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-brand-gray/20"
                 >
-                  <div className="relative aspect-[3/4] bg-wine-burgundy/5 overflow-hidden">
+                  <div className="relative aspect-[3/4] bg-brand-brown/5 overflow-hidden">
                     <img
                       src={wine.image}
                       alt={wine.name}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                     {wine.badge && (
-                      <span className="absolute top-4 right-4 bg-gold text-charcoal text-xs uppercase tracking-wider px-3 py-1.5 rounded-sm font-body font-medium">
+                      <span className="absolute top-4 right-4 bg-brand-gold text-brand-black text-xs uppercase tracking-wider px-3 py-1.5 rounded-sm font-body font-medium">
                         {wine.badge}
                       </span>
                     )}
@@ -205,32 +205,32 @@ const Wines = () => {
                   <div className="p-6 relative">
                     {/* Varietal & Price Row */}
                     <div className="flex items-center justify-between mb-2">
-                      <span className="text-gold-muted text-xs uppercase tracking-widest font-body">{wine.varietal}</span>
-                      <span className="font-display text-2xl font-semibold text-wine-merlot">${wine.price}</span>
+                      <span className="text-brand-gold text-xs uppercase tracking-widest font-body">{wine.varietal}</span>
+                      <span className="font-display text-2xl font-semibold text-brand-brown">${wine.price}</span>
                     </div>
                     
                     {/* Wine Name */}
-                    <h3 className="font-display text-3xl font-semibold text-charcoal tracking-wide mb-1">{wine.name}</h3>
+                    <h3 className="font-display text-3xl font-semibold text-brand-black tracking-wide mb-1">{wine.name}</h3>
                     
                     {/* Decorative Line */}
-                    <div className="w-12 h-px bg-gradient-to-r from-gold to-transparent my-4" />
+                    <div className="w-12 h-px bg-gradient-to-r from-brand-gold to-transparent my-4" />
                     
                     {/* Tasting Notes */}
-                    <p className="text-charcoal/70 font-body text-sm leading-relaxed mb-4 italic">{wine.tastingNotes}</p>
+                    <p className="text-brand-black/70 font-body text-sm leading-relaxed mb-4 italic">{wine.tastingNotes}</p>
                     
                     {/* Pairing Section */}
-                    <div className="pt-4 border-t border-sand">
-                      <span className="text-xs uppercase tracking-widest text-gold-muted font-body">Pairs beautifully with</span>
-                      <p className="text-charcoal/80 font-body text-sm mt-1">{wine.pairing}</p>
+                    <div className="pt-4 border-t border-brand-gray/20">
+                      <span className="text-xs uppercase tracking-widest text-brand-gold font-body">Pairs beautifully with</span>
+                      <p className="text-brand-black/80 font-body text-sm mt-1">{wine.pairing}</p>
                     </div>
                     
                     {/* Sweetness Badge */}
                     <div className="mt-4 flex items-center gap-2">
                       <span className={cn(
                         "px-3 py-1.5 text-xs uppercase tracking-wider rounded-sm font-body",
-                        wine.sweetness === "dry" ? "bg-charcoal/5 text-charcoal border border-charcoal/10" :
-                        wine.sweetness === "semi-sweet" ? "bg-gold/10 text-wine-burgundy border border-gold/20" :
-                        "bg-wine-merlot/10 text-wine-merlot border border-wine-merlot/20"
+                        wine.sweetness === "dry" ? "bg-brand-black/5 text-brand-black border border-brand-black/10" :
+                        wine.sweetness === "semi-sweet" ? "bg-brand-gold/10 text-brand-brown border border-brand-gold/20" :
+                        "bg-brand-brown/10 text-brand-brown border border-brand-brown/20"
                       )}>
                         {wine.sweetness}
                       </span>
@@ -241,7 +241,7 @@ const Wines = () => {
             </div>
 
             {filteredWines.length === 0 && (
-              <p className="text-center text-charcoal/60 py-12">
+              <p className="text-center text-brand-black/60 py-12">
                 No wines match your current filters. Try adjusting your selection.
               </p>
             )}
