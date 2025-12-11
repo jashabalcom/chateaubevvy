@@ -5,89 +5,106 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { cn } from "@/lib/utils";
 import wineCellarImage from "@/assets/wine-cellar.jpg";
-import wineMerlot from "@/assets/wine-merlot.jpg";
-import wineChardonnay from "@/assets/wine-chardonnay.jpg";
-import wineCabernet from "@/assets/wine-cabernet.jpg";
-import wineRose from "@/assets/wine-rose.jpg";
+
+// Import bottle images
+import merlotBottle from "@/assets/bottles/merlot.png";
+import cabernetBottle from "@/assets/bottles/cabernet.png";
+import malbecBottle from "@/assets/bottles/malbec.png";
+import chardonnayBottle from "@/assets/bottles/chardonnay.png";
+import fallHarvestBottle from "@/assets/bottles/fall-harvest.png";
+import trinityBottle from "@/assets/bottles/trinity.png";
+import rieslingBottle from "@/assets/bottles/riesling.png";
 
 const wines = [
   {
     id: 1,
-    name: "Bessemer Red",
+    name: "Trinity",
+    varietal: "Red Blend",
+    category: "red",
+    sweetness: "dry",
+    price: 32,
+    tastingNotes: "A sophisticated blend of three varietals, offering complex dark fruit, hints of spice, and a layered, elegant finish.",
+    pairing: "Braised short ribs, aged gouda, dark chocolate",
+    badge: "House Favorite",
+    image: trinityBottle,
+  },
+  {
+    id: 2,
+    name: "Merlot",
     varietal: "Merlot",
     category: "red",
     sweetness: "dry",
     price: 28,
     tastingNotes: "Rich dark cherry, hints of chocolate, velvety smooth finish with subtle oak undertones.",
-    pairing: "Grilled steak, aged cheeses, dark chocolate",
-    badge: "House Favorite",
-    image: wineMerlot,
-  },
-  {
-    id: 2,
-    name: "Golden Hour",
-    varietal: "Chardonnay",
-    category: "white",
-    sweetness: "dry",
-    price: 24,
-    tastingNotes: "Crisp green apple, buttery vanilla, with a bright citrus finish.",
-    pairing: "Seafood, creamy pasta, roasted chicken",
+    pairing: "Grilled steak, aged cheeses, mushroom risotto",
     badge: null,
-    image: wineChardonnay,
+    image: merlotBottle,
   },
   {
     id: 3,
-    name: "First Avenue",
+    name: "Cabernet Sauvignon",
     varietal: "Cabernet Sauvignon",
     category: "red",
     sweetness: "dry",
     price: 36,
-    tastingNotes: "Bold blackberry, cassis, and cedar with firm tannins and a long finish.",
-    pairing: "Prime rib, lamb, mushroom dishes",
+    tastingNotes: "Bold blackberry, cassis, and cedar with firm tannins and a long, distinguished finish.",
+    pairing: "Prime rib, lamb, hearty stews",
     badge: "Limited Release",
-    image: wineCabernet,
+    image: cabernetBottle,
   },
   {
     id: 4,
-    name: "Southern Sunset",
-    varietal: "Rosé",
-    category: "rosé",
-    sweetness: "semi-sweet",
-    price: 22,
-    tastingNotes: "Fresh strawberry, watermelon, with delicate floral notes and a refreshing finish.",
-    pairing: "Light salads, grilled shrimp, summer fruits",
+    name: "Malbec",
+    varietal: "Malbec",
+    category: "red",
+    sweetness: "dry",
+    price: 30,
+    tastingNotes: "Deep plum and blackberry with smoky undertones, velvety tannins, and a lingering spice finish.",
+    pairing: "Grilled meats, empanadas, blue cheese",
     badge: null,
-    image: wineRose,
+    image: malbecBottle,
   },
   {
     id: 5,
-    name: "Magnolia White",
-    varietal: "Moscato",
-    category: "white",
-    sweetness: "sweet",
-    price: 20,
-    tastingNotes: "Sweet peach, honeysuckle, and jasmine with a light, effervescent quality.",
-    pairing: "Spicy cuisine, fruit desserts, brunch",
-    badge: "Local Favorite",
-    image: wineChardonnay,
-  },
-  {
-    id: 6,
-    name: "Heritage Blend",
+    name: "Fall Harvest",
     varietal: "Red Blend",
     category: "red",
     sweetness: "semi-sweet",
     price: 26,
-    tastingNotes: "Jammy berries, warm spices, and a smooth, approachable finish.",
-    pairing: "BBQ, pizza, casual gatherings",
+    tastingNotes: "Jammy berries, warm autumn spices, and a smooth, approachable finish perfect for the season.",
+    pairing: "BBQ, pumpkin dishes, casual gatherings",
+    badge: "Seasonal",
+    image: fallHarvestBottle,
+  },
+  {
+    id: 6,
+    name: "Chardonnay",
+    varietal: "Chardonnay",
+    category: "white",
+    sweetness: "dry",
+    price: 24,
+    tastingNotes: "Crisp green apple, buttery vanilla, with a bright citrus finish and subtle oak influence.",
+    pairing: "Seafood, creamy pasta, roasted chicken",
     badge: null,
-    image: wineMerlot,
+    image: chardonnayBottle,
+  },
+  {
+    id: 7,
+    name: "Riesling",
+    varietal: "Riesling",
+    category: "white",
+    sweetness: "semi-sweet",
+    price: 22,
+    tastingNotes: "Bright citrus and stone fruit with delicate floral notes and a refreshing, balanced sweetness.",
+    pairing: "Spicy Asian cuisine, soft cheeses, fruit desserts",
+    badge: null,
+    image: rieslingBottle,
   },
 ];
 
 const filters = {
-  category: ["all", "red", "white", "rosé"],
-  sweetness: ["all", "dry", "semi-sweet", "sweet"],
+  category: ["all", "red", "white"],
+  sweetness: ["all", "dry", "semi-sweet"],
 };
 
 const Wines = () => {
@@ -179,7 +196,7 @@ const Wines = () => {
             </motion.div>
 
             {/* Wine Grid */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
               {filteredWines.map((wine, index) => (
                 <motion.div
                   key={wine.id}
@@ -188,21 +205,24 @@ const Wines = () => {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
                   whileHover={{ y: -8 }}
-                  className="group bg-white rounded-sm overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-brand-gray/20"
+                  className="group bg-white rounded-sm overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-brand-gray/20"
                 >
-                  <div className="relative aspect-[3/4] bg-brand-brown/5 overflow-hidden">
+                  {/* Bottle Image Container */}
+                  <div className="relative aspect-[3/4] bg-gradient-to-b from-brand-black/5 via-brand-cream to-brand-cream overflow-hidden flex items-center justify-center p-6">
                     <img
                       src={wine.image}
                       alt={wine.name}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="h-full w-auto object-contain group-hover:scale-105 transition-transform duration-500 drop-shadow-2xl"
                     />
                     {wine.badge && (
-                      <span className="absolute top-4 right-4 bg-brand-gold text-brand-black text-xs uppercase tracking-wider px-3 py-1.5 rounded-sm font-body font-medium">
+                      <span className="absolute top-4 right-4 bg-brand-gold text-brand-black text-xs uppercase tracking-wider px-3 py-1.5 rounded-sm font-body font-medium shadow-md">
                         {wine.badge}
                       </span>
                     )}
                   </div>
-                  <div className="p-6 relative">
+                  
+                  {/* Card Content */}
+                  <div className="p-6 bg-white relative">
                     {/* Varietal & Price Row */}
                     <div className="flex items-center justify-between mb-2">
                       <span className="text-brand-gold text-xs uppercase tracking-widest font-body">{wine.varietal}</span>
@@ -210,17 +230,17 @@ const Wines = () => {
                     </div>
                     
                     {/* Wine Name */}
-                    <h3 className="font-display text-3xl font-semibold text-brand-black tracking-wide mb-1">{wine.name}</h3>
+                    <h3 className="font-display text-2xl font-semibold text-brand-black tracking-wide mb-1">{wine.name}</h3>
                     
                     {/* Decorative Line */}
                     <div className="w-12 h-px bg-gradient-to-r from-brand-gold to-transparent my-4" />
                     
                     {/* Tasting Notes */}
-                    <p className="text-brand-black/70 font-body text-sm leading-relaxed mb-4 italic">{wine.tastingNotes}</p>
+                    <p className="text-brand-black/70 font-body text-sm leading-relaxed mb-4 italic line-clamp-3">{wine.tastingNotes}</p>
                     
                     {/* Pairing Section */}
                     <div className="pt-4 border-t border-brand-gray/20">
-                      <span className="text-xs uppercase tracking-widest text-brand-gold font-body">Pairs beautifully with</span>
+                      <span className="text-xs uppercase tracking-widest text-brand-gold font-body">Pairs with</span>
                       <p className="text-brand-black/80 font-body text-sm mt-1">{wine.pairing}</p>
                     </div>
                     
@@ -229,8 +249,7 @@ const Wines = () => {
                       <span className={cn(
                         "px-3 py-1.5 text-xs uppercase tracking-wider rounded-sm font-body",
                         wine.sweetness === "dry" ? "bg-brand-black/5 text-brand-black border border-brand-black/10" :
-                        wine.sweetness === "semi-sweet" ? "bg-brand-gold/10 text-brand-brown border border-brand-gold/20" :
-                        "bg-brand-brown/10 text-brand-brown border border-brand-brown/20"
+                        "bg-brand-gold/10 text-brand-brown border border-brand-gold/20"
                       )}>
                         {wine.sweetness}
                       </span>
