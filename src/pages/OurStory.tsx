@@ -10,7 +10,7 @@ const timelineEvents = [
   { year: "1930s", title: "Drugstore Era", description: "The space transforms into a beloved neighborhood drugstore serving the community." },
   { year: "2020s", title: "Discovery", description: "Army veteran La Fran Marks discovers the abandoned gem and envisions its rebirth." },
   { year: "2024", title: "Restoration Begins", description: "Careful restoration work begins, preserving original brick, wood, and character." },
-  { year: "2025", title: "Chateau Bevvy Opens", description: "Jefferson County's first urban winery welcomes guests to a new chapter." },
+  { year: "2026", title: "Chateau Bevvy Opens", description: "Jefferson County's first urban winery welcomes guests to a new chapter." },
 ];
 
 const OurStory = () => {
