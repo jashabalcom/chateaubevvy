@@ -12,6 +12,7 @@ import Visit from "./pages/Visit";
 import Events from "./pages/Events";
 import WineClub from "./pages/WineClub";
 import Contact from "./pages/Contact";
+import GenerateBottles from "./pages/GenerateBottles";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -32,6 +33,7 @@ const App = () => (
             <Route path="/events" element={<Events />} />
             <Route path="/wine-club" element={<WineClub />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/admin/generate-bottles" element={<GenerateBottles />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
