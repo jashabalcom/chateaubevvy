@@ -1,0 +1,4 @@
+project_id = "vmfdvhmwafsspnxkrcrf"
+
+[functions.generate-wine-bottle]
+verify_jwt = false
