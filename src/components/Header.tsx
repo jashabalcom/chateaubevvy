@@ -42,8 +42,8 @@ const Header = () => {
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
           isScrolled
-            ? "bg-wine-dark/95 backdrop-blur-md shadow-lg py-3"
-            : "bg-transparent py-6"
+            ? "bg-brand-black/95 backdrop-blur-md shadow-lg py-2"
+            : "bg-transparent py-4"
         )}
         role="banner"
       >
@@ -54,12 +54,15 @@ const Header = () => {
             className="relative z-10 focus-visible-ring rounded-sm"
             aria-label="Chateau Bevvy - Home"
           >
-            <motion.h1
-              className="font-display text-2xl md:text-3xl text-cream tracking-wider font-semibold"
+            <motion.img
+              src="/src/assets/logo.png"
+              alt="Chateau Bevvy"
+              className={cn(
+                "transition-all duration-500",
+                isScrolled ? "h-16 md:h-20" : "h-20 md:h-24"
+              )}
               whileHover={{ scale: 1.02 }}
-            >
-              Chateau Bevvy
-            </motion.h1>
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -74,8 +77,8 @@ const Header = () => {
                 className={cn(
                   "font-body text-sm uppercase tracking-widest transition-colors duration-300 relative focus-visible-ring rounded-sm",
                   location.pathname === link.path
-                    ? "text-gold"
-                    : "text-cream/90 hover:text-gold"
+                    ? "text-brand-gold"
+                    : "text-brand-cream/90 hover:text-brand-gold"
                 )}
                 aria-current={location.pathname === link.path ? "page" : undefined}
               >
@@ -83,7 +86,7 @@ const Header = () => {
                 {location.pathname === link.path && (
                   <motion.span
                     layoutId="activeNav"
-                    className="absolute -bottom-1 left-0 right-0 h-px bg-gold"
+                    className="absolute -bottom-1 left-0 right-0 h-px bg-brand-gold"
                     aria-hidden="true"
                   />
                 )}
@@ -94,7 +97,7 @@ const Header = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden text-cream p-2 focus-visible-ring rounded-md"
+            className="lg:hidden text-brand-cream p-2 focus-visible-ring rounded-md"
             aria-label={isMobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
             aria-expanded={isMobileMenuOpen}
             aria-controls="mobile-navigation"
@@ -115,7 +118,7 @@ const Header = () => {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              className="lg:hidden bg-wine-dark/98 backdrop-blur-md border-t border-gold/20"
+              className="lg:hidden bg-brand-black/98 backdrop-blur-md border-t border-brand-gold/20"
               aria-label="Mobile navigation"
             >
               <div className="container mx-auto px-6 py-6 flex flex-col gap-4">
@@ -131,8 +134,8 @@ const Header = () => {
                       className={cn(
                         "block py-3 text-lg uppercase tracking-widest transition-colors focus-visible-ring rounded-sm",
                         location.pathname === link.path
-                          ? "text-gold"
-                          : "text-cream/90 hover:text-gold"
+                          ? "text-brand-gold"
+                          : "text-brand-cream/90 hover:text-brand-gold"
                       )}
                       aria-current={location.pathname === link.path ? "page" : undefined}
                     >

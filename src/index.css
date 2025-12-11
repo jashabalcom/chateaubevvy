@@ -4,56 +4,64 @@
 
 @layer base {
   :root {
-    /* Wine-inspired color palette */
-    --background: 35 25% 96%;
-    --foreground: 220 15% 15%;
+    /* New Brand Colors from Client */
+    --background: 60 8% 90%;
+    --foreground: 260 17% 5%;
 
-    --card: 35 20% 94%;
-    --card-foreground: 220 15% 15%;
+    --card: 60 8% 92%;
+    --card-foreground: 260 17% 5%;
 
-    --popover: 35 20% 94%;
-    --popover-foreground: 220 15% 15%;
+    --popover: 60 8% 92%;
+    --popover-foreground: 260 17% 5%;
 
-    /* Deep merlot/burgundy primary */
-    --primary: 345 55% 28%;
-    --primary-foreground: 35 25% 96%;
+    /* Primary - Near black */
+    --primary: 260 17% 5%;
+    --primary-foreground: 60 8% 90%;
 
-    /* Warm cream secondary */
-    --secondary: 35 30% 90%;
-    --secondary-foreground: 220 15% 15%;
+    /* Secondary - Soft cream */
+    --secondary: 60 8% 88%;
+    --secondary-foreground: 260 17% 5%;
 
-    /* Muted warm tones */
-    --muted: 35 20% 88%;
-    --muted-foreground: 220 10% 40%;
+    /* Muted tones */
+    --muted: 45 3% 80%;
+    --muted-foreground: 260 17% 30%;
 
-    /* Antique gold accent */
-    --accent: 40 70% 45%;
-    --accent-foreground: 220 15% 10%;
+    /* Accent - Golden tan */
+    --accent: 34 52% 69%;
+    --accent-foreground: 260 17% 5%;
 
     --destructive: 0 70% 45%;
-    --destructive-foreground: 35 25% 96%;
+    --destructive-foreground: 60 8% 90%;
 
-    --border: 35 20% 85%;
-    --input: 35 20% 85%;
-    --ring: 345 55% 28%;
+    --border: 45 3% 75%;
+    --input: 45 3% 75%;
+    --ring: 34 52% 69%;
 
     --radius: 0.5rem;
 
-    /* Custom winery tokens */
-    --wine-merlot: 345 55% 28%;
-    --wine-burgundy: 350 60% 22%;
-    --wine-cabernet: 355 50% 18%;
-    --cream: 35 30% 96%;
-    --sand: 35 25% 85%;
-    --gold: 40 70% 50%;
-    --gold-muted: 40 50% 40%;
-    --charcoal: 220 15% 18%;
+    /* Brand Color Tokens */
+    --brand-cream: 60 8% 90%;
+    --brand-black: 260 17% 5%;
+    --brand-gold: 34 52% 69%;
+    --brand-brown: 28 62% 22%;
+    --brand-gray: 45 3% 50%;
+    --brand-blue: 220 88% 44%;
+    
+    /* Legacy tokens mapped to new brand */
+    --cream: 60 8% 90%;
+    --charcoal: 260 17% 5%;
+    --gold: 34 52% 69%;
+    --gold-muted: 34 42% 55%;
+    --wine-merlot: 28 62% 22%;
+    --wine-burgundy: 28 62% 18%;
+    --wine-dark: 260 17% 5%;
+    --sand: 45 3% 80%;
     --bottle-green: 150 30% 25%;
     
     /* Gradients */
-    --gradient-hero: linear-gradient(180deg, hsl(220 15% 10% / 0.7) 0%, hsl(345 55% 18% / 0.5) 100%);
-    --gradient-wine: linear-gradient(135deg, hsl(var(--wine-burgundy)) 0%, hsl(var(--wine-merlot)) 100%);
-    --gradient-gold: linear-gradient(135deg, hsl(var(--gold-muted)) 0%, hsl(var(--gold)) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(260 17% 5% / 0.7) 0%, hsl(28 62% 18% / 0.5) 100%);
+    --gradient-wine: linear-gradient(135deg, hsl(var(--brand-brown)) 0%, hsl(var(--brand-gold)) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(var(--gold-muted)) 0%, hsl(var(--brand-gold)) 100%);
 
     /* Typography */
     --font-display: 'Cormorant Garamond', Georgia, serif;
@@ -62,9 +70,9 @@
     --font-script: 'Great Vibes', cursive;
 
     /* Shadows */
-    --shadow-soft: 0 4px 20px -4px hsl(220 15% 10% / 0.15);
-    --shadow-elevated: 0 12px 40px -8px hsl(220 15% 10% / 0.25);
-    --shadow-gold: 0 4px 20px -4px hsl(40 70% 50% / 0.3);
+    --shadow-soft: 0 4px 20px -4px hsl(260 17% 5% / 0.15);
+    --shadow-elevated: 0 12px 40px -8px hsl(260 17% 5% / 0.25);
+    --shadow-gold: 0 4px 20px -4px hsl(34 52% 69% / 0.3);
 
     --sidebar-background: 35 25% 96%;
     --sidebar-foreground: 220 15% 15%;
@@ -77,37 +85,39 @@
   }
 
   .dark {
-    --background: 220 15% 8%;
-    --foreground: 35 25% 96%;
+    --background: 260 17% 8%;
+    --foreground: 60 8% 90%;
 
-    --card: 220 15% 12%;
-    --card-foreground: 35 25% 96%;
+    --card: 260 17% 12%;
+    --card-foreground: 60 8% 90%;
 
-    --popover: 220 15% 12%;
-    --popover-foreground: 35 25% 96%;
+    --popover: 260 17% 12%;
+    --popover-foreground: 60 8% 90%;
 
-    --primary: 345 50% 55%;
-    --primary-foreground: 220 15% 8%;
+    --primary: 34 52% 69%;
+    --primary-foreground: 260 17% 5%;
 
-    --secondary: 220 12% 18%;
-    --secondary-foreground: 35 25% 96%;
+    --secondary: 260 17% 18%;
+    --secondary-foreground: 60 8% 90%;
 
-    --muted: 220 12% 20%;
-    --muted-foreground: 35 20% 70%;
+    --muted: 260 17% 20%;
+    --muted-foreground: 60 8% 70%;
 
-    --accent: 40 70% 55%;
-    --accent-foreground: 220 15% 8%;
+    --accent: 34 52% 69%;
+    --accent-foreground: 260 17% 5%;
 
     --destructive: 0 60% 50%;
-    --destructive-foreground: 35 25% 96%;
+    --destructive-foreground: 60 8% 90%;
 
-    --border: 220 12% 20%;
-    --input: 220 12% 20%;
-    --ring: 345 50% 55%;
+    --border: 260 17% 20%;
+    --input: 260 17% 20%;
+    --ring: 34 52% 69%;
 
-    --wine-merlot: 345 50% 45%;
-    --wine-burgundy: 350 55% 35%;
-    --charcoal: 220 15% 12%;
+    --brand-cream: 60 8% 90%;
+    --brand-black: 260 17% 5%;
+    --brand-gold: 34 52% 69%;
+    --wine-dark: 260 17% 5%;
+    --charcoal: 260 17% 12%;
     
     --sidebar-background: 220 15% 8%;
     --sidebar-foreground: 35 25% 96%;

@@ -43,9 +43,9 @@ const featuredWines = [
 
 const HomepageWines = () => {
   return (
-    <section className="py-24 bg-wine-dark relative overflow-hidden">
+    <section className="py-24 bg-brand-black relative overflow-hidden">
       <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,_var(--tw-gradient-stops))] from-gold to-transparent" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,_var(--tw-gradient-stops))] from-brand-gold to-transparent" />
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
@@ -55,12 +55,12 @@ const HomepageWines = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="text-gold uppercase tracking-widest text-sm font-body">Our Collection</span>
-          <h2 className="heading-section text-cream mt-4 mb-4">
+          <span className="text-brand-gold uppercase tracking-widest text-sm font-body">Our Collection</span>
+          <h2 className="heading-section text-brand-cream mt-4 mb-4">
             Signature Wines
           </h2>
           <div className="divider-gold" />
-          <p className="text-cream/70 max-w-2xl mx-auto font-body text-lg">
+          <p className="text-brand-cream/70 max-w-2xl mx-auto font-body text-lg">
             Sourced from quality vineyards, crafted with care in our Bessemer barrel room
           </p>
         </motion.div>
@@ -74,16 +74,16 @@ const HomepageWines = () => {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
               whileHover={{ y: -8 }}
-              className="group bg-charcoal/40 backdrop-blur-sm rounded-sm overflow-hidden border border-gold/10 hover:border-gold/40 transition-all duration-300"
+              className="group bg-brand-black/40 backdrop-blur-sm rounded-sm overflow-hidden border border-brand-gold/10 hover:border-brand-gold/40 transition-all duration-300"
             >
-              <div className="relative aspect-[3/4] bg-charcoal/20 overflow-hidden">
+              <div className="relative aspect-[3/4] bg-brand-black/20 overflow-hidden">
                 <img
                   src={wine.image}
                   alt={wine.name}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 {wine.badge && (
-                  <span className="absolute top-3 right-3 bg-gold text-charcoal text-xs uppercase tracking-wider px-2.5 py-1 rounded-sm font-body font-medium">
+                  <span className="absolute top-3 right-3 bg-brand-gold text-brand-black text-xs uppercase tracking-wider px-2.5 py-1 rounded-sm font-body font-medium">
                     {wine.badge}
                   </span>
                 )}
@@ -91,15 +91,15 @@ const HomepageWines = () => {
               <div className="p-5">
                 {/* Varietal & Price */}
                 <div className="flex items-center justify-between mb-1">
-                  <span className="text-gold/80 text-xs uppercase tracking-widest font-body">{wine.varietal}</span>
-                  <span className="font-display text-xl font-semibold text-gold">${wine.price}</span>
+                  <span className="text-brand-gold/80 text-xs uppercase tracking-widest font-body">{wine.varietal}</span>
+                  <span className="font-display text-xl font-semibold text-brand-gold">${wine.price}</span>
                 </div>
                 
                 {/* Wine Name */}
-                <h3 className="font-display text-2xl font-semibold text-cream tracking-wide mb-2">{wine.name}</h3>
+                <h3 className="font-display text-2xl font-semibold text-brand-cream tracking-wide mb-2">{wine.name}</h3>
                 
                 {/* Description */}
-                <p className="text-cream/60 text-sm font-body italic">{wine.description}</p>
+                <p className="text-brand-cream/60 text-sm font-body italic">{wine.description}</p>
               </div>
             </motion.div>
           ))}
