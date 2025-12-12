@@ -93,7 +93,7 @@ const Footer = forwardRef<HTMLElement>((_, ref) => {
 
           {/* Agency Credit */}
           <a
-            href="https://majorleadsagency.com"
+            href="https://www.majorleadsagency.com/"
             target="_blank"
             rel="noopener noreferrer"
             className="group mt-6 flex items-center gap-2 transition-opacity duration-300 hover:opacity-100 opacity-70"
