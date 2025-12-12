@@ -2,18 +2,9 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
-import ComingSoon from "./pages/ComingSoon";
-import Index from "./pages/Index";
-import OurStory from "./pages/OurStory";
-import Wines from "./pages/Wines";
-import Visit from "./pages/Visit";
-import Events from "./pages/Events";
-import WineClub from "./pages/WineClub";
-import Contact from "./pages/Contact";
-import GenerateBottles from "./pages/GenerateBottles";
-import NotFound from "./pages/NotFound";
+import AnimatedRoutes from "./components/AnimatedRoutes";
 
 const queryClient = new QueryClient();
 
@@ -24,18 +15,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<ComingSoon />} />
-            <Route path="/home" element={<Index />} />
-            <Route path="/our-story" element={<OurStory />} />
-            <Route path="/wines" element={<Wines />} />
-            <Route path="/visit" element={<Visit />} />
-            <Route path="/events" element={<Events />} />
-            <Route path="/wine-club" element={<WineClub />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/admin/generate-bottles" element={<GenerateBottles />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+          <AnimatedRoutes />
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>
