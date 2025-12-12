@@ -1,4 +1,5 @@
 import { forwardRef, useState } from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Instagram, Facebook, Mail, MapPin } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -24,17 +25,17 @@ const Footer = forwardRef<HTMLElement>((_, ref) => {
           className="flex flex-col items-center text-center"
         >
           {/* Logo */}
-          <div className="relative h-24 mb-4">
+          <Link to="/" className="relative block w-32 h-24 mb-4">
             {!logoLoaded && (
               <Skeleton className="absolute inset-0 w-32 h-24 bg-brand-cream/10" />
             )}
             <img 
               src={logo} 
-              alt="Chateau Bevvy" 
-              className={`h-24 transition-opacity duration-300 ${logoLoaded ? 'opacity-100' : 'opacity-0'}`}
+              alt="Chateau Bevvy - Go to homepage" 
+              className={`h-24 w-auto transition-opacity duration-300 ${logoLoaded ? 'opacity-100' : 'opacity-0'}`}
               onLoad={() => setLogoLoaded(true)}
             />
-          </div>
+          </Link>
           <p className="mb-8 font-display text-sm italic text-brand-cream/70">
             Jefferson County's First Urban Winery
           </p>
