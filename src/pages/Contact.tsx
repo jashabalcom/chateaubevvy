@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { MapPin, Phone, Mail, Instagram, Facebook } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import tastingRoomImage from "@/assets/tasting-room-interior.jpg";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -50,7 +51,14 @@ const Contact = () => {
         {/* Hero */}
         <section className="relative h-[40vh] flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0 bg-brand-black">
-            <div className="absolute inset-0 bg-[url('/placeholder.svg')] bg-cover bg-center opacity-30" />
+            <motion.img
+              src={tastingRoomImage}
+              alt="Chateau Bevvy tasting room interior"
+              className="absolute inset-0 w-full h-full object-cover opacity-40"
+              initial={{ scale: 1.1 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+            />
             <div className="absolute inset-0 bg-gradient-to-b from-brand-black/50 via-transparent to-brand-black" />
           </div>
           <motion.div
