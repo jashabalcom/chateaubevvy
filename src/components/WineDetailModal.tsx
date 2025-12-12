@@ -1,5 +1,6 @@
+import { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Wine, Grape, UtensilsCrossed } from "lucide-react";
+import { X, Wine, UtensilsCrossed } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -23,6 +24,22 @@ interface WineDetailModalProps {
 }
 
 const WineDetailModal = ({ wine, isOpen, onClose }: WineDetailModalProps) => {
+  // Handle ESC key to close modal
+  useEffect(() => {
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    if (isOpen) {
+      document.addEventListener("keydown", handleEsc);
+      // Lock body scroll
+      document.body.style.overflow = "hidden";
+    }
+    return () => {
+      document.removeEventListener("keydown", handleEsc);
+      document.body.style.overflow = "";
+    };
+  }, [isOpen, onClose]);
+
   if (!wine) return null;
 
   return (
@@ -45,7 +62,7 @@ const WineDetailModal = ({ wine, isOpen, onClose }: WineDetailModalProps) => {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className="fixed inset-4 md:inset-auto md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:max-w-4xl md:w-full md:max-h-[90vh] bg-brand-cream rounded-sm shadow-2xl z-50 overflow-hidden"
+            className="fixed inset-4 md:inset-auto md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:max-w-5xl md:w-[95%] lg:w-full md:max-h-[90vh] bg-brand-cream rounded-sm shadow-2xl z-50 overflow-hidden"
           >
             {/* Close Button */}
             <button
@@ -58,19 +75,19 @@ const WineDetailModal = ({ wine, isOpen, onClose }: WineDetailModalProps) => {
 
             <div className="flex flex-col md:flex-row h-full max-h-[calc(100vh-2rem)] md:max-h-[90vh] overflow-auto">
               {/* Bottle Image Section */}
-              <div className="md:w-2/5 bg-gradient-to-b from-brand-black/10 via-brand-cream to-brand-cream p-8 flex items-center justify-center relative">
+              <div className="md:w-2/5 bg-gradient-to-b from-brand-black/10 via-brand-cream to-brand-cream p-6 md:p-8 flex items-center justify-center relative min-h-[400px] md:min-h-[500px]">
                 {wine.badge && (
-                  <span className="absolute top-4 left-4 bg-brand-gold text-brand-black text-xs uppercase tracking-wider px-3 py-1.5 rounded-sm font-body font-medium">
+                  <span className="absolute top-4 left-4 bg-brand-gold text-brand-black text-xs uppercase tracking-wider px-3 py-1.5 rounded-sm font-body font-medium z-10">
                     {wine.badge}
                   </span>
                 )}
                 <motion.img
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.1, duration: 0.4 }}
+                  initial={{ opacity: 0, scale: 0.9, y: 30 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  transition={{ delay: 0.15, duration: 0.5, ease: "easeOut" }}
                   src={wine.image}
                   alt={wine.name}
-                  className="h-[300px] md:h-[400px] w-auto object-contain drop-shadow-2xl"
+                  className="h-[350px] md:h-[450px] lg:h-[500px] w-auto object-contain drop-shadow-[0_25px_50px_rgba(0,0,0,0.4)]"
                 />
               </div>
 

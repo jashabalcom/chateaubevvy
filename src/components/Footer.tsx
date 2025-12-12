@@ -1,8 +1,12 @@
-import { forwardRef } from "react";
+import { forwardRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Instagram, Facebook, Mail, MapPin } from "lucide-react";
+import { Skeleton } from "@/components/ui/skeleton";
+import logo from "@/assets/logo.png";
 
 const Footer = forwardRef<HTMLElement>((_, ref) => {
+  const [logoLoaded, setLogoLoaded] = useState(false);
+
   return (
     <footer 
       ref={ref}
@@ -20,11 +24,17 @@ const Footer = forwardRef<HTMLElement>((_, ref) => {
           className="flex flex-col items-center text-center"
         >
           {/* Logo */}
-          <img 
-            src="/src/assets/logo.png" 
-            alt="Chateau Bevvy" 
-            className="h-24 mb-4"
-          />
+          <div className="relative h-24 mb-4">
+            {!logoLoaded && (
+              <Skeleton className="absolute inset-0 w-32 h-24 bg-brand-cream/10" />
+            )}
+            <img 
+              src={logo} 
+              alt="Chateau Bevvy" 
+              className={`h-24 transition-opacity duration-300 ${logoLoaded ? 'opacity-100' : 'opacity-0'}`}
+              onLoad={() => setLogoLoaded(true)}
+            />
+          </div>
           <p className="mb-8 font-display text-sm italic text-brand-cream/70">
             Jefferson County's First Urban Winery
           </p>
