@@ -9,6 +9,20 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import eventSpaceImage from "@/assets/event-space.jpg";
+import {
+  fadeUp,
+  fadeUpSmall,
+  staggerContainer,
+  staggerContainerSlow,
+  slideInLeft,
+  slideInRight,
+  scaleReveal,
+  iconReveal,
+  cardReveal,
+  heroReveal,
+  viewportOnce,
+  luxuryEase
+} from "@/lib/animations";
 
 const eventTypes = [
   {
@@ -87,19 +101,26 @@ const Events = () => {
         {/* Hero */}
         <section className="relative h-[50vh] flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0 bg-brand-black">
-            <img src={eventSpaceImage} alt="Event space" className="absolute inset-0 w-full h-full object-cover opacity-30" />
+            <motion.img 
+              src={eventSpaceImage} 
+              alt="Event space" 
+              className="absolute inset-0 w-full h-full object-cover opacity-30"
+              initial={{ scale: 1.1 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 1.2, ease: luxuryEase }}
+            />
             <div className="absolute inset-0 bg-gradient-to-b from-brand-black/50 via-transparent to-brand-black" />
           </div>
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            variants={staggerContainer}
+            initial="hidden"
+            animate="visible"
             className="relative z-10 text-center px-6"
           >
-            <h1 className="font-serif text-5xl md:text-7xl text-brand-cream mb-4">Events</h1>
-            <p className="text-brand-cream/70 text-lg md:text-xl max-w-2xl mx-auto">
+            <motion.h1 variants={heroReveal} className="font-serif text-5xl md:text-7xl text-brand-cream mb-4">Events</motion.h1>
+            <motion.p variants={fadeUpSmall} className="text-brand-cream/70 text-lg md:text-xl max-w-2xl mx-auto">
               Celebrate life's moments in a space that feels like home
-            </p>
+            </motion.p>
           </motion.div>
         </section>
 
@@ -107,29 +128,35 @@ const Events = () => {
         <section className="py-24 bg-brand-cream">
           <div className="container mx-auto px-6">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewportOnce}
               className="text-center mb-16"
             >
-              <span className="text-brand-gold uppercase tracking-widest text-sm">Private Gatherings</span>
-              <h2 className="font-serif text-4xl md:text-5xl text-brand-black mt-4">
+              <motion.span variants={fadeUpSmall} className="text-brand-gold uppercase tracking-widest text-sm block">Private Gatherings</motion.span>
+              <motion.h2 variants={fadeUp} className="font-serif text-4xl md:text-5xl text-brand-black mt-4">
                 Your Event, Your Way
-              </h2>
+              </motion.h2>
             </motion.div>
 
-            <div className="grid md:grid-cols-3 gap-8">
-              {eventTypes.map((event, index) => (
+            <motion.div 
+              variants={staggerContainerSlow}
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewportOnce}
+              className="grid md:grid-cols-3 gap-8"
+            >
+              {eventTypes.map((event) => (
                 <motion.div
                   key={event.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
+                  variants={cardReveal}
                   whileHover={{ y: -8 }}
                   className="bg-white p-8 rounded-sm shadow-lg hover:shadow-xl transition-all"
                 >
-                  <event.icon className="w-10 h-10 text-brand-gold mb-4" />
+                  <motion.div variants={iconReveal}>
+                    <event.icon className="w-10 h-10 text-brand-gold mb-4" />
+                  </motion.div>
                   <h3 className="font-serif text-2xl text-brand-black mb-2">{event.title}</h3>
                   <p className="text-brand-black/70 mb-4">{event.description}</p>
                   <p className="text-brand-gold text-sm font-medium mb-4">{event.capacity}</p>
@@ -143,7 +170,7 @@ const Events = () => {
                   </ul>
                 </motion.div>
               ))}
-            </div>
+            </motion.div>
           </div>
         </section>
 
@@ -152,23 +179,24 @@ const Events = () => {
           <div className="container mx-auto px-6">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
+                variants={staggerContainer}
+                initial="hidden"
+                whileInView="visible"
+                viewport={viewportOnce}
               >
-                <span className="text-brand-gold uppercase tracking-widest text-sm">Book Your Event</span>
-                <h2 className="font-serif text-4xl md:text-5xl text-brand-cream mt-4 mb-6">
+                <motion.span variants={fadeUpSmall} className="text-brand-gold uppercase tracking-widest text-sm block">Book Your Event</motion.span>
+                <motion.h2 variants={fadeUp} className="font-serif text-4xl md:text-5xl text-brand-cream mt-4 mb-6">
                   Let's Plan Together
-                </h2>
-                <p className="text-brand-cream/80 leading-relaxed mb-6">
+                </motion.h2>
+                <motion.p variants={fadeUpSmall} className="text-brand-cream/80 leading-relaxed mb-6">
                   Whether you're celebrating a milestone, hosting clients, or simply gathering 
                   friends for an unforgettable evening, we'd love to help make it special.
-                </p>
-                <p className="text-brand-cream/80 leading-relaxed mb-8">
+                </motion.p>
+                <motion.p variants={fadeUpSmall} className="text-brand-cream/80 leading-relaxed mb-8">
                   Fill out the form and we'll reach out within 24-48 hours to discuss your 
                   vision and availability.
-                </p>
-                <div className="bg-brand-cream/10 p-6 rounded-sm">
+                </motion.p>
+                <motion.div variants={scaleReveal} className="bg-brand-cream/10 p-6 rounded-sm">
                   <h3 className="text-brand-cream font-medium mb-4">What's Included</h3>
                   <ul className="space-y-2 text-brand-cream/70">
                     <li>• Exclusive use of the tasting room</li>
@@ -176,18 +204,25 @@ const Events = () => {
                     <li>• Flexible setup and timing</li>
                     <li>• Coordination with preferred caterers</li>
                   </ul>
-                </div>
+                </motion.div>
               </motion.div>
 
               <motion.form
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
+                variants={slideInRight}
+                initial="hidden"
+                whileInView="visible"
+                viewport={viewportOnce}
                 onSubmit={handleSubmit}
                 className="bg-brand-cream p-8 rounded-sm"
               >
-                <div className="grid gap-6">
-                  <div className="grid sm:grid-cols-2 gap-4">
+                <motion.div 
+                  variants={staggerContainer}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={viewportOnce}
+                  className="grid gap-6"
+                >
+                  <motion.div variants={fadeUpSmall} className="grid sm:grid-cols-2 gap-4">
                     <div>
                       <label className="text-brand-black text-sm font-medium mb-2 block">Name *</label>
                       <Input
@@ -207,9 +242,9 @@ const Events = () => {
                         className="border-brand-black/20 focus:border-brand-gold"
                       />
                     </div>
-                  </div>
+                  </motion.div>
 
-                  <div className="grid sm:grid-cols-2 gap-4">
+                  <motion.div variants={fadeUpSmall} className="grid sm:grid-cols-2 gap-4">
                     <div>
                       <label className="text-brand-black text-sm font-medium mb-2 block">Phone</label>
                       <Input
@@ -234,9 +269,9 @@ const Events = () => {
                         <option value="other">Other</option>
                       </select>
                     </div>
-                  </div>
+                  </motion.div>
 
-                  <div className="grid sm:grid-cols-2 gap-4">
+                  <motion.div variants={fadeUpSmall} className="grid sm:grid-cols-2 gap-4">
                     <div>
                       <label className="text-brand-black text-sm font-medium mb-2 block">Preferred Date</label>
                       <Input
@@ -257,9 +292,9 @@ const Events = () => {
                         className="border-brand-black/20 focus:border-brand-gold"
                       />
                     </div>
-                  </div>
+                  </motion.div>
 
-                  <div>
+                  <motion.div variants={fadeUpSmall}>
                     <label className="text-brand-black text-sm font-medium mb-2 block">
                       Tell us about your event
                     </label>
@@ -270,12 +305,14 @@ const Events = () => {
                       className="border-brand-black/20 focus:border-brand-gold resize-none"
                       placeholder="What's the occasion? Any special requests?"
                     />
-                  </div>
+                  </motion.div>
 
-                  <Button type="submit" variant="wine" size="lg" disabled={isSubmitting}>
-                    {isSubmitting ? "Sending..." : "Inquire About Events"}
-                  </Button>
-                </div>
+                  <motion.div variants={fadeUpSmall}>
+                    <Button type="submit" variant="wine" size="lg" disabled={isSubmitting} className="w-full">
+                      {isSubmitting ? "Sending..." : "Inquire About Events"}
+                    </Button>
+                  </motion.div>
+                </motion.div>
               </motion.form>
             </div>
           </div>
