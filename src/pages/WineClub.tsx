@@ -13,6 +13,19 @@ import tastingRoomImage from "@/assets/tasting-room-interior.jpg";
 import eventSpaceImage from "@/assets/event-space.jpg";
 import wineMerlot from "@/assets/wine-merlot.jpg";
 import wineRose from "@/assets/wine-rose.jpg";
+import { 
+  fadeUp, 
+  fadeUpSmall,
+  staggerContainer, 
+  staggerContainerSlow,
+  cardReveal,
+  heroReveal,
+  lineReveal,
+  iconReveal,
+  scaleReveal,
+  viewportOnce,
+  luxuryEase
+} from "@/lib/animations";
 
 const benefits = [
   {
@@ -110,7 +123,6 @@ const WineClub = () => {
 
   const handleTierSelect = (tierId: string) => {
     setSelectedTier(tierId);
-    // Scroll to signup form
     document.getElementById("signup-form")?.scrollIntoView({ behavior: "smooth" });
   };
 
@@ -179,20 +191,40 @@ const WineClub = () => {
         {/* Hero */}
         <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0 bg-brand-black">
-            <img src={tastingRoomImage} alt="Wine club experience" className="absolute inset-0 w-full h-full object-cover opacity-30" />
+            <motion.img 
+              initial={{ scale: 1.1 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 1.5, ease: luxuryEase }}
+              src={tastingRoomImage} 
+              alt="Wine club experience" 
+              className="absolute inset-0 w-full h-full object-cover opacity-30" 
+            />
             <div className="absolute inset-0 bg-gradient-to-b from-brand-black/50 via-transparent to-brand-black" />
           </div>
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            variants={staggerContainer}
+            initial="hidden"
+            animate="visible"
             className="relative z-10 text-center px-6"
           >
-            <span className="text-brand-gold uppercase tracking-widest text-sm mb-4 block font-body">Exclusive Membership</span>
-            <h1 className="font-display text-5xl md:text-7xl text-brand-cream mb-4">The Bevvy Club</h1>
-            <p className="text-brand-cream/70 text-lg md:text-xl max-w-2xl mx-auto font-body">
+            <motion.span 
+              variants={fadeUp}
+              className="text-brand-gold uppercase tracking-widest text-sm mb-4 block font-body"
+            >
+              Exclusive Membership
+            </motion.span>
+            <motion.h1 
+              variants={heroReveal}
+              className="font-display text-5xl md:text-7xl text-brand-cream mb-4"
+            >
+              The Bevvy Club
+            </motion.h1>
+            <motion.p 
+              variants={fadeUpSmall}
+              className="text-brand-cream/70 text-lg md:text-xl max-w-2xl mx-auto font-body"
+            >
               An exclusive membership for those who appreciate fine wine and warm company
-            </p>
+            </motion.p>
           </motion.div>
         </section>
 
@@ -200,36 +232,55 @@ const WineClub = () => {
         <section className="py-24 bg-brand-cream">
           <div className="container mx-auto px-6">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewportOnce}
               className="text-center mb-16"
             >
-              <span className="text-brand-gold uppercase tracking-widest text-sm font-body">Member Benefits</span>
-              <h2 className="font-display text-4xl md:text-5xl text-brand-black mt-4">
+              <motion.span 
+                variants={fadeUp}
+                className="text-brand-gold uppercase tracking-widest text-sm font-body inline-block"
+              >
+                Member Benefits
+              </motion.span>
+              <motion.h2 
+                variants={fadeUp}
+                className="font-display text-4xl md:text-5xl text-brand-black mt-4"
+              >
                 Why Join the Club?
-              </h2>
-              <div className="w-16 h-px bg-gradient-to-r from-transparent via-brand-gold to-transparent mx-auto mt-6" />
+              </motion.h2>
+              <motion.div 
+                variants={lineReveal}
+                className="w-16 h-px bg-gradient-to-r from-transparent via-brand-gold to-transparent mx-auto mt-6 origin-center" 
+              />
             </motion.div>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-              {benefits.map((benefit, index) => (
+            <motion.div 
+              variants={staggerContainerSlow}
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewportOnce}
+              className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8"
+            >
+              {benefits.map((benefit) => (
                 <motion.div
                   key={benefit.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
+                  variants={cardReveal}
                   className="text-center group"
                 >
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-brand-gold/15 to-brand-gold/5 border border-brand-gold/20 flex items-center justify-center mx-auto mb-4 transition-all duration-300 group-hover:scale-105 group-hover:shadow-[0_0_20px_rgba(220,176,131,0.2)]">
+                  <motion.div 
+                    variants={iconReveal}
+                    whileHover={{ scale: 1.05 }}
+                    className="w-16 h-16 rounded-full bg-gradient-to-br from-brand-gold/15 to-brand-gold/5 border border-brand-gold/20 flex items-center justify-center mx-auto mb-4 transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(220,176,131,0.2)]"
+                  >
                     <benefit.icon className="w-8 h-8 text-brand-gold" strokeWidth={1.5} />
-                  </div>
+                  </motion.div>
                   <h3 className="font-display text-xl text-brand-black mb-2">{benefit.title}</h3>
                   <p className="text-brand-black/70 text-sm font-body">{benefit.description}</p>
                 </motion.div>
               ))}
-            </div>
+            </motion.div>
           </div>
         </section>
 
@@ -240,29 +291,48 @@ const WineClub = () => {
           </div>
           <div className="container mx-auto px-6 relative z-10">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewportOnce}
               className="text-center mb-16"
             >
-              <span className="text-brand-gold uppercase tracking-widest text-sm font-body">Membership Options</span>
-              <h2 className="font-display text-4xl md:text-5xl text-brand-cream mt-4">
+              <motion.span 
+                variants={fadeUp}
+                className="text-brand-gold uppercase tracking-widest text-sm font-body inline-block"
+              >
+                Membership Options
+              </motion.span>
+              <motion.h2 
+                variants={fadeUp}
+                className="font-display text-4xl md:text-5xl text-brand-cream mt-4"
+              >
                 Choose Your Experience
-              </h2>
-              <div className="w-16 h-px bg-gradient-to-r from-transparent via-brand-gold to-transparent mx-auto mt-6" />
-              <p className="text-brand-cream/70 max-w-2xl mx-auto mt-6 font-body">
+              </motion.h2>
+              <motion.div 
+                variants={lineReveal}
+                className="w-16 h-px bg-gradient-to-r from-transparent via-brand-gold to-transparent mx-auto mt-6 origin-center" 
+              />
+              <motion.p 
+                variants={fadeUpSmall}
+                className="text-brand-cream/70 max-w-2xl mx-auto mt-6 font-body"
+              >
                 Select the membership tier that best fits your wine journey
-              </p>
+              </motion.p>
             </motion.div>
 
-            <div className="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
-              {membershipTiers.map((tier, index) => (
+            <motion.div 
+              variants={staggerContainerSlow}
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewportOnce}
+              className="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto"
+            >
+              {membershipTiers.map((tier) => (
                 <motion.div
                   key={tier.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.15 }}
+                  variants={cardReveal}
+                  whileHover={{ y: -4, transition: { duration: 0.3 } }}
                   className={cn(
                     "relative rounded-sm overflow-hidden transition-all duration-500",
                     tier.popular
@@ -332,7 +402,7 @@ const WineClub = () => {
                   </div>
                 </motion.div>
               ))}
-            </div>
+            </motion.div>
           </div>
         </section>
 
@@ -341,16 +411,28 @@ const WineClub = () => {
           <div className="container mx-auto px-6">
             <div className="max-w-2xl mx-auto">
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                variants={staggerContainer}
+                initial="hidden"
+                whileInView="visible"
+                viewport={viewportOnce}
                 className="text-center mb-12"
               >
-                <span className="text-brand-gold uppercase tracking-widest text-sm font-body">Join Today</span>
-                <h2 className="font-display text-4xl md:text-5xl text-brand-black mt-4">
+                <motion.span 
+                  variants={fadeUp}
+                  className="text-brand-gold uppercase tracking-widest text-sm font-body inline-block"
+                >
+                  Join Today
+                </motion.span>
+                <motion.h2 
+                  variants={fadeUp}
+                  className="font-display text-4xl md:text-5xl text-brand-black mt-4"
+                >
                   Complete Your Membership
-                </h2>
-                <div className="w-16 h-px bg-gradient-to-r from-transparent via-brand-gold to-transparent mx-auto mt-6" />
+                </motion.h2>
+                <motion.div 
+                  variants={lineReveal}
+                  className="w-16 h-px bg-gradient-to-r from-transparent via-brand-gold to-transparent mx-auto mt-6 origin-center" 
+                />
               </motion.div>
 
               {/* Selected Tier Display */}
@@ -381,18 +463,24 @@ const WineClub = () => {
               )}
 
               {!selectedTierData && (
-                <div className="bg-brand-black/5 border border-brand-gray/20 rounded-sm p-6 mb-8 text-center">
+                <motion.div 
+                  variants={fadeUp}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={viewportOnce}
+                  className="bg-brand-black/5 border border-brand-gray/20 rounded-sm p-6 mb-8 text-center"
+                >
                   <p className="text-brand-black/70 font-body">
                     Please select a membership tier above to continue
                   </p>
-                </div>
+                </motion.div>
               )}
 
               <motion.form
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2 }}
+                variants={fadeUpSmall}
+                initial="hidden"
+                whileInView="visible"
+                viewport={viewportOnce}
                 onSubmit={handleSubmit}
                 className="bg-white p-8 rounded-sm border border-brand-gray/20 shadow-lg"
               >
@@ -463,25 +551,35 @@ const WineClub = () => {
         <section className="py-24 bg-brand-black">
           <div className="container mx-auto px-6">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewportOnce}
               className="text-center mb-12"
             >
-              <h2 className="font-display text-3xl md:text-4xl text-brand-cream">
+              <motion.h2 
+                variants={fadeUp}
+                className="font-display text-3xl md:text-4xl text-brand-cream"
+              >
                 The Club Experience
-              </h2>
-              <div className="w-16 h-px bg-gradient-to-r from-transparent via-brand-gold to-transparent mx-auto mt-6" />
+              </motion.h2>
+              <motion.div 
+                variants={lineReveal}
+                className="w-16 h-px bg-gradient-to-r from-transparent via-brand-gold to-transparent mx-auto mt-6 origin-center" 
+              />
             </motion.div>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <motion.div 
+              variants={staggerContainerSlow}
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewportOnce}
+              className="grid grid-cols-2 md:grid-cols-4 gap-4"
+            >
               {[tastingRoomImage, wineMerlot, eventSpaceImage, wineRose].map((image, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
+                  variants={scaleReveal}
                   className="aspect-square bg-brand-brown/10 rounded-sm overflow-hidden"
                 >
                   <img
@@ -491,7 +589,7 @@ const WineClub = () => {
                   />
                 </motion.div>
               ))}
-            </div>
+            </motion.div>
           </div>
         </section>
 

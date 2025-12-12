@@ -2,6 +2,14 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import WineBottleImage from "@/components/WineBottleImage";
+import { 
+  fadeUp, 
+  staggerContainer, 
+  staggerContainerSlow,
+  cardReveal,
+  lineReveal,
+  viewportOnce 
+} from "@/lib/animations";
 
 // Import bottle images
 import trinityBottle from "@/assets/bottles/trinity.png";
@@ -53,30 +61,48 @@ const HomepageWines = () => {
 
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
           className="text-center mb-16"
         >
-          <span className="text-brand-gold uppercase tracking-widest text-sm font-body">Our Collection</span>
-          <h2 className="heading-section text-brand-cream mt-4 mb-4">
+          <motion.span 
+            variants={fadeUp}
+            className="text-brand-gold uppercase tracking-widest text-sm font-body inline-block"
+          >
+            Our Collection
+          </motion.span>
+          <motion.h2 
+            variants={fadeUp}
+            className="heading-section text-brand-cream mt-4 mb-4"
+          >
             Signature Wines
-          </h2>
-          <div className="divider-gold" />
-          <p className="text-brand-cream/70 max-w-2xl mx-auto font-body text-lg">
+          </motion.h2>
+          <motion.div 
+            variants={lineReveal}
+            className="divider-gold origin-center" 
+          />
+          <motion.p 
+            variants={fadeUp}
+            className="text-brand-cream/70 max-w-2xl mx-auto font-body text-lg"
+          >
             Sourced from quality vineyards, crafted with care in our Bessemer barrel room
-          </p>
+          </motion.p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {featuredWines.map((wine, index) => (
+        <motion.div 
+          variants={staggerContainerSlow}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
+        >
+          {featuredWines.map((wine) => (
             <motion.div
               key={wine.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              whileHover={{ y: -8 }}
+              variants={cardReveal}
+              whileHover={{ y: -8, transition: { duration: 0.3 } }}
               className="group bg-gradient-to-b from-brand-black/60 to-brand-black/40 backdrop-blur-sm rounded-sm overflow-hidden border border-brand-gold/10 hover:border-brand-gold/40 transition-all duration-500"
             >
               {/* Bottle Image */}
@@ -110,12 +136,13 @@ const HomepageWines = () => {
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
           className="text-center mt-12"
         >
           <Button variant="gold" size="lg" asChild>

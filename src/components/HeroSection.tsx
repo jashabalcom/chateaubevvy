@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-winery.jpg";
+import { staggerContainer, heroReveal, fadeUp, luxuryEase } from "@/lib/animations";
 
 const HeroSection = () => {
   const scrollToWaitlist = () => {
@@ -13,9 +14,9 @@ const HeroSection = () => {
       {/* Background Image with Zoom Animation */}
       <div className="absolute inset-0">
         <motion.div
-          initial={{ scale: 1 }}
-          animate={{ scale: 1.1 }}
-          transition={{ duration: 20, ease: "easeOut" }}
+          initial={{ scale: 1.1 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 1.8, ease: luxuryEase }}
           className="h-full w-full"
         >
           <img
@@ -33,57 +34,54 @@ const HeroSection = () => {
       {/* Content */}
       <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 pt-20 md:pt-0 text-center">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="mb-6"
+          variants={staggerContainer}
+          initial="hidden"
+          animate="visible"
+          className="flex flex-col items-center"
         >
-          <span className="inline-block rounded-full border border-brand-cream/30 bg-brand-cream/10 px-4 py-2 text-sm tracking-widest text-brand-cream/90 backdrop-blur-sm">
-            COMING SOON • JEFFERSON COUNTY, ALABAMA
-          </span>
-        </motion.div>
+          <motion.div
+            variants={fadeUp}
+            className="mb-6"
+          >
+            <span className="inline-block rounded-full border border-brand-cream/30 bg-brand-cream/10 px-4 py-2 text-sm tracking-widest text-brand-cream/90 backdrop-blur-sm">
+              COMING SOON • JEFFERSON COUNTY, ALABAMA
+            </span>
+          </motion.div>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="heading-hero mb-6 max-w-4xl text-brand-cream"
-        >
-          Jefferson County's First{" "}
-          <span className="text-accent italic text-brand-gold">Urban Winery</span>
-        </motion.h1>
+          <motion.h1
+            variants={heroReveal}
+            className="heading-hero mb-6 max-w-4xl text-brand-cream"
+          >
+            Jefferson County's First{" "}
+            <span className="text-accent italic text-brand-gold">Urban Winery</span>
+          </motion.h1>
 
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.7 }}
-          className="font-script text-3xl md:text-4xl text-brand-gold mb-6"
-        >
-          Crafted with heart, poured with soul
-        </motion.p>
+          <motion.p
+            variants={heroReveal}
+            className="font-script text-3xl md:text-4xl text-brand-gold mb-6"
+          >
+            Crafted with heart, poured with soul
+          </motion.p>
 
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.85 }}
-          className="text-body-large mb-10 max-w-2xl text-brand-cream/80"
-        >
-          A historic Bessemer landmark reimagined as a warm, intimate wine
-          experience. Black-owned. Veteran-owned. Opening soon.
-        </motion.p>
+          <motion.p
+            variants={fadeUp}
+            className="text-body-large mb-10 max-w-2xl text-brand-cream/80"
+          >
+            A historic Bessemer landmark reimagined as a warm, intimate wine
+            experience. Black-owned. Veteran-owned. Opening soon.
+          </motion.p>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.9 }}
-          className="flex flex-col gap-4 sm:flex-row"
-        >
-          <Button variant="hero" size="xl" onClick={scrollToWaitlist}>
-            Join the Bevvy Waitlist
-          </Button>
-          <Button variant="hero-outline" size="xl" onClick={scrollToWaitlist}>
-            Get Opening Updates
-          </Button>
+          <motion.div
+            variants={fadeUp}
+            className="flex flex-col gap-4 sm:flex-row"
+          >
+            <Button variant="hero" size="xl" onClick={scrollToWaitlist}>
+              Join the Bevvy Waitlist
+            </Button>
+            <Button variant="hero-outline" size="xl" onClick={scrollToWaitlist}>
+              Get Opening Updates
+            </Button>
+          </motion.div>
         </motion.div>
 
         {/* Scroll Indicator */}
@@ -96,7 +94,7 @@ const HeroSection = () => {
           <motion.button
             onClick={scrollToWaitlist}
             animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
+            transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
             className="flex flex-col items-center gap-2 text-brand-cream/60 transition-colors hover:text-brand-cream"
             aria-label="Scroll down"
           >
