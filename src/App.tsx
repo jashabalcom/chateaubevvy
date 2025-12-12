@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import AnimatedRoutes from "./components/AnimatedRoutes";
+import BackToTop from "./components/BackToTop";
 
 const queryClient = new QueryClient();
 
@@ -16,6 +17,7 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <AnimatedRoutes />
+          <BackToTop />
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>
