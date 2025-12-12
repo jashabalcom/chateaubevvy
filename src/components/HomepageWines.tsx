@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import WineBottleImage from "@/components/WineBottleImage";
 
 // Import bottle images
 import trinityBottle from "@/assets/bottles/trinity.png";
@@ -80,9 +81,10 @@ const HomepageWines = () => {
             >
               {/* Bottle Image */}
               <div className="relative aspect-[3/4] bg-gradient-to-b from-brand-black/20 via-brand-cream/5 to-brand-black/20 overflow-hidden flex items-center justify-center p-4">
-                <img
+                <WineBottleImage
                   src={wine.image}
                   alt={wine.name}
+                  containerClassName="h-full w-auto"
                   className="h-full w-auto object-contain group-hover:scale-105 transition-transform duration-500 drop-shadow-[0_20px_30px_rgba(0,0,0,0.5)]"
                 />
                 {wine.badge && (
