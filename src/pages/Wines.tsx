@@ -7,6 +7,17 @@ import WineDetailModal from "@/components/WineDetailModal";
 import WineBottleImage from "@/components/WineBottleImage";
 import { cn } from "@/lib/utils";
 import wineCellarImage from "@/assets/wine-cellar.jpg";
+import { 
+  fadeUp, 
+  fadeUpSmall,
+  staggerContainer, 
+  staggerContainerSlow,
+  cardReveal,
+  heroReveal,
+  lineReveal,
+  viewportOnce,
+  luxuryEase
+} from "@/lib/animations";
 
 // Import bottle images
 import merlotBottle from "@/assets/bottles/merlot.png";
@@ -149,19 +160,34 @@ const Wines = () => {
         {/* Hero */}
         <section className="relative h-[50vh] flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0 bg-brand-black">
-            <img src={wineCellarImage} alt="Wine cellar" className="absolute inset-0 w-full h-full object-cover opacity-30" />
+            <motion.img 
+              initial={{ scale: 1.1 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 1.5, ease: luxuryEase }}
+              src={wineCellarImage} 
+              alt="Wine cellar" 
+              className="absolute inset-0 w-full h-full object-cover opacity-30" 
+            />
             <div className="absolute inset-0 bg-gradient-to-b from-brand-black/50 via-transparent to-brand-black" />
           </div>
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            variants={staggerContainer}
+            initial="hidden"
+            animate="visible"
             className="relative z-10 text-center px-6"
           >
-            <h1 className="heading-hero text-brand-cream mb-4">Our Wines</h1>
-            <p className="font-script text-2xl md:text-3xl text-brand-gold">
+            <motion.h1 
+              variants={heroReveal}
+              className="heading-hero text-brand-cream mb-4"
+            >
+              Our Wines
+            </motion.h1>
+            <motion.p 
+              variants={heroReveal}
+              className="font-script text-2xl md:text-3xl text-brand-gold"
+            >
               Crafted with heart, inspired by travel
-            </p>
+            </motion.p>
           </motion.div>
         </section>
 
@@ -170,12 +196,16 @@ const Wines = () => {
           <div className="container mx-auto px-6">
             {/* Filters */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewportOnce}
               className="flex flex-wrap justify-center gap-8 mb-16"
             >
-              <div className="flex flex-wrap items-center gap-3">
+              <motion.div 
+                variants={fadeUpSmall}
+                className="flex flex-wrap items-center gap-3"
+              >
                 <span className="text-brand-black/60 text-sm uppercase tracking-wider font-body">Type:</span>
                 {filters.category.map((cat) => (
                   <button
@@ -191,8 +221,11 @@ const Wines = () => {
                     {cat}
                   </button>
                 ))}
-              </div>
-              <div className="flex flex-wrap items-center gap-3">
+              </motion.div>
+              <motion.div 
+                variants={fadeUpSmall}
+                className="flex flex-wrap items-center gap-3"
+              >
                 <span className="text-brand-black/60 text-sm uppercase tracking-wider font-body">Sweetness:</span>
                 {filters.sweetness.map((sweet) => (
                   <button
@@ -208,19 +241,22 @@ const Wines = () => {
                     {sweet}
                   </button>
                 ))}
-              </div>
+              </motion.div>
             </motion.div>
 
             {/* Wine Grid */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-              {filteredWines.map((wine, index) => (
+            <motion.div 
+              variants={staggerContainerSlow}
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewportOnce}
+              className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
+            >
+              {filteredWines.map((wine) => (
                 <motion.div
                   key={wine.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  whileHover={{ y: -8 }}
+                  variants={cardReveal}
+                  whileHover={{ y: -8, transition: { duration: 0.3 } }}
                   onClick={() => handleWineClick(wine)}
                   className="group bg-white rounded-sm overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-brand-gray/20 cursor-pointer"
                 >
@@ -281,12 +317,17 @@ const Wines = () => {
                   </div>
                 </motion.div>
               ))}
-            </div>
+            </motion.div>
 
             {filteredWines.length === 0 && (
-              <p className="text-center text-brand-black/60 py-12">
+              <motion.p 
+                variants={fadeUp}
+                initial="hidden"
+                animate="visible"
+                className="text-center text-brand-black/60 py-12"
+              >
                 No wines match your current filters. Try adjusting your selection.
-              </p>
+              </motion.p>
             )}
           </div>
         </section>
