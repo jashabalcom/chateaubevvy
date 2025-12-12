@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import { Instagram, Facebook, Mail, MapPin } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 import logo from "@/assets/logo.png";
+import mlaLogoWhite from "@/assets/mla-logo-white.png";
+import mlaLogoColor from "@/assets/mla-logo-color.png";
 
 const Footer = forwardRef<HTMLElement>((_, ref) => {
   const [logoLoaded, setLogoLoaded] = useState(false);
@@ -88,6 +90,32 @@ const Footer = forwardRef<HTMLElement>((_, ref) => {
           <p className="mt-2 font-body text-xs text-brand-cream/50">
             Black-owned • Veteran-owned • Bessemer, Alabama
           </p>
+
+          {/* Agency Credit */}
+          <a
+            href="https://majorleadsagency.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group mt-6 flex items-center gap-2 transition-opacity duration-300 hover:opacity-100 opacity-70"
+            aria-label="Designed by Major Leads Agency (opens in new tab)"
+          >
+            <span className="font-body text-xs text-brand-cream/50">Designed by</span>
+            <div className="relative h-5 w-auto">
+              {/* White logo (default) */}
+              <img
+                src={mlaLogoWhite}
+                alt="Major Leads Agency"
+                className="h-5 w-auto transition-opacity duration-300 group-hover:opacity-0"
+              />
+              {/* Color logo (on hover) */}
+              <img
+                src={mlaLogoColor}
+                alt=""
+                className="absolute inset-0 h-5 w-auto opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                aria-hidden="true"
+              />
+            </div>
+          </a>
         </motion.div>
       </div>
     </footer>
