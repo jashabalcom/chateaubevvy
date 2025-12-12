@@ -9,6 +9,16 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import { 
+  fadeUp, 
+  fadeUpSmall, 
+  staggerContainer, 
+  slideInLeft, 
+  slideInRight, 
+  iconReveal,
+  scaleReveal,
+  viewportOnce 
+} from "@/lib/animations";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -80,18 +90,21 @@ const Contact = () => {
             <div className="grid lg:grid-cols-2 gap-16">
               {/* Contact Info */}
               <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
+                variants={staggerContainer}
+                initial="hidden"
+                whileInView="visible"
+                viewport={viewportOnce}
               >
-                <span className="text-brand-gold uppercase tracking-widest text-sm">Get In Touch</span>
-                <h2 className="font-serif text-4xl md:text-5xl text-brand-black mt-4 mb-8">
+                <motion.span variants={fadeUpSmall} className="text-brand-gold uppercase tracking-widest text-sm block">Get In Touch</motion.span>
+                <motion.h2 variants={fadeUp} className="font-serif text-4xl md:text-5xl text-brand-black mt-4 mb-8">
                   Let's Connect
-                </h2>
+                </motion.h2>
 
-                <div className="space-y-8">
-                  <div className="flex items-start gap-4">
-                    <MapPin className="w-6 h-6 text-brand-gold flex-shrink-0 mt-1" />
+                <motion.div variants={staggerContainer} className="space-y-8">
+                  <motion.div variants={fadeUpSmall} className="flex items-start gap-4">
+                    <motion.div variants={iconReveal}>
+                      <MapPin className="w-6 h-6 text-brand-gold flex-shrink-0 mt-1" />
+                    </motion.div>
                     <div>
                       <h3 className="text-brand-black font-medium mb-1">Location</h3>
                       <p className="text-brand-black/70">
@@ -99,49 +112,58 @@ const Contact = () => {
                         Downtown Bessemer, AL 35020
                       </p>
                     </div>
-                  </div>
+                  </motion.div>
 
-                  <div className="flex items-start gap-4">
-                    <Phone className="w-6 h-6 text-brand-gold flex-shrink-0 mt-1" />
+                  <motion.div variants={fadeUpSmall} className="flex items-start gap-4">
+                    <motion.div variants={iconReveal}>
+                      <Phone className="w-6 h-6 text-brand-gold flex-shrink-0 mt-1" />
+                    </motion.div>
                     <div>
                       <h3 className="text-brand-black font-medium mb-1">Phone</h3>
                       <p className="text-brand-black/70">(205) 555-WINE</p>
                     </div>
-                  </div>
+                  </motion.div>
 
-                  <div className="flex items-start gap-4">
-                    <Mail className="w-6 h-6 text-brand-gold flex-shrink-0 mt-1" />
+                  <motion.div variants={fadeUpSmall} className="flex items-start gap-4">
+                    <motion.div variants={iconReveal}>
+                      <Mail className="w-6 h-6 text-brand-gold flex-shrink-0 mt-1" />
+                    </motion.div>
                     <div>
                       <h3 className="text-brand-black font-medium mb-1">Email</h3>
                       <p className="text-brand-black/70">hello@chateaubevvy.com</p>
                     </div>
-                  </div>
+                  </motion.div>
 
-                  <div className="pt-8 border-t border-brand-black/10">
+                  <motion.div variants={fadeUpSmall} className="pt-8 border-t border-brand-black/10">
                     <h3 className="text-brand-black font-medium mb-4">Follow Us</h3>
-                    <div className="flex gap-4">
-                      <a
+                    <motion.div variants={staggerContainer} className="flex gap-4">
+                      <motion.a
+                        variants={iconReveal}
                         href="https://instagram.com"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="w-10 h-10 rounded-full bg-brand-brown/10 flex items-center justify-center text-brand-brown hover:bg-brand-brown hover:text-brand-cream transition-colors"
                       >
                         <Instagram className="w-5 h-5" />
-                      </a>
-                      <a
+                      </motion.a>
+                      <motion.a
+                        variants={iconReveal}
                         href="https://facebook.com"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="w-10 h-10 rounded-full bg-brand-brown/10 flex items-center justify-center text-brand-brown hover:bg-brand-brown hover:text-brand-cream transition-colors"
                       >
                         <Facebook className="w-5 h-5" />
-                      </a>
-                    </div>
-                  </div>
-                </div>
+                      </motion.a>
+                    </motion.div>
+                  </motion.div>
+                </motion.div>
 
                 {/* Map */}
-                <div className="mt-12 aspect-video bg-brand-black/10 rounded-sm overflow-hidden">
+                <motion.div 
+                  variants={scaleReveal}
+                  className="mt-12 aspect-video bg-brand-black/10 rounded-sm overflow-hidden"
+                >
                   <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3327.4559565065897!2d-86.95431908479767!3d33.40118548078373!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x888911df5885c3eb%3A0x25507409eaba54c!2sBessemer%2C%20AL!5e0!3m2!1sen!2sus!4v1650000000000!5m2!1sen!2sus"
                     width="100%"
@@ -152,21 +174,36 @@ const Contact = () => {
                     referrerPolicy="no-referrer-when-downgrade"
                     title="Chateau Bevvy Location"
                   />
-                </div>
+                </motion.div>
               </motion.div>
 
               {/* Contact Form */}
               <motion.form
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
+                variants={slideInRight}
+                initial="hidden"
+                whileInView="visible"
+                viewport={viewportOnce}
                 onSubmit={handleSubmit}
                 className="bg-white p-8 rounded-sm shadow-lg h-fit"
               >
-                <h3 className="font-serif text-2xl text-brand-black mb-6">Send a Message</h3>
+                <motion.h3 
+                  variants={fadeUp}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={viewportOnce}
+                  className="font-serif text-2xl text-brand-black mb-6"
+                >
+                  Send a Message
+                </motion.h3>
 
-                <div className="grid gap-6">
-                  <div>
+                <motion.div 
+                  variants={staggerContainer}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={viewportOnce}
+                  className="grid gap-6"
+                >
+                  <motion.div variants={fadeUpSmall}>
                     <label className="text-brand-black text-sm font-medium mb-2 block">Name *</label>
                     <Input
                       required
@@ -174,9 +211,9 @@ const Contact = () => {
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       className="border-brand-black/20 focus:border-brand-gold"
                     />
-                  </div>
+                  </motion.div>
 
-                  <div>
+                  <motion.div variants={fadeUpSmall}>
                     <label className="text-brand-black text-sm font-medium mb-2 block">Email *</label>
                     <Input
                       type="email"
@@ -185,9 +222,9 @@ const Contact = () => {
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       className="border-brand-black/20 focus:border-brand-gold"
                     />
-                  </div>
+                  </motion.div>
 
-                  <div>
+                  <motion.div variants={fadeUpSmall}>
                     <label className="text-brand-black text-sm font-medium mb-2 block">Subject</label>
                     <Input
                       value={formData.subject}
@@ -195,9 +232,9 @@ const Contact = () => {
                       className="border-brand-black/20 focus:border-brand-gold"
                       placeholder="What's this about?"
                     />
-                  </div>
+                  </motion.div>
 
-                  <div>
+                  <motion.div variants={fadeUpSmall}>
                     <label className="text-brand-black text-sm font-medium mb-2 block">Message *</label>
                     <Textarea
                       required
@@ -207,12 +244,14 @@ const Contact = () => {
                       className="border-brand-black/20 focus:border-brand-gold resize-none"
                       placeholder="How can we help?"
                     />
-                  </div>
+                  </motion.div>
 
-                  <Button type="submit" variant="wine" size="lg" disabled={isSubmitting}>
-                    {isSubmitting ? "Sending..." : "Send Message"}
-                  </Button>
-                </div>
+                  <motion.div variants={fadeUpSmall}>
+                    <Button type="submit" variant="wine" size="lg" disabled={isSubmitting} className="w-full">
+                      {isSubmitting ? "Sending..." : "Send Message"}
+                    </Button>
+                  </motion.div>
+                </motion.div>
               </motion.form>
             </div>
           </div>
