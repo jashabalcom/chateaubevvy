@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-winery.jpg";
+import logo from "@/assets/logo-circular.png";
 import { staggerContainer, heroReveal, fadeUp, luxuryEase } from "@/lib/animations";
 
 const HeroSection = () => {
@@ -39,6 +40,17 @@ const HeroSection = () => {
           animate="visible"
           className="flex flex-col items-center"
         >
+          {/* Brand Logo */}
+          <motion.img
+            src={logo}
+            alt="Chateau Bevvy Winery"
+            variants={fadeUp}
+            className="h-24 w-24 md:h-28 md:w-28 mb-6 rounded-full"
+            style={{
+              filter: "drop-shadow(0 0 30px rgba(220, 176, 131, 0.4))"
+            }}
+          />
+
           <motion.div
             variants={fadeUp}
             className="mb-6"
