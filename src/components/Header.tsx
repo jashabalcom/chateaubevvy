@@ -4,7 +4,7 @@ import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { Skeleton } from "@/components/ui/skeleton";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/logo-circular.png";
 
 const navLinks = [
   { name: "Home", path: "/home" },
@@ -54,14 +54,14 @@ const Header = () => {
           {/* Logo */}
           <Link 
             to="/home" 
-            className="relative z-10 focus-visible-ring rounded-sm"
+            className="group relative z-10 focus-visible-ring rounded-full"
             aria-label="Chateau Bevvy - Home"
           >
             {!isLogoLoaded && (
               <Skeleton 
                 className={cn(
-                  "transition-all duration-500 bg-brand-cream/10",
-                  isScrolled ? "h-16 md:h-20 w-32 md:w-40" : "h-20 md:h-24 w-40 md:w-48"
+                  "rounded-full transition-all duration-500 bg-brand-cream/10",
+                  isScrolled ? "h-12 w-12 md:h-14 md:w-14" : "h-14 w-14 md:h-16 md:w-16"
                 )} 
               />
             )}
@@ -69,11 +69,15 @@ const Header = () => {
               src={logo}
               alt="Chateau Bevvy"
               className={cn(
-                "transition-all duration-500",
-                isScrolled ? "h-16 md:h-20" : "h-20 md:h-24",
+                "rounded-full transition-all duration-500",
+                isScrolled ? "h-12 w-12 md:h-14 md:w-14" : "h-14 w-14 md:h-16 md:w-16",
                 !isLogoLoaded && "absolute opacity-0"
               )}
-              whileHover={{ scale: 1.02 }}
+              whileHover={{ 
+                scale: 1.08,
+                boxShadow: "0 0 25px rgba(220, 176, 131, 0.5)"
+              }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
               onLoad={() => setIsLogoLoaded(true)}
             />
           </Link>

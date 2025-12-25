@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Instagram, Facebook, Mail, MapPin } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/logo-circular.png";
 import mlaLogoWhite from "@/assets/mla-logo-white.png";
 import mlaLogoColor from "@/assets/mla-logo-color.png";
 
@@ -27,14 +27,23 @@ const Footer = forwardRef<HTMLElement>((_, ref) => {
           className="flex flex-col items-center text-center"
         >
           {/* Logo */}
-          <Link to="/" className="relative block w-32 h-24 mb-4">
+          <Link 
+            to="/" 
+            className="group relative block mb-6 focus-visible-ring rounded-full"
+            aria-label="Chateau Bevvy - Go to homepage"
+          >
             {!logoLoaded && (
-              <Skeleton className="absolute inset-0 w-32 h-24 bg-brand-cream/10" />
+              <Skeleton className="h-20 w-20 md:h-24 md:w-24 rounded-full bg-brand-cream/10" />
             )}
-            <img 
+            <motion.img 
               src={logo} 
-              alt="Chateau Bevvy - Go to homepage" 
-              className={`h-24 w-auto transition-opacity duration-300 ${logoLoaded ? 'opacity-100' : 'opacity-0'}`}
+              alt="Chateau Bevvy" 
+              className={`h-20 w-20 md:h-24 md:w-24 rounded-full transition-all duration-300 ${logoLoaded ? 'opacity-100' : 'opacity-0 absolute'}`}
+              whileHover={{ 
+                scale: 1.08,
+                boxShadow: "0 0 30px rgba(220, 176, 131, 0.5)"
+              }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
               onLoad={() => setLogoLoaded(true)}
             />
           </Link>
