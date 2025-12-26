@@ -158,9 +158,9 @@ const Wines = () => {
 
       <main className="min-h-screen bg-background">
         {/* Hero */}
-        <section className="relative h-[50vh] flex items-center justify-center overflow-hidden">
+        <section className="relative h-[40vh] md:h-[50vh] flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0 bg-brand-black">
-            <motion.img 
+            <motion.img
               initial={{ scale: 1.1 }}
               animate={{ scale: 1 }}
               transition={{ duration: 1.5, ease: luxuryEase }}
@@ -174,17 +174,17 @@ const Wines = () => {
             variants={staggerContainer}
             initial="hidden"
             animate="visible"
-            className="relative z-10 text-center px-6"
+            className="relative z-10 text-center px-4 sm:px-6"
           >
             <motion.h1 
               variants={heroReveal}
-              className="heading-hero text-brand-cream mb-4"
+              className="heading-hero text-brand-cream mb-3 md:mb-4"
             >
               Our Wines
             </motion.h1>
             <motion.p 
               variants={heroReveal}
-              className="font-script text-2xl md:text-3xl text-brand-gold"
+              className="font-script text-xl sm:text-2xl md:text-3xl text-brand-gold"
             >
               Crafted with heart, inspired by travel
             </motion.p>
@@ -192,27 +192,27 @@ const Wines = () => {
         </section>
 
         {/* Filters & Wines */}
-        <section className="py-24 bg-brand-cream">
-          <div className="container mx-auto px-6">
+        <section className="py-12 md:py-24 bg-brand-cream">
+          <div className="container mx-auto px-4 sm:px-6">
             {/* Filters */}
             <motion.div
               variants={staggerContainer}
               initial="hidden"
               whileInView="visible"
               viewport={viewportOnce}
-              className="flex flex-wrap justify-center gap-8 mb-16"
+              className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 sm:gap-6 md:gap-8 mb-8 md:mb-16"
             >
               <motion.div 
                 variants={fadeUpSmall}
-                className="flex flex-wrap items-center gap-3"
+                className="flex flex-wrap items-center justify-center gap-2 sm:gap-3"
               >
-                <span className="text-brand-black/60 text-sm uppercase tracking-wider font-body">Type:</span>
+                <span className="text-brand-black/60 text-xs sm:text-sm uppercase tracking-wider font-body w-full sm:w-auto text-center mb-1 sm:mb-0">Type:</span>
                 {filters.category.map((cat) => (
                   <button
                     key={cat}
                     onClick={() => setActiveCategory(cat)}
                     className={cn(
-                      "px-4 py-2 text-sm uppercase tracking-wider transition-all rounded-sm font-body",
+                      "px-3 sm:px-4 py-2 text-xs sm:text-sm uppercase tracking-wider transition-all rounded-sm font-body min-h-[44px]",
                       activeCategory === cat
                         ? "bg-brand-brown text-brand-cream"
                         : "bg-transparent text-brand-black hover:bg-brand-brown/10"
@@ -224,15 +224,15 @@ const Wines = () => {
               </motion.div>
               <motion.div 
                 variants={fadeUpSmall}
-                className="flex flex-wrap items-center gap-3"
+                className="flex flex-wrap items-center justify-center gap-2 sm:gap-3"
               >
-                <span className="text-brand-black/60 text-sm uppercase tracking-wider font-body">Sweetness:</span>
+                <span className="text-brand-black/60 text-xs sm:text-sm uppercase tracking-wider font-body w-full sm:w-auto text-center mb-1 sm:mb-0">Sweetness:</span>
                 {filters.sweetness.map((sweet) => (
                   <button
                     key={sweet}
                     onClick={() => setActiveSweetness(sweet)}
                     className={cn(
-                      "px-4 py-2 text-sm uppercase tracking-wider transition-all rounded-sm font-body",
+                      "px-3 sm:px-4 py-2 text-xs sm:text-sm uppercase tracking-wider transition-all rounded-sm font-body min-h-[44px]",
                       activeSweetness === sweet
                         ? "bg-brand-brown text-brand-cream"
                         : "bg-transparent text-brand-black hover:bg-brand-brown/10"
@@ -250,7 +250,7 @@ const Wines = () => {
               initial="hidden"
               whileInView="visible"
               viewport={viewportOnce}
-              className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
+              className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 md:gap-6 lg:gap-8"
             >
               {filteredWines.map((wine) => (
                 <motion.div
@@ -261,7 +261,7 @@ const Wines = () => {
                   className="group bg-white rounded-sm overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-brand-gray/20 cursor-pointer"
                 >
                   {/* Bottle Image Container */}
-                  <div className="relative aspect-[3/4] bg-gradient-to-b from-brand-black/5 via-brand-cream to-brand-cream overflow-hidden flex items-center justify-center p-6">
+                  <div className="relative aspect-[3/4] bg-gradient-to-b from-brand-black/5 via-brand-cream to-brand-cream overflow-hidden flex items-center justify-center p-3 sm:p-4 md:p-6">
                     <WineBottleImage
                       src={wine.image}
                       alt={wine.name}
@@ -269,45 +269,45 @@ const Wines = () => {
                       className="h-full w-auto object-contain group-hover:scale-105 transition-transform duration-500 drop-shadow-2xl"
                     />
                     {wine.badge && (
-                      <span className="absolute top-4 right-4 bg-brand-gold text-brand-black text-xs uppercase tracking-wider px-3 py-1.5 rounded-sm font-body font-medium shadow-md">
+                      <span className="absolute top-2 right-2 sm:top-4 sm:right-4 bg-brand-gold text-brand-black text-[10px] sm:text-xs uppercase tracking-wider px-2 sm:px-3 py-1 sm:py-1.5 rounded-sm font-body font-medium shadow-md">
                         {wine.badge}
                       </span>
                     )}
                     {/* View Details Overlay */}
                     <div className="absolute inset-0 bg-brand-black/0 group-hover:bg-brand-black/10 transition-colors duration-300 flex items-center justify-center">
-                      <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-brand-cream/90 text-brand-black px-4 py-2 rounded-sm text-sm font-body uppercase tracking-wider">
+                      <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-brand-cream/90 text-brand-black px-3 sm:px-4 py-1.5 sm:py-2 rounded-sm text-xs sm:text-sm font-body uppercase tracking-wider">
                         View Details
                       </span>
                     </div>
                   </div>
                   
                   {/* Card Content */}
-                  <div className="p-6 bg-white relative">
+                  <div className="p-3 sm:p-4 md:p-6 bg-white relative">
                     {/* Varietal & Price Row */}
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="text-brand-gold text-xs uppercase tracking-widest font-body">{wine.varietal}</span>
-                      <span className="font-display text-2xl font-semibold text-brand-brown">${wine.price}</span>
+                    <div className="flex items-center justify-between mb-1 sm:mb-2">
+                      <span className="text-brand-gold text-[10px] sm:text-xs uppercase tracking-widest font-body truncate">{wine.varietal}</span>
+                      <span className="font-display text-lg sm:text-xl md:text-2xl font-semibold text-brand-brown">${wine.price}</span>
                     </div>
                     
                     {/* Wine Name */}
-                    <h3 className="font-display text-2xl font-semibold text-brand-black tracking-wide mb-1">{wine.name}</h3>
+                    <h3 className="font-display text-base sm:text-lg md:text-2xl font-semibold text-brand-black tracking-wide mb-1">{wine.name}</h3>
                     
                     {/* Decorative Line */}
-                    <div className="w-12 h-px bg-gradient-to-r from-brand-gold to-transparent my-4" />
+                    <div className="w-8 sm:w-12 h-px bg-gradient-to-r from-brand-gold to-transparent my-2 sm:my-4" />
                     
-                    {/* Tasting Notes */}
-                    <p className="text-brand-black/70 font-body text-sm leading-relaxed mb-4 italic line-clamp-3">{wine.tastingNotes}</p>
+                    {/* Tasting Notes - Hidden on mobile */}
+                    <p className="hidden sm:block text-brand-black/70 font-body text-xs sm:text-sm leading-relaxed mb-2 sm:mb-4 italic line-clamp-2 sm:line-clamp-3">{wine.tastingNotes}</p>
                     
-                    {/* Pairing Section */}
-                    <div className="pt-4 border-t border-brand-gray/20">
+                    {/* Pairing Section - Hidden on mobile */}
+                    <div className="hidden md:block pt-4 border-t border-brand-gray/20">
                       <span className="text-xs uppercase tracking-widest text-brand-gold font-body">Pairs with</span>
                       <p className="text-brand-black/80 font-body text-sm mt-1">{wine.pairing}</p>
                     </div>
                     
                     {/* Sweetness Badge */}
-                    <div className="mt-4 flex items-center gap-2">
+                    <div className="mt-2 sm:mt-4 flex items-center gap-2">
                       <span className={cn(
-                        "px-3 py-1.5 text-xs uppercase tracking-wider rounded-sm font-body",
+                        "px-2 sm:px-3 py-1 sm:py-1.5 text-[10px] sm:text-xs uppercase tracking-wider rounded-sm font-body",
                         wine.sweetness === "dry" ? "bg-brand-black/5 text-brand-black border border-brand-black/10" :
                         "bg-brand-gold/10 text-brand-brown border border-brand-gold/20"
                       )}>

@@ -54,18 +54,18 @@ const featuredWines = [
 
 const HomepageWines = () => {
   return (
-    <section className="py-24 bg-brand-black relative overflow-hidden">
+    <section className="py-16 md:py-24 bg-brand-black relative overflow-hidden">
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,_var(--tw-gradient-stops))] from-brand-gold to-transparent" />
       </div>
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <motion.div
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
           viewport={viewportOnce}
-          className="text-center mb-16"
+          className="text-center mb-10 md:mb-16"
         >
           <motion.span 
             variants={fadeUp}
@@ -96,7 +96,7 @@ const HomepageWines = () => {
           initial="hidden"
           whileInView="visible"
           viewport={viewportOnce}
-          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
+          className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6"
         >
           {featuredWines.map((wine) => (
             <motion.div
@@ -121,18 +121,18 @@ const HomepageWines = () => {
               </div>
               
               {/* Card Content */}
-              <div className="p-5">
+              <div className="p-3 sm:p-4 md:p-5">
                 {/* Varietal & Price */}
                 <div className="flex items-center justify-between mb-1">
-                  <span className="text-brand-gold/80 text-xs uppercase tracking-widest font-body">{wine.varietal}</span>
-                  <span className="font-display text-xl font-semibold text-brand-gold">${wine.price}</span>
+                  <span className="text-brand-gold/80 text-[10px] sm:text-xs uppercase tracking-widest font-body truncate">{wine.varietal}</span>
+                  <span className="font-display text-lg sm:text-xl font-semibold text-brand-gold">${wine.price}</span>
                 </div>
                 
                 {/* Wine Name */}
-                <h3 className="font-display text-2xl font-semibold text-brand-cream tracking-wide mb-2">{wine.name}</h3>
+                <h3 className="font-display text-lg sm:text-xl md:text-2xl font-semibold text-brand-cream tracking-wide mb-1 sm:mb-2">{wine.name}</h3>
                 
                 {/* Description */}
-                <p className="text-brand-cream/60 text-sm font-body italic">{wine.description}</p>
+                <p className="text-brand-cream/60 text-xs sm:text-sm font-body italic line-clamp-2">{wine.description}</p>
               </div>
             </motion.div>
           ))}
@@ -143,7 +143,7 @@ const HomepageWines = () => {
           initial="hidden"
           whileInView="visible"
           viewport={viewportOnce}
-          className="text-center mt-12"
+          className="text-center mt-8 md:mt-12"
         >
           <Button variant="gold" size="lg" asChild>
             <Link to="/wines">Explore All Wines</Link>

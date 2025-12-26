@@ -57,7 +57,7 @@ const Visit = () => {
 
       <main className="min-h-screen bg-background">
         {/* Hero */}
-        <section className="relative h-[50vh] flex items-center justify-center overflow-hidden">
+        <section className="relative h-[40vh] md:h-[50vh] flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0 bg-brand-black">
             <motion.img 
               src={tastingRoomImage} 
@@ -73,27 +73,27 @@ const Visit = () => {
             variants={staggerContainer}
             initial="hidden"
             animate="visible"
-            className="relative z-10 text-center px-6"
+            className="relative z-10 text-center px-4 sm:px-6"
           >
-            <motion.h1 variants={heroReveal} className="font-serif text-5xl md:text-7xl text-brand-cream mb-4">Visit Us</motion.h1>
-            <motion.p variants={fadeUpSmall} className="text-brand-cream/70 text-lg md:text-xl max-w-2xl mx-auto">
+            <motion.h1 variants={heroReveal} className="heading-hero text-brand-cream mb-3 md:mb-4">Visit Us</motion.h1>
+            <motion.p variants={fadeUpSmall} className="text-brand-cream/70 text-base sm:text-lg md:text-xl max-w-2xl mx-auto">
               Your table is waiting
             </motion.p>
           </motion.div>
         </section>
 
         {/* Experience */}
-        <section className="py-24 bg-brand-cream">
-          <div className="container mx-auto px-6">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <section className="py-12 md:py-24 bg-brand-cream">
+          <div className="container mx-auto px-4 sm:px-6">
+            <div className="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
               <motion.div
                 variants={staggerContainer}
                 initial="hidden"
                 whileInView="visible"
                 viewport={viewportOnce}
               >
-                <motion.span variants={fadeUpSmall} className="text-brand-gold uppercase tracking-widest text-sm block">The Experience</motion.span>
-                <motion.h2 variants={fadeUp} className="font-serif text-4xl md:text-5xl text-brand-black mt-4 mb-6">
+                <motion.span variants={fadeUpSmall} className="text-brand-gold uppercase tracking-widest text-xs sm:text-sm block">The Experience</motion.span>
+                <motion.h2 variants={fadeUp} className="heading-section text-brand-black mt-3 sm:mt-4 mb-4 sm:mb-6">
                   Step Into Warmth
                 </motion.h2>
                 <motion.p variants={fadeUpSmall} className="text-brand-black/80 leading-relaxed mb-6">
@@ -129,9 +129,9 @@ const Visit = () => {
         </section>
 
         {/* Hours & Location */}
-        <section className="py-24 bg-brand-black">
-          <div className="container mx-auto px-6">
-            <div className="grid lg:grid-cols-2 gap-16">
+        <section className="py-12 md:py-24 bg-brand-black">
+          <div className="container mx-auto px-4 sm:px-6">
+            <div className="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16">
               {/* Info */}
               <motion.div
                 variants={staggerContainer}
@@ -139,8 +139,8 @@ const Visit = () => {
                 whileInView="visible"
                 viewport={viewportOnce}
               >
-                <motion.span variants={fadeUpSmall} className="text-brand-gold uppercase tracking-widest text-sm block">Hours & Location</motion.span>
-                <motion.h2 variants={fadeUp} className="font-serif text-4xl md:text-5xl text-brand-cream mt-4 mb-8">
+                <motion.span variants={fadeUpSmall} className="text-brand-gold uppercase tracking-widest text-xs sm:text-sm block">Hours & Location</motion.span>
+                <motion.h2 variants={fadeUp} className="heading-section text-brand-cream mt-3 sm:mt-4 mb-6 sm:mb-8">
                   Find Us
                 </motion.h2>
 
@@ -233,17 +233,17 @@ const Visit = () => {
         </section>
 
         {/* FAQ */}
-        <section className="py-24 bg-brand-cream">
-          <div className="container mx-auto px-6 max-w-4xl">
+        <section className="py-12 md:py-24 bg-brand-cream">
+          <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
             <motion.div
               variants={staggerContainer}
               initial="hidden"
               whileInView="visible"
               viewport={viewportOnce}
-              className="text-center mb-16"
+              className="text-center mb-8 md:mb-16"
             >
-              <motion.span variants={fadeUpSmall} className="text-brand-gold uppercase tracking-widest text-sm block">Questions?</motion.span>
-              <motion.h2 variants={fadeUp} className="font-serif text-4xl md:text-5xl text-brand-black mt-4">
+              <motion.span variants={fadeUpSmall} className="text-brand-gold uppercase tracking-widest text-xs sm:text-sm block">Questions?</motion.span>
+              <motion.h2 variants={fadeUp} className="heading-section text-brand-black mt-3 sm:mt-4">
                 Frequently Asked
               </motion.h2>
             </motion.div>
@@ -259,10 +259,10 @@ const Visit = () => {
                 <motion.div
                   key={index}
                   variants={cardReveal}
-                  className="bg-white p-6 rounded-sm shadow-sm"
+                  className="bg-white p-4 sm:p-6 rounded-sm shadow-sm"
                 >
-                  <h3 className="font-serif text-xl text-brand-black mb-2">{faq.question}</h3>
-                  <p className="text-brand-black/70">{faq.answer}</p>
+                  <h3 className="font-serif text-lg sm:text-xl text-brand-black mb-2">{faq.question}</h3>
+                  <p className="text-brand-black/70 text-sm sm:text-base">{faq.answer}</p>
                 </motion.div>
               ))}
             </motion.div>

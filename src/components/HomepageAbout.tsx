@@ -16,9 +16,9 @@ import {
 
 const HomepageAbout = () => {
   return (
-    <section className="py-24 bg-brand-cream">
-      <div className="container mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+    <section className="py-16 md:py-24 bg-brand-cream">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
           {/* Image Side */}
           <motion.div
             variants={slideInLeft}
@@ -92,7 +92,7 @@ const HomepageAbout = () => {
 
             <motion.div 
               variants={staggerContainer}
-              className="flex flex-wrap gap-8 mb-8"
+              className="flex flex-wrap gap-4 sm:gap-6 md:gap-8 mb-6 md:mb-8"
             >
               <motion.div variants={statReveal}>
                 <span className="font-display text-4xl font-semibold text-brand-gold">1910</span>
