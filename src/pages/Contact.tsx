@@ -59,7 +59,7 @@ const Contact = () => {
 
       <main className="min-h-screen bg-background">
         {/* Hero */}
-        <section className="relative h-[40vh] flex items-center justify-center overflow-hidden">
+        <section className="relative h-[35vh] md:h-[40vh] flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0 bg-brand-black">
             <motion.img
               src={tastingRoomImage}
@@ -75,19 +75,19 @@ const Contact = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="relative z-10 text-center px-6"
+            className="relative z-10 text-center px-4 sm:px-6"
           >
-            <h1 className="font-serif text-5xl md:text-7xl text-brand-cream mb-4">Contact</h1>
-            <p className="text-brand-cream/70 text-lg md:text-xl max-w-2xl mx-auto">
+            <h1 className="heading-hero text-brand-cream mb-3 md:mb-4">Contact</h1>
+            <p className="text-brand-cream/70 text-base sm:text-lg md:text-xl max-w-2xl mx-auto">
               We'd love to hear from you
             </p>
           </motion.div>
         </section>
 
         {/* Contact Section */}
-        <section className="py-24 bg-brand-cream">
-          <div className="container mx-auto px-6">
-            <div className="grid lg:grid-cols-2 gap-16">
+        <section className="py-12 md:py-24 bg-brand-cream">
+          <div className="container mx-auto px-4 sm:px-6">
+            <div className="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16">
               {/* Contact Info */}
               <motion.div
                 variants={staggerContainer}
@@ -95,8 +95,8 @@ const Contact = () => {
                 whileInView="visible"
                 viewport={viewportOnce}
               >
-                <motion.span variants={fadeUpSmall} className="text-brand-gold uppercase tracking-widest text-sm block">Get In Touch</motion.span>
-                <motion.h2 variants={fadeUp} className="font-serif text-4xl md:text-5xl text-brand-black mt-4 mb-8">
+                <motion.span variants={fadeUpSmall} className="text-brand-gold uppercase tracking-widest text-xs sm:text-sm block">Get In Touch</motion.span>
+                <motion.h2 variants={fadeUp} className="heading-section text-brand-black mt-3 sm:mt-4 mb-6 sm:mb-8">
                   Let's Connect
                 </motion.h2>
 

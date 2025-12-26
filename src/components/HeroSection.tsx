@@ -11,7 +11,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative h-screen min-h-[700px] w-full overflow-hidden">
+    <section className="relative h-screen min-h-[600px] md:min-h-[700px] w-full overflow-hidden">
       {/* Background Image with Zoom Animation */}
       <div className="absolute inset-0">
         <motion.div
@@ -33,7 +33,7 @@ const HeroSection = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 pt-20 md:pt-0 text-center">
+      <div className="relative z-10 flex h-full flex-col items-center justify-center px-4 sm:px-6 pt-16 md:pt-0 text-center">
         <motion.div
           variants={staggerContainer}
           initial="hidden"
@@ -45,7 +45,7 @@ const HeroSection = () => {
             src={logo}
             alt="Chateau Bevvy Winery"
             variants={fadeUp}
-            className="h-24 w-24 md:h-28 md:w-28 mb-6 rounded-full"
+            className="h-20 w-20 sm:h-24 sm:w-24 md:h-28 md:w-28 mb-4 sm:mb-6 rounded-full"
             style={{
               filter: "drop-shadow(0 0 30px rgba(220, 176, 131, 0.4))"
             }}
@@ -53,16 +53,16 @@ const HeroSection = () => {
 
           <motion.div
             variants={fadeUp}
-            className="mb-6"
+            className="mb-4 sm:mb-6"
           >
-            <span className="inline-block rounded-full border border-brand-cream/30 bg-brand-cream/10 px-4 py-2 text-sm tracking-widest text-brand-cream/90 backdrop-blur-sm">
-              COMING SOON • JEFFERSON COUNTY, ALABAMA
+            <span className="inline-block rounded-full border border-brand-cream/30 bg-brand-cream/10 px-3 sm:px-4 py-2 text-xs sm:text-sm tracking-widest text-brand-cream/90 backdrop-blur-sm">
+              COMING SOON • JEFFERSON COUNTY, AL
             </span>
           </motion.div>
 
           <motion.h1
             variants={heroReveal}
-            className="heading-hero mb-6 max-w-4xl text-brand-cream"
+            className="heading-hero mb-4 sm:mb-6 max-w-4xl text-brand-cream px-2"
           >
             Jefferson County's First{" "}
             <span className="text-accent italic text-brand-gold">Urban Winery</span>
@@ -70,14 +70,14 @@ const HeroSection = () => {
 
           <motion.p
             variants={heroReveal}
-            className="font-script text-3xl md:text-4xl text-brand-gold mb-6"
+            className="font-script text-2xl sm:text-3xl md:text-4xl text-brand-gold mb-4 sm:mb-6"
           >
             Crafted with heart, poured with soul
           </motion.p>
 
           <motion.p
             variants={fadeUp}
-            className="text-body-large mb-10 max-w-2xl text-brand-cream/80"
+            className="text-body-large mb-8 sm:mb-10 max-w-2xl text-brand-cream/80 px-2"
           >
             A historic Bessemer landmark reimagined as a warm, intimate wine
             experience. Black-owned. Veteran-owned. Opening soon.
@@ -85,13 +85,13 @@ const HeroSection = () => {
 
           <motion.div
             variants={fadeUp}
-            className="flex flex-col gap-4 sm:flex-row"
+            className="flex flex-col gap-3 sm:gap-4 sm:flex-row w-full sm:w-auto px-4 sm:px-0"
           >
-            <Button variant="hero" size="xl" onClick={scrollToWaitlist}>
-              Join the Bevvy Waitlist
+            <Button variant="hero" size="xl" onClick={scrollToWaitlist} className="w-full sm:w-auto">
+              Join the Waitlist
             </Button>
-            <Button variant="hero-outline" size="xl" onClick={scrollToWaitlist}>
-              Get Opening Updates
+            <Button variant="hero-outline" size="xl" onClick={scrollToWaitlist} className="w-full sm:w-auto">
+              Get Updates
             </Button>
           </motion.div>
         </motion.div>
