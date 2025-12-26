@@ -158,7 +158,7 @@ const Wines = () => {
 
       <main className="min-h-screen bg-background">
         {/* Hero */}
-        <section className="relative h-[40vh] md:h-[50vh] flex items-center justify-center overflow-hidden">
+        <section className="relative h-[45vh] md:h-[55vh] flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0 bg-brand-black">
             <motion.img
               initial={{ scale: 1.1 }}
@@ -169,6 +169,7 @@ const Wines = () => {
               className="absolute inset-0 w-full h-full object-cover opacity-30" 
             />
             <div className="absolute inset-0 bg-gradient-to-b from-brand-black/50 via-transparent to-brand-black" />
+            <div className="absolute inset-0 bg-texture-noise opacity-[0.03]" />
           </div>
           <motion.div
             variants={staggerContainer}

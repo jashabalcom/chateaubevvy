@@ -41,7 +41,7 @@ const OurStory = () => {
 
       <main className="min-h-screen bg-background">
         {/* Hero */}
-        <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
+        <section className="relative h-[45vh] md:h-[55vh] flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0 bg-brand-black">
             <motion.img 
               initial={{ scale: 1.1 }}
@@ -52,22 +52,23 @@ const OurStory = () => {
               className="absolute inset-0 w-full h-full object-cover opacity-30" 
             />
             <div className="absolute inset-0 bg-gradient-to-b from-brand-black/50 via-transparent to-brand-black" />
+            <div className="absolute inset-0 bg-texture-noise opacity-[0.03]" />
           </div>
           <motion.div
             variants={staggerContainer}
             initial="hidden"
             animate="visible"
-            className="relative z-10 text-center px-6"
+            className="relative z-10 text-center px-4 sm:px-6"
           >
             <motion.h1 
               variants={heroReveal}
-              className="font-serif text-5xl md:text-7xl text-brand-cream mb-4"
+              className="heading-hero text-brand-cream mb-3 md:mb-4"
             >
               Our Story
             </motion.h1>
             <motion.p 
               variants={heroReveal}
-              className="text-brand-cream/70 text-lg md:text-xl max-w-2xl mx-auto"
+              className="font-script text-xl sm:text-2xl md:text-3xl text-brand-gold"
             >
               Where history meets hospitality
             </motion.p>

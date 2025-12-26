@@ -57,7 +57,7 @@ const Visit = () => {
 
       <main className="min-h-screen bg-background">
         {/* Hero */}
-        <section className="relative h-[40vh] md:h-[50vh] flex items-center justify-center overflow-hidden">
+        <section className="relative h-[45vh] md:h-[55vh] flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0 bg-brand-black">
             <motion.img 
               src={tastingRoomImage} 
@@ -68,6 +68,7 @@ const Visit = () => {
               transition={{ duration: 1.2, ease: luxuryEase }}
             />
             <div className="absolute inset-0 bg-gradient-to-b from-brand-black/50 via-transparent to-brand-black" />
+            <div className="absolute inset-0 bg-texture-noise opacity-[0.03]" />
           </div>
           <motion.div
             variants={staggerContainer}
@@ -76,7 +77,7 @@ const Visit = () => {
             className="relative z-10 text-center px-4 sm:px-6"
           >
             <motion.h1 variants={heroReveal} className="heading-hero text-brand-cream mb-3 md:mb-4">Visit Us</motion.h1>
-            <motion.p variants={fadeUpSmall} className="text-brand-cream/70 text-base sm:text-lg md:text-xl max-w-2xl mx-auto">
+            <motion.p variants={heroReveal} className="font-script text-xl sm:text-2xl md:text-3xl text-brand-gold">
               Your table is waiting
             </motion.p>
           </motion.div>
