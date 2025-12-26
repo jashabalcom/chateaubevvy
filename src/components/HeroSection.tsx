@@ -44,13 +44,11 @@ const HeroSection = () => {
           <motion.img
             src={logo}
             alt="Chateau Bevvy Winery"
-            initial={{ opacity: 0, filter: "drop-shadow(0 0 0px rgba(220, 176, 131, 0))" }}
-            animate={{ 
-              opacity: 1, 
-              filter: "drop-shadow(0 0 30px rgba(220, 176, 131, 0.5))"
-            }}
-            transition={{ duration: 1.2, ease: "easeOut", delay: 0.3 }}
+            variants={fadeUp}
             className="h-20 w-20 sm:h-24 sm:w-24 md:h-28 md:w-28 mb-4 sm:mb-6 rounded-full"
+            style={{
+              filter: "drop-shadow(0 0 30px rgba(220, 176, 131, 0.4))"
+            }}
           />
 
           <motion.div
