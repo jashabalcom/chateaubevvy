@@ -17,7 +17,9 @@ import {
   slideInRight, 
   iconReveal,
   scaleReveal,
-  viewportOnce 
+  heroReveal,
+  viewportOnce,
+  luxuryEase
 } from "@/lib/animations";
 
 const Contact = () => {
@@ -59,28 +61,29 @@ const Contact = () => {
 
       <main className="min-h-screen bg-background">
         {/* Hero */}
-        <section className="relative h-[35vh] md:h-[40vh] flex items-center justify-center overflow-hidden">
+        <section className="relative h-[45vh] md:h-[55vh] flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0 bg-brand-black">
             <motion.img
               src={tastingRoomImage}
               alt="Chateau Bevvy tasting room interior"
-              className="absolute inset-0 w-full h-full object-cover opacity-40"
+              className="absolute inset-0 w-full h-full object-cover opacity-30"
               initial={{ scale: 1.1 }}
               animate={{ scale: 1 }}
-              transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 1.2, ease: luxuryEase }}
             />
             <div className="absolute inset-0 bg-gradient-to-b from-brand-black/50 via-transparent to-brand-black" />
+            <div className="absolute inset-0 bg-texture-noise opacity-[0.03]" />
           </div>
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            variants={staggerContainer}
+            initial="hidden"
+            animate="visible"
             className="relative z-10 text-center px-4 sm:px-6"
           >
-            <h1 className="heading-hero text-brand-cream mb-3 md:mb-4">Contact</h1>
-            <p className="text-brand-cream/70 text-base sm:text-lg md:text-xl max-w-2xl mx-auto">
+            <motion.h1 variants={heroReveal} className="heading-hero text-brand-cream mb-3 md:mb-4">Contact</motion.h1>
+            <motion.p variants={heroReveal} className="font-script text-xl sm:text-2xl md:text-3xl text-brand-gold">
               We'd love to hear from you
-            </p>
+            </motion.p>
           </motion.div>
         </section>
 
