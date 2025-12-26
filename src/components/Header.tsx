@@ -69,13 +69,13 @@ const Header = () => {
               src={logo}
               alt="Chateau Bevvy"
               className={cn(
-                "rounded-full transition-all duration-500",
+                "rounded-full transition-all duration-500 animate-logo-glow",
                 isScrolled ? "h-12 w-12 md:h-14 md:w-14" : "h-14 w-14 md:h-16 md:w-16",
                 !isLogoLoaded && "absolute opacity-0"
               )}
               whileHover={{ 
                 scale: 1.08,
-                boxShadow: "0 0 25px rgba(220, 176, 131, 0.5)"
+                boxShadow: "0 0 35px rgba(220, 176, 131, 0.6)"
               }}
               transition={{ duration: 0.3, ease: "easeOut" }}
               onLoad={() => setIsLogoLoaded(true)}

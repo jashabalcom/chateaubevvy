@@ -38,10 +38,10 @@ const Footer = forwardRef<HTMLElement>((_, ref) => {
             <motion.img 
               src={logo} 
               alt="Chateau Bevvy" 
-              className={`h-20 w-20 md:h-24 md:w-24 rounded-full transition-all duration-300 ${logoLoaded ? 'opacity-100' : 'opacity-0 absolute'}`}
+              className={`h-20 w-20 md:h-24 md:w-24 rounded-full transition-all duration-300 animate-logo-glow ${logoLoaded ? 'opacity-100' : 'opacity-0 absolute'}`}
               whileHover={{ 
                 scale: 1.08,
-                boxShadow: "0 0 30px rgba(220, 176, 131, 0.5)"
+                boxShadow: "0 0 40px rgba(220, 176, 131, 0.65)"
               }}
               transition={{ duration: 0.3, ease: "easeOut" }}
               onLoad={() => setLogoLoaded(true)}
