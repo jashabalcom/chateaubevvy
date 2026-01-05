@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 import eventSpaceImage from "@/assets/event-space.jpg";
 import {
   fadeUp,
@@ -65,24 +66,60 @@ const Events = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    try {
+      // Save to database
+      const { error } = await supabase
+        .from("event_inquiries")
+        .insert({
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          phone: formData.phone.trim() || null,
+          event_type: formData.eventType,
+          preferred_date: formData.date || null,
+          estimated_guests: formData.guests ? parseInt(formData.guests) : null,
+          message: formData.message.trim() || null,
+        });
 
-    toast({
-      title: "Inquiry Received",
-      description: "We'll be in touch within 24-48 hours to discuss your event.",
-    });
+      if (error) throw error;
 
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      eventType: "",
-      date: "",
-      guests: "",
-      message: "",
-    });
-    setIsSubmitting(false);
+      // Send to Go High Level
+      supabase.functions.invoke('send-to-ghl', {
+        body: {
+          source: 'event_inquiry',
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          phone: formData.phone.trim() || undefined,
+          eventType: formData.eventType,
+          preferredDate: formData.date || undefined,
+          estimatedGuests: formData.guests || undefined,
+          message: formData.message.trim() || undefined,
+        }
+      }).catch(err => console.error('GHL send failed:', err));
+
+      toast({
+        title: "Inquiry Received",
+        description: "We'll be in touch within 24-48 hours to discuss your event.",
+      });
+
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        eventType: "",
+        date: "",
+        guests: "",
+        message: "",
+      });
+    } catch (error) {
+      console.error("Error submitting event inquiry:", error);
+      toast({
+        title: "Something went wrong",
+        description: "Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (

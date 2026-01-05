@@ -2,3 +2,6 @@ project_id = "vmfdvhmwafsspnxkrcrf"
 
 [functions.generate-wine-bottle]
 verify_jwt = false
+
+[functions.send-to-ghl]
+verify_jwt = false
