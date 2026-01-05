@@ -19,6 +19,7 @@ const WaitlistForm = forwardRef<HTMLElement>((_, ref) => {
     setIsSubmitting(true);
 
     try {
+      // Save to database
       const { error } = await supabase
         .from("waitlist_signups")
         .insert({
@@ -29,6 +30,17 @@ const WaitlistForm = forwardRef<HTMLElement>((_, ref) => {
         });
 
       if (error) throw error;
+
+      // Send to Go High Level
+      supabase.functions.invoke('send-to-ghl', {
+        body: {
+          source: 'waitlist',
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          phone: formData.phone.trim() || undefined,
+          interest: formData.interest || undefined,
+        }
+      }).catch(err => console.error('GHL send failed:', err));
 
       toast.success("Welcome to the Bevvy family!", {
         description: "We'll keep you updated on our grand opening.",

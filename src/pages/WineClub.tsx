@@ -141,6 +141,7 @@ const WineClub = () => {
     setIsSubmitting(true);
 
     try {
+      // Save to database
       const { error } = await supabase
         .from("wine_club_signups")
         .insert({
@@ -152,6 +153,18 @@ const WineClub = () => {
         });
 
       if (error) throw error;
+
+      // Send to Go High Level
+      supabase.functions.invoke('send-to-ghl', {
+        body: {
+          source: 'wine_club',
+          firstName: formData.firstName.trim(),
+          lastName: formData.lastName.trim(),
+          email: formData.email.trim(),
+          phone: formData.phone.trim() || undefined,
+          membershipTier: selectedTier,
+        }
+      }).catch(err => console.error('GHL send failed:', err));
 
       const tier = membershipTiers.find((t) => t.id === selectedTier);
       toast({

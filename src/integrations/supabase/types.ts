@@ -14,6 +14,69 @@ export type Database = {
   }
   public: {
     Tables: {
+      contact_submissions: {
+        Row: {
+          created_at: string
+          email: string
+          id: string
+          message: string
+          name: string
+          subject: string | null
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          id?: string
+          message: string
+          name: string
+          subject?: string | null
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          id?: string
+          message?: string
+          name?: string
+          subject?: string | null
+        }
+        Relationships: []
+      }
+      event_inquiries: {
+        Row: {
+          created_at: string
+          email: string
+          estimated_guests: number | null
+          event_type: string
+          id: string
+          message: string | null
+          name: string
+          phone: string | null
+          preferred_date: string | null
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          estimated_guests?: number | null
+          event_type: string
+          id?: string
+          message?: string | null
+          name: string
+          phone?: string | null
+          preferred_date?: string | null
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          estimated_guests?: number | null
+          event_type?: string
+          id?: string
+          message?: string | null
+          name?: string
+          phone?: string | null
+          preferred_date?: string | null
+        }
+        Relationships: []
+      }
       waitlist_signups: {
         Row: {
           created_at: string

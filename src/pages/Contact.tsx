@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 import { 
   fadeUp, 
   fadeUpSmall, 
@@ -36,15 +37,46 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    try {
+      // Save to database
+      const { error } = await supabase
+        .from("contact_submissions")
+        .insert({
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          subject: formData.subject.trim() || null,
+          message: formData.message.trim(),
+        });
 
-    toast({
-      title: "Message Sent",
-      description: "Thank you for reaching out. We'll respond within 24-48 hours.",
-    });
+      if (error) throw error;
 
-    setFormData({ name: "", email: "", subject: "", message: "" });
-    setIsSubmitting(false);
+      // Send to Go High Level
+      supabase.functions.invoke('send-to-ghl', {
+        body: {
+          source: 'contact',
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          subject: formData.subject.trim() || undefined,
+          message: formData.message.trim(),
+        }
+      }).catch(err => console.error('GHL send failed:', err));
+
+      toast({
+        title: "Message Sent",
+        description: "Thank you for reaching out. We'll respond within 24-48 hours.",
+      });
+
+      setFormData({ name: "", email: "", subject: "", message: "" });
+    } catch (error) {
+      console.error("Error submitting contact form:", error);
+      toast({
+        title: "Something went wrong",
+        description: "Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
