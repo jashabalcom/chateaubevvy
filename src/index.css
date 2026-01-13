@@ -368,3 +368,22 @@
     transform: translateY(-10px);
   }
 }
+
+/* Hide Lovable Badge - Force removal */
+[data-lovable-badge],
+#lovable-badge,
+.lovable-badge,
+a[href*="lovable.dev"]:not([class*="footer"]),
+[id*="gptengineer"],
+[class*="gptengineer"],
+div[style*="position: fixed"][style*="bottom"][style*="right"] > a[href*="lovable"],
+iframe[src*="lovable"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  position: absolute !important;
+  left: -9999px !important;
+}
