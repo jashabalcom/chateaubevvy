@@ -1,73 +1,86 @@
-# Welcome to your Lovable project
+# Chateau Bevvy Winery
 
-## Project info
+A modern, elegant website for Chateau Bevvy Winery — Jefferson County's first urban winery located in historic downtown Bessemer, Alabama.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## Features
 
-## How can I edit this code?
+- **Coming Soon Landing Page** - Elegant waitlist signup with form integration
+- **Wine Collection Showcase** - Beautiful wine bottle displays with detailed modals
+- **Event Booking** - Private event inquiry forms
+- **Wine Club Membership** - Tiered membership signup system
+- **Visit Information** - Location, hours, and tasting room details
+- **Our Story** - Company history and timeline
+- **Contact Forms** - Multiple contact touchpoints with backend integration
+- **Responsive Design** - Fully mobile-optimized experience
+- **Animated Transitions** - Smooth page transitions and scroll animations
 
-There are several ways of editing your application.
+## Technology Stack
 
-**Use Lovable**
+- **Frontend**: React 18, TypeScript, Vite
+- **Styling**: Tailwind CSS, shadcn/ui components
+- **Animations**: Framer Motion
+- **Routing**: React Router DOM
+- **Forms**: React Hook Form with Zod validation
+- **Backend**: Supabase (PostgreSQL, Edge Functions, Authentication)
+- **State Management**: TanStack React Query
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+## Local Development
 
-Changes made via Lovable will be committed automatically to this repo.
+### Prerequisites
 
-**Use your preferred IDE**
+- Node.js 18+ 
+- npm or bun
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Installation
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+```bash
+# Clone the repository
+git clone <repository-url>
+cd chateau-bevvy-winery
 
-Follow these steps:
+# Install dependencies
+npm install
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start the development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The application will be available at `http://localhost:8080`.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Environment Variables
 
-**Use GitHub Codespaces**
+Create a `.env` file in the root directory with the following variables:
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+```env
+VITE_SUPABASE_URL=your_supabase_url
+VITE_SUPABASE_PUBLISHABLE_KEY=your_supabase_anon_key
+VITE_SUPABASE_PROJECT_ID=your_project_id
+```
 
-## What technologies are used for this project?
+## Project Structure
 
-This project is built with:
+```
+src/
+├── assets/          # Images, logos, and static assets
+├── components/      # Reusable UI components
+│   └── ui/          # shadcn/ui base components
+├── hooks/           # Custom React hooks
+├── integrations/    # Third-party integrations (Supabase)
+├── lib/             # Utility functions and animations
+├── pages/           # Route page components
+└── services/        # API service functions
+```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## Build
 
-## How can I deploy this project?
+```bash
+# Create production build
+npm run build
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+# Preview production build
+npm run preview
+```
 
-## Can I connect a custom domain to my Lovable project?
+## License
 
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Private - All rights reserved.
